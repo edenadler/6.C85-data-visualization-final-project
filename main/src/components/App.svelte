@@ -17,13 +17,13 @@
     let width = 600;
     let height = 400;
 
-    const colorScale = ['orange', 'lightblue', '#B19CD9'];
+    const colorScale = ['#fe872f', '#ce2093', '#4a0a70'];
     let xCenter = [100, 300, 500];
 
-    let numNodes = 100;
+    let numNodes = 20;
     let nodes = d3.range(numNodes).map(function(d, i) {
         return {
-            radius: Math.random() * 25,
+            radius: 15,
             category: i % 3
         }
     });
@@ -61,14 +61,14 @@
 <main>
 
     <div>
-        <h1>Title</h1>
+        <h1 class="heading">Title</h1>
 
-        <div class="coin">
+        <!-- <div class="coin">
             <div class="front"></div>
             <div class="front_b"></div>
             <div class="back"></div>
             <div class="back_b"></div>
-        </div>
+        </div> -->
 
         <div id="content">
             <svg width="600" height="400">
@@ -87,11 +87,27 @@
 
 <style>
     /* https://codepen.io/parcon/pen/oxbLVd */
+    /* light purple #e6caf7
+    dark purple #4a0a70
+    pink #ce2093
+    yellow #fdbb58
+    orange #fe872f */
     @import url("https://fonts.googleapis.com/css?family=Ek+Mukta:400,300,500,700,800");
     
+    body {
+        margin: 0px;
+    }
+
     main {
         font-family: 'Ek Mukta', sans-serif;
-        background: #fff59d;
+        margin: 0px;
+    }
+
+    .heading {
+        margin: 0px;
+        padding: 20px;
+        text-align: center;
+        color: #c32093;
     }
 
     .coin {

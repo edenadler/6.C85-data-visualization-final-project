@@ -5,7 +5,7 @@
 <App />
 
 <style>
-    main {
+    /* main {
         text-align: center;
         font-family: "Nunito", sans-serif;
         font-weight: 300;
@@ -13,6 +13,11 @@
         font-size: 24px;
         color: var(--color-text);
         margin-top: 100px;
+    } */
+
+    body {
+        margin: 0px;
+        width: 100%;
     }
 </style>
 
