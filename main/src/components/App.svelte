@@ -12,14 +12,18 @@
     let width = 600;
     let height = 400;
 
-    const colorScale = ['#fe872f', '#ce2093', '#4a0a70'];
+    // const colorScale = ['#fe872f', '#ce2093', '#4a0a70'];
+    const colorScale = ['#4a0a70'];
     let xCenter = [200, 300, 400];
+    // let xCenter = [300];
+    let xScale = d3.scaleLinear().domain([0, 1]).range([0, 600]);
 
-    let numNodes = 20;
+    let numNodes = 600;
     let nodes = d3.range(numNodes).map(function(d, i) {
         return {
-            radius: 15,
-            category: i % 3
+            radius: 5,
+            category: i % 3,
+            value: Math.random()
         }
     });
 
@@ -32,13 +36,14 @@
                 return d.radius;
             })
             .style('fill', function(d) {
-                return colorScale[d.category];
+                // return colorScale[d.category];
+                return '#4a0a70';
             })
             .attr('cx', function(d) {
                 return d.x;
             })
             .attr('cy', function(d) {
-                return d.y + 100;
+                return d.y + 200;
             });
     }
 
@@ -46,7 +51,8 @@
         let simulation = d3.forceSimulation(nodes)
             .force('charge', d3.forceManyBody().strength(5))
             .force('x', d3.forceX().x(function(d) {
-                return xCenter[d.category];
+                return 300;
+                // return xCenter[d.category];
             }))
             .force('collision', d3.forceCollide().radius(function(d) {
                 return d.radius;
@@ -64,12 +70,20 @@
             .on('tick', ticked);
     }
 
+    function forceApart() {
+        let simulationX = d3.forceSimulation(nodes)
+            .force('charge', d3.forceManyBody().strength(-20));
+    }
+
     let currentStep;
 
     $: if (currentStep == 0) {
+        console.log(currentStep)
         clump();
-    } else if (currentStep == 1) {
-        collide();
+    } else {
+        console.log(currentStep)
+        // collide();
+        forceApart();
     }
 </script>
 
@@ -79,17 +93,20 @@
         <h1 class="heading">Migration, Debt, and Gender</h1>
 
         <section>
-            <div class="dots">
-                <svg id="coins-1" width="600" height="400">
-                    <g></g>
-                </svg>
-            </div>
+            <!-- <div class="part-1"> -->
+                <span>Women who migrated externally have $600 more debt on average than men</span>
+                    <div class="dots">
+                        <svg id="coins-1" width="600" height="400">
+                            <g></g>
+                        </svg>
+                    </div>
+            <!-- </div> -->
 
             <Scrolly bind:value={currentStep}>
-                <div class="section">
+                <div class="section" class:active={currentStep == 1}>
                     section 1
                 </div>
-                <div class="section">section 2</div>
+                <div class="section" class:active={currentStep == 2}>section 2</div>
             </Scrolly>
         </section>
 
@@ -161,6 +178,10 @@
         color: #c32093;
     }
 
+    .part-1 {
+
+    }
+
     .dots {
         position: sticky;
         top: 10%;
@@ -170,7 +191,7 @@
     }
 
     .section {
-        height: 80vh;
+        height: 200vh;
         display: flex;
         justify-content: center;
         place-items: center;
