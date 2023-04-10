@@ -43,47 +43,64 @@
                 return d.x;
             })
             .attr('cy', function(d) {
-                return d.y + 200;
+                return d.y + 80;
             });
     }
 
     function clump() {
         let simulation = d3.forceSimulation(nodes)
             .force('charge', d3.forceManyBody().strength(5))
-            .force('x', d3.forceX().x(function(d) {
-                return 300;
-                // return xCenter[d.category];
-            }))
+            // .force('x', d3.forceX().x(function(d) {
+            //     return 300;
+            //     // return xCenter[d.category];
+            // }))
+            .force('center', d3.forceCenter(width/2, height/2))
             .force('collision', d3.forceCollide().radius(function(d) {
                 return d.radius;
             }))
             .on('tick', ticked);
     }
 
-    function collide() {
-        let forceSimulation =  d3.forceSimulation(nodes)
-            .force('charge', d3.forceManyBody().strength(5))
-            .force('center', d3.forceCenter(width/2, height/2))
-            .force('collision', d3.forceCollide().radius(function(d) {
-                return d.radius
-            }))
-            .on('tick', ticked);
-    }
+    // function collide() {
+    //     let forceSimulation =  d3.forceSimulation(nodes)
+    //         .force('charge', d3.forceManyBody().strength(5))
+    //         .force('center', d3.forceCenter(width/2, height/2))
+    //         .force('collision', d3.forceCollide().radius(function(d) {
+    //             return d.radius
+    //         }))
+    //         .on('tick', ticked);
+    // }
 
-    function forceApart() {
-        let simulationX = d3.forceSimulation(nodes)
-            .force('charge', d3.forceManyBody().strength(-20));
-    }
+    // function forceApart() {
+    //     let simulationX = d3.forceSimulation(nodes)
+    //         .force('charge', d3.forceManyBody().strength(-20))
+    //         .force('x', d3.forceX().x(function(d) {
+    //             return xScale(d.value);
+    //         }))
+    //         // .force('y', d3.forceY().y(function(d) {
+    //         //     return 0;
+    //         // }))
+
+    // }
 
     let currentStep;
 
     $: if (currentStep == 0) {
         console.log(currentStep)
         clump();
-    } else {
+    } else if (currentStep == 1) {
         console.log(currentStep)
         // collide();
-        forceApart();
+        // forceApart();
+        let simulationX = d3.forceSimulation(nodes)
+            .force('charge', d3.forceManyBody().strength(-20))
+            .force('x', d3.forceX().x(function(d) {
+                return xScale(d.value);
+            }))
+            .on('tick', ticked);
+            // .force('y', d3.forceY().y(function(d) {
+            //     return 0;
+            // }))
     }
 </script>
 
