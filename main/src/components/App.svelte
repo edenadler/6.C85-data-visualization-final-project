@@ -1,24 +1,19 @@
 <script>
     import * as d3 from "d3";
     import { onMount } from "svelte";
+    import Scrolly from "./Scrolly.svelte";
+    // import Scroller from "@sveltejs/svelte-scroller";
+    import Scroll from "./Scrolly.svelte";
 
     onMount(() => {
-        let simulation = d3.forceSimulation(nodes)
-            .force('charge', d3.forceManyBody().strength(5))
-            .force('x', d3.forceX().x(function(d) {
-                return xCenter[d.category];
-            }))
-            .force('collision', d3.forceCollide().radius(function(d) {
-                return d.radius;
-            }))
-            .on('tick', ticked);
+        clump();
     })
 
     let width = 600;
     let height = 400;
 
     const colorScale = ['#fe872f', '#ce2093', '#4a0a70'];
-    let xCenter = [100, 300, 500];
+    let xCenter = [200, 300, 400];
 
     let numNodes = 20;
     let nodes = d3.range(numNodes).map(function(d, i) {
@@ -29,7 +24,7 @@
     });
 
     function ticked() {
-        let u = d3.select('svg g')
+        let u = d3.select('#coins-1')
             .selectAll('circle')
             .data(nodes)
             .join('circle')
@@ -43,44 +38,99 @@
                 return d.x;
             })
             .attr('cy', function(d) {
-                return d.y;
+                return d.y + 100;
             });
+    }
+
+    function clump() {
+        let simulation = d3.forceSimulation(nodes)
+            .force('charge', d3.forceManyBody().strength(5))
+            .force('x', d3.forceX().x(function(d) {
+                return xCenter[d.category];
+            }))
+            .force('collision', d3.forceCollide().radius(function(d) {
+                return d.radius;
+            }))
+            .on('tick', ticked);
     }
 
     function collide() {
         let forceSimulation =  d3.forceSimulation(nodes)
             .force('charge', d3.forceManyBody().strength(5))
-            .force('center', d3.forceCenter(200, 50))
+            .force('center', d3.forceCenter(width/2, height/2))
             .force('collision', d3.forceCollide().radius(function(d) {
                 return d.radius
             }))
             .on('tick', ticked);
+    }
+
+    let currentStep;
+
+    $: if (currentStep == 0) {
+        clump();
+    } else if (currentStep == 1) {
+        collide();
     }
 </script>
 
 <main>
 
     <div>
-        <h1 class="heading">Title</h1>
+        <h1 class="heading">Migration, Debt, and Gender</h1>
 
-        <!-- <div class="coin">
-            <div class="front"></div>
-            <div class="front_b"></div>
-            <div class="back"></div>
-            <div class="back_b"></div>
-        </div> -->
+        <section>
+            <div class="dots">
+                <svg id="coins-1" width="600" height="400">
+                    <g></g>
+                </svg>
+            </div>
 
-        <div id="content">
-            <svg width="600" height="400">
-              <g transform="translate(50, 200)">
-                  {#each nodes as node}
-                    <circle r={node.radius} style={'fill: ' + colorScale[node.category]} cx={xCenter[node.category]} cy={node.y}></circle>
-                  {/each}
-              </g>
-            </svg>
-        </div>
+            <Scrolly bind:value={currentStep}>
+                <div class="section">
+                    section 1
+                </div>
+                <div class="section">section 2</div>
+            </Scrolly>
+        </section>
 
-        <button on:click={() => collide()}>tick</button>
+        <!-- <Scroller> -->
+
+            <!-- <div class="coin">
+                <div class="front"></div>
+                <div class="front_b"></div>
+                <div class="back"></div>
+                <div class="back_b"></div>
+            </div> -->
+
+            <!-- <div slot="background" id="content">
+                <p>this is the background</p> -->
+                <!-- <svg width="600" height="400">
+                    <g transform="translate(50, 200)">
+                        {#each nodes as node}
+                            <circle r={node.radius} style={'fill: ' + colorScale[node.category]} cx={xCenter[node.category]} cy={node.y}></circle>
+                        {/each}
+                    </g>
+                </svg> -->
+                <!-- <svg id="coins-1" width="600" height="400">
+                    <g transform="translate(50, 200)">
+
+                    </g>
+                </svg>
+            </div> -->
+
+            <!-- <div slot="foreground">
+                <section style="position: relative;"> -->
+                    <!-- <svg id="coins-1" width="600" height="400">
+                        <g transform="translate(50, 200)">
+
+                        </g>
+                    </svg> -->
+                <!-- </section>
+                <section>section 2</section>
+            </div>
+
+            <button on:click={() => collide()}>tick</button>
+        </Scroller> -->
     </div>
 
 </main>
@@ -101,6 +151,7 @@
     main {
         font-family: 'Ek Mukta', sans-serif;
         margin: 0px;
+        text-align: center;
     }
 
     .heading {
@@ -109,6 +160,33 @@
         text-align: center;
         color: #c32093;
     }
+
+    .dots {
+        position: sticky;
+        top: 10%;
+        width: 600px;
+        height: 400px;
+        margin: auto;
+    }
+
+    .section {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        place-items: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    section {
+        /* position: relative;
+		height: 80vh;
+		background-color: rgba(0,0,0,0.5);
+		color: white;
+		padding: 1em;
+		margin: 0 0 2em 0; */
+        margin: 0 auto;
+	}
 
     .coin {
         margin: -50px 0 0 -50px;
