@@ -2,8 +2,10 @@
     import * as d3 from "d3";
     import { onMount } from "svelte";
     import Scrolly from "./Scrolly.svelte";
+    import Before from "./Before.svelte";
+    import During from "./During.svelte";
+    import After from "./After.svelte";
     // import Scroller from "@sveltejs/svelte-scroller";
-    import Scroll from "./Scrolly.svelte";
 
     onMount(() => {
         clump();
@@ -121,9 +123,14 @@
 
             <Scrolly bind:value={currentStep}>
                 <div class="section" class:active={currentStep == 1}>
-                    section 1
+                    <Before/>
                 </div>
-                <div class="section" class:active={currentStep == 2}>section 2</div>
+                <div class="section" class:active={currentStep == 2}>
+                    <During/>
+                </div>
+                <div class="section" class:active={currentStep == 3}>
+                    <After/>
+                </div>
             </Scrolly>
         </section>
 
