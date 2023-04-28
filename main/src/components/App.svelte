@@ -1,11 +1,13 @@
 <script>
     import * as d3 from "d3";
     import { onMount } from "svelte";
-    import Scrolly from "./Scrolly.svelte";
+    // import Scrolly from "./Scrolly.svelte";
     import Before from "./Before.svelte";
     import During from "./During.svelte";
     import After from "./After.svelte";
-    // import Scroller from "@sveltejs/svelte-scroller";
+    import Scroller from "@sveltejs/svelte-scroller";
+
+    let count, index, offset, progress;
 
     onMount(() => {
         clump();
@@ -104,35 +106,62 @@
             //     return 0;
             // }))
     }
+
+    let migrationStep = 'before';
+
+    $: if (index == 0) {
+        migrationStep = 'before'
+    } else if (index == 1) {
+        migrationStep = 'during'
+    } else {
+        migrationStep = 'after'
+    }
 </script>
 
 <main>
 
-    <div>
-        <h1 class="heading">Migration, Debt, and Gender</h1>
+    <div on:scroll={() => console.log(progress, offset)}>
 
-        <section>
-            <!-- <div class="part-1"> -->
+        <Scroller top={0.0} bottom={0} threshold={0.5} bind:count bind:index bind:offset bind:progress>
+            <div class="background" slot="background">
+                <div class="sticky-divider-label {progress < 0.11 ? 'hide' : 'show'}">
+                    <div class="migration-step-header">
+                        <span class="step-name {migrationStep}">{migrationStep}</span> migration
+                    </div>
+                    <div class="men-and-women-header">
+                        <h2>Women</h2>
+                        <h2>Men</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foreground" slot="foreground">
+                <div class="heading">
+                    <h1>Differences in the migration experience between men and women</h1>
+                    <h1>in Central America</h1>
+                </div>
+                <section>
+                    1
+                    {index}
+                    <Before />
+                </section>
+                <section>2</section>
+                <section>3 </section>
+                <Before />
+                <During />
+                <After />
+            </div>
+
+        </Scroller>
+
+        <!-- <section>
                 <span>Women who migrated externally have $600 more debt on average than men</span>
                     <div class="dots">
                         <svg id="coins-1" width="600" height="400">
                             <g></g>
                         </svg>
                     </div>
-            <!-- </div> -->
-
-            <Scrolly bind:value={currentStep}>
-                <div class="section" class:active={currentStep == 1}>
-                    <Before/>
-                </div>
-                <div class="section" class:active={currentStep == 2}>
-                    <During/>
-                </div>
-                <div class="section" class:active={currentStep == 3}>
-                    <After/>
-                </div>
-            </Scrolly>
-        </section>
+        </section> -->
 
         <!-- <Scroller> -->
 
@@ -178,32 +207,39 @@
 
 <style>
     /* https://codepen.io/parcon/pen/oxbLVd */
-    /* light purple #e6caf7
-    dark purple #4a0a70
-    pink #ce2093
-    yellow #fdbb58
-    orange #fe872f */
-    @import url("https://fonts.googleapis.com/css?family=Ek+Mukta:400,300,500,700,800");
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
     
+    :root {
+        --pink: #ce2093;
+        --light-purple: #e6caf7;
+        --dark-purple: #4a0a70;
+        --yellow: #fdbb58;
+        --orange: #fe872f;
+    }
+
+
     body {
         margin: 0px;
     }
 
     main {
-        font-family: 'Ek Mukta', sans-serif;
+        font-family: 'Lato', sans-serif;
         margin: 0px;
         text-align: center;
     }
 
     .heading {
         margin: 0px;
-        padding: 20px;
+        padding: 40px;
         text-align: center;
-        color: #c32093;
+        color: var(--pink);
     }
 
-    .part-1 {
-
+    .heading h1 {
+        margin: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .dots {
@@ -224,14 +260,77 @@
     }
 
     section {
-        /* position: relative;
+        position: relative;
 		height: 80vh;
-		background-color: rgba(0,0,0,0.5);
+		/* background-color: rgba(0,0,0,0.5);
 		color: white;
 		padding: 1em;
 		margin: 0 0 2em 0; */
         margin: 0 auto;
 	}
+
+    .background {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+    }
+
+    .foreground {
+        width: 80%;
+        margin: 0 auto;
+        height: auto;
+        position: relative;
+    }
+
+    .hide {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s linear 300ms, opacity 300ms;
+    }
+
+    .show {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s linear 0s, opacity 300ms, color 300ms ease;
+    }
+
+    .sticky-divider-label {
+        padding-top: 30px;
+        font-size: 35px;
+        position: sticky;
+        top: 0px;
+    }
+
+    .step-name {
+        font-weight: 800;
+        transition: 50ms ease;
+    }
+
+    .before {
+        color: var(--dark-purple);
+    }
+
+    .during {
+        color: var(--pink);
+    }
+
+    .after {
+        color: var(--orange);
+    }
+
+    .men-and-women-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-transform: uppercase;
+        font-size: 20px;
+        width: 60%;
+        margin: auto;
+    }
+
+    .migration-step-header {
+        text-transform: uppercase;
+    }
 
     .coin {
         margin: -50px 0 0 -50px;
