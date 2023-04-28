@@ -50,7 +50,7 @@
     <a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">Source (Table 3.11)</a>
 
 
-    <div>women</div>
+    <!-- <div>women</div>
     <div>service occupations = 35.9%</div>
     <div>management, business, science, and art occupations = 29.5%</div>
     <div>sales and office occupations = 19.3%%</div>
@@ -58,7 +58,7 @@
     <div>natural resources, construction, and maintenance occupations = 31.3%</div>
     <div>production, transportation, and material moving occupations = 21.2%</div>
     <div>management, business, science, and art occupations = 17.8%</div>
-    <a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">Source (Table 3.7)</a>
+    <a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">Source (Table 3.7)</a> -->
 	<!-- <svg width="500" height="500">
 		<g transform="translate(250, 120)">
 			{#each arc_data as data, index}
