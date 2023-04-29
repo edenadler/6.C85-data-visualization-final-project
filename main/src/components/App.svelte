@@ -5,6 +5,7 @@
     import Before from "./Before.svelte";
     import During from "./During.svelte";
     import { animateDebt } from "./During/MigrationDebt.svelte";
+    import MigrationAccompany from "./During/MigrationAccompany.svelte";
     import After from "./After.svelte";
     import Scroller from "@sveltejs/svelte-scroller";
 
