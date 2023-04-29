@@ -4,7 +4,7 @@
     // import Scrolly from "./Scrolly.svelte";
     import Before from "./Before.svelte";
     import During from "./During.svelte";
-    import { animateDebt } from "./MigrationDebt.svelte";
+    import { animateDebt } from "./During/MigrationDebt.svelte";
     import After from "./After.svelte";
     import Scroller from "@sveltejs/svelte-scroller";
 
@@ -227,6 +227,11 @@
 	  <div class = "debt-button">
 	      <button on:click={animateDebt}>Find out the cost of debt.</button>
 	  </div>
+	    
+	<div class = "sexual-violence"> 
+          <h2>80% of women experience sexual violence on the migrant journey to the US.</h2>
+          <img class="violencechart" src="images/SexualViolenceChart.jpg" onmouseover="this.src='images/SexualViolenceChartNoLoop.gif';">
+        </div>
      </div>
 
 </main>
