@@ -206,6 +206,40 @@
     </div>
     <div class="DuringMigration">
 	<h1>During Migration</h1>
+	<div class="DebtMigrationNarrative">
+		<p>
+		  Debt is both a driver to migrate to repay debt and a means to pay for migration 
+		  (<a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank"></a>Heidbrink, 2019</a>).
+		</p>
+
+		<p>
+		  Increasingly, migrants turn to high-interest loans from unregulated lenders 
+		  (i.e., individual lenders, notaries, cooperatives, and banks), 
+		  using land, homes, vehicles, or goods as collateral 
+		  (<a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank"></a>Heidbrink, 2019</a>).
+		</p>
+
+		<p>
+		  Families face interest rates ranging from 2.5 to 15 percent, compounded monthly, 
+		meaning remigration may be the only viable means of debt repayment
+		(<a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank"></a>Heidbrink, 2019</a>).
+		</p>
+
+
+		<p>
+		  This dynamic creates a cycle of migration and deportation
+		  (<a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank"></a>Heidbrink, 2019</a>).
+		</p>
+
+		<p>
+		  "We begged from neighbors to loan us a few quetzales. 
+		  We sold our household furniture. We borrowed from the bank. 
+		  We didn't bury my father properly; we just couldn't afford it. 
+		  We used the money for me to travel over there." - 
+		  <a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Eulalia, Age 17, Guatamala, 2019</a>
+		</p>
+      	</div>
+	    
 	<div class="container">
 	    <div class="heading">
 	      <h2>How much debt do people incur to migrate?</h2>
@@ -228,7 +262,78 @@
 	  <div class = "debt-button">
 	      <button on:click={animateDebt}>Find out the cost of debt.</button>
 	  </div>
-	    
+
+	<div class="AccompanyMigrationNarrative">
+		<p>
+		  Today, growing numbers of mothers and children are fleeing Central America. 
+		  Many mothers migrate with their children to escape economic suffering and cartel violence 
+		  (<a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">Ricoy, Andrews, and Medina, 2021</a>).
+		</p>
+
+
+		<p>
+		  "If there's a threat, I am going to find a way to save my life and the lives of my children, 
+		  because I know that I need to fight for my children, I have to. They are dependent on me. 
+		  Imagine if something happened to me; I am the one who looks out for them. . . . 
+		  I am going to take care of them, and it is for them that I am doing this."
+		  -<a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank"></a>Silvia, a 29-year-old single mother, fled Guatemala</a>
+		</p>
+
+		<p>
+		  <a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">Elizabeth, a 33-year-old Salvadoran</a>, 
+		  joined the November 2018 caravan with her husband, 
+		  14-year-old daughter, and 10- and 1-year old sons:
+		  "In my neighborhood there are a lot of gangsters, 
+		  all these people involved in crime, and they wanted—one of those men wanted my 
+		  daughter to be his girlfriend, his woman. And that's what pushed me to leave there, 
+		  fleeing with my husband and my three children, because you get threats that if the girls 
+		  don't want anything with them, that they're going to kill you, the mother, or if not, 
+		  the father or another family member. So that made us afraid, with my husband, and we had to leave."
+		</p>
+
+		<p>
+		  Our analysis shows that women travel with family at a much higher rate than men. 
+		  In fact, they travel with children over twice as much as men.
+		</p>
+        
+        </div>
+
+	<div id="accompany">
+	  <h2>Who do people travel with on the migration journey?</h2>
+	  <script src = "src/accompany.js"></script>
+        </div>
+
+	<div class="ViolenceMigrationNarrative">
+		<p>
+		  Women experience violence more often on the migration journey (Schmidt and Buechler, 2017).
+		  Sexual violence against women goes under reported, 
+		  especially in the case of irregular migrants (Schmidt and Buechler, 2017).
+		</p>
+
+		<p>
+		  Many women migrants take birth control as a protective strategy because they expect to be raped in transit through Mexico 
+		  (<a href="https://www.pbs.org/newshour/nation/facing-risk-rape-migrant-women-prepare-birth-control" target="_blank">Joffe-Block, 2014)</a>.
+		</p>
+
+		<p>
+		  Lupita is a 19-year-old Honduran woman 
+		  who left home because she wanted to help her mother and her four siblings 
+		  escape her abusive father.
+		  On experiencing sexual violence, she says: 
+		  "When I got here I was scared, 
+		  mostly because of what had happened took me a while to tell people what happened to me. 
+		  The first few days I had a knot in my throat where all my tears were held. 
+		  I told myself I wouldn't cry so that I can have the strength to keep going. 
+		  I am going to keep going and nothing will stop me. 
+		  I have to continue because I have to, I have to fight for my family. 
+		  I have to fight for my mom and siblings. 
+		  I feel shame because of what happened to me. 
+		  But I need to keep moving forward 
+		  (<a  href="" target="_blank">Interview with Lupita, 21 July 2014</a>)."
+		</p>
+    
+        </div>
+
 	<div class = "sexual-violence"> 
           <h2>80% of women experience sexual violence on the migrant journey to the US.</h2>
           <img class="violencechart" src="images/SexualViolenceChart.jpg" onmouseover="this.src='images/SexualViolenceChartNoLoop.gif';">
