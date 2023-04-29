@@ -7,13 +7,20 @@
        <b>The following questions speak to intention to migrate vs actually taking steps to migrate: </b> 
         <br/>
         Ideally, if you had the opportunity, would you like to move permanently or for a long period to another country?
-        43.1% women said yes while the rest said no. 45.53% men said yes while rest said no.
+        43.1% women said yes while the rest said no. 45.53% men said yes while rest said no. <br/>
+        Broken down by country: SLV: 51.66% women said yes. 56.5% men said yes. <br/>
+        HND: 48.46% women said yes. 50.26% men said yes. <br/>
+        GT: 29.22% women said yes, 31.52% men said yes.
         <br/>
         Are you planning to move to another country in the next 12 months?
-        13.37% women said yes. 19.52% men said yes. 
+        13.37% women said yes. 19.52% men said yes.  <br/>
+        Broken down by country: SLV: 9.76% women said yes. 10.27% men said yes. <br/>
+        HND: 16.57% women said yes. 28.34% men said yes. <br/>
+        GT: 14.89% women said yes. 24.34% men said yes. 
         <br/>
         Have you made any preparation to move to another country?
-        49% women said yes. 51.3% men said yes. 
+        49% women said yes. 51.3% men said yes. <br/>
+        Number of responses are on the fewer side and hence not breaking down by country 
         <br/>
         <b>Reasons for migration: </b><br/>
         Search for a better job, salary or working conditions: 80.86% women and 88.25% men <br/>
