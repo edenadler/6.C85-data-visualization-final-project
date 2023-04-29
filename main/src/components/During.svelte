@@ -48,7 +48,7 @@ updateCount();
         </div>
       </div>
       <div class = "debt-button">
-          <button onclick="animateDebt();">Find out the cost of debt.</button>
+          <button on:click="{animateDebt}">Find out the cost of debt.</button>
       </div>
 
       <div id="accompany">
