@@ -4,6 +4,7 @@
     // import Scrolly from "./Scrolly.svelte";
     import Before from "./Before.svelte";
     import During from "./During.svelte";
+    import { animateDebt } from "./During.svelte";
     import After from "./After.svelte";
     import Scroller from "@sveltejs/svelte-scroller";
 
