@@ -1,54 +1,251 @@
 <script>
+    import GiBank from 'svelte-icons/gi/GiBank.svelte';
+    import GiMoneyStack from 'svelte-icons/gi/GiMoneyStack.svelte';
+    import FaMoneyBillWave from 'svelte-icons/fa/FaMoneyBillWave.svelte';
+    import IoMdWoman from 'svelte-icons/io/IoMdWoman.svelte'
+//     import { onMount } from 'svelte';
+
+//   let count = 0;
+
+//   onMount(() => {
+//     const interval = setInterval(() => {
+//       if (count >= 160000000) {
+//         clearInterval(interval);
+//       } else {
+//         count += 1000000;
+//       }
+//     }, 10);
+//   });
+let counterValue = 0;
+  let intervalId = null;
+
+  function startCounter() {
+    if (intervalId === null) {
+      intervalId = setInterval(() => {
+        // counterValue++;
+        if (counterValue >= 160000000) {
+          clearInterval(intervalId);
+        } else {
+            counterValue += 1000000;
+        }
+      }, 7);
+    }
+  }
 </script>
-  
-<div>
-    <h1 class="heading">Before Stats</h1>
+
+<div class="before">
+    <div class="banner">
+      <h1>Disparity in financial resources</h1>
+    </div>
+    <div class="columns-container">
+      <div class="left-column">
+        <!-- <h2>Women</h2> -->
+        <!-- <p>This is the content for the left column.</p> -->
+        <div class="icon-container">
+            {#each Array.from({ length: 100 }) as _, index}
+                <div class={index < 51 ? "icon purple" : "icon"}>
+                <FaMoneyBillWave/>
+            </div>
+            {/each}
+        </div>
+        <br/>
+        <div class="circle">
+            <span>51.4%</span>
+        </div>
+        <br/>
+        <h2>women own bank accounts</h2>
+      </div>
+      <div class="right-column">
+        <!-- <h2>Men</h2> -->
+        <div class="icon-container">
+            {#each Array.from({ length: 100 }) as _, index}
+            <div class={index < 57 ? "icon purple" : "icon"}>
+                <FaMoneyBillWave/>
+            </div>
+            {/each}
+        </div>
+        <br/>
+        <div class="circle">
+            <span>57.4%</span>
+        </div>
+        <br/>
+        <h2>men own bank accounts</h2>
+      </div>
+    </div>
+    <button on:click={startCounter}>Calculate difference</button>
+    <div class="counter">
+        <h3>{counterValue.toLocaleString()}</h3>
+    </div>
     <div>
-       <b>The following questions speak to intention to migrate vs actually taking steps to migrate: </b> 
-        <br/>
-        Ideally, if you had the opportunity, would you like to move permanently or for a long period to another country?
-        43.1% women said yes while the rest said no. 45.53% men said yes while rest said no. <br/>
-        Broken down by country: SLV: 51.66% women said yes. 56.5% men said yes. <br/>
-        HND: 48.46% women said yes. 50.26% men said yes. <br/>
-        GT: 29.22% women said yes, 31.52% men said yes.
-        <br/>
-        Are you planning to move to another country in the next 12 months?
-        13.37% women said yes. 19.52% men said yes.  <br/>
-        Broken down by country: SLV: 9.76% women said yes. 10.27% men said yes. <br/>
-        HND: 16.57% women said yes. 28.34% men said yes. <br/>
-        GT: 14.89% women said yes. 24.34% men said yes. 
-        <br/>
-        Have you made any preparation to move to another country?
-        49% women said yes. 51.3% men said yes. <br/>
-        Number of responses are on the fewer side and hence not breaking down by country 
-        <br/>
-        <b>Reasons for migration: </b><br/>
-        Search for a better job, salary or working conditions: 80.86% women and 88.25% men <br/>
-        Unemployment: 29.86% women and 32.71% men <br/>
-        Deterioration of livelihoods due to natural hazards (floods, droughts, volcanic eruptions, hurricanes, plagues, etc.): 3.91% women and 4.02% men <br/>
-        By the direct impact of a natural hazard: 1.92% women and 1.51% men <br/>
-        Due to loss of land due to processes of land use change: 0.32% women and 0.67% men <br/>
-        Lack of money to buy food: 17.59% women and 16.1% men <br/>
-        Lack of money to cover other basic needs (health, education, housing, clothing, services, etc.): 24.14% women and 25.16% men <br/>
-        To send remittances: 17.14% women and 19.79% men <br/>
-        For study: 2.89% women and 2.85% men <br/>
-        Domestic violence: 0.25% women and 0.16% men <br/>
-        Unsafety: 4.36% women and 5.2% men <br/>
-        Family reunification: 6.87% women and 4.36% men <br/>
-        For cultural reasons or custom: 1.79% women and 0.33% men <br/> 
-        For health (treatments, surgeries or medical consultations, medicines, etc.): 1.28% women and 1.17% men <br/>
-        Adventure Turism: 8.15% women and 5.03% men
+        <h4>women in Latin America do not have access to a bank account!</h4>
+
+    </div>
+    <div class="women-icon-container">
+        {#each Array.from({ length: 100 }) as _, index}
+            <div class={index < 6 ? "women-icon purple" : "women-icon"}>
+            <IoMdWoman/>
+        </div>
+        {/each}
+    </div>
+    <br/><br/><br/><br/>
+    <div>
+        <h4>Only 6 out of every 100 women have taken out a mortgage.</h4>
 
     </div>
 </div>
 
-<style>
-    @import url("https://fonts.googleapis.com/css?family=Ek+Mukta:400,300,500,700,800");
-    .heading {
-        margin: 0px;
+  
+  <style>
+    /* Set the margin and padding of the body to 0 */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .before {
+        width: 100%;
+    }
+  
+    /* Set the width of the banner to 100% */
+    .banner {
+        background-color: purple;
+        color: white;
         padding: 20px;
         text-align: center;
-        color: #c32093;
+        width: 100%;
     }
-    
-</style>
+    h1 {
+    margin: 0;
+    font-size: 36px;
+    }
+  
+    /* Set the display property of the columns-container to flex, and make it span the whole page */
+    .columns-container {
+      display: flex;
+      width: 100%;
+    }
+  
+    /* Set the width and padding of the left and right columns */
+    .left-column {
+      flex-basis: 50%;
+      padding: 20px;
+    }
+  
+    .right-column {
+      flex-basis: 50%;
+      padding: 20px;
+    }
+  
+    /* Add some styles to the headings and paragraphs */
+    h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+  
+    p {
+      margin: 0;
+    }
+
+    /* Center the icon container */
+  .icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Style the icons */
+  /* .icon {
+    width: 50px;
+    margin: 5px;
+    color: #ce2093; 
+  }
+
+  .purple {
+    color: #4a0a70;
+  } */
+  .icon {
+    width: 50px;
+    margin: 5px;
+    color: #fdbb58; 
+  }
+  .women-icon {
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    color: #fdbb58; 
+  }
+  .women-icon::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .purple {
+    color: black;
+  }
+
+  .icon::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .circle {
+    width: 250px;
+    height: 250px;
+    background-color: #4a0a70;
+    border-radius: 50%;
+    margin: 20px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .circle span {
+    font-size: 68px;
+    color: white;
+    text-align: center;
+  }
+  /* Style the counter */
+  .counter {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  h3 {
+    font-size: 150px;
+    font-weight: bold;
+    color: purple;
+    margin: 0;
+  }
+  button {
+    background-color: #4a0a70;
+    color: white;
+    font-size: 36px;
+    padding: 16px 32px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background-color 0.2s;
+  }
+
+  button:hover {
+    background-color: #ce2093;
+  }
+  h4 {
+    font-size: 40px;
+    font-weight: bold;
+    color: purple;
+    margin: 0;
+  }
+  .women-icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  </style>
+  
