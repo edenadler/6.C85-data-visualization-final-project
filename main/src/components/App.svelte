@@ -42,15 +42,16 @@
                     <h1>in Central America</h1>
                 </div>
                 <section>
-                    1
-                    {index}
                     <Before />
                 </section>
-                <section>2</section>
-                <section>3 </section>
-                <Before />
-                <During />
-                <After />
+                <section>
+                    <During />
+                </section>
+                <section>
+                    <After />
+                </section>
+                
+                
             </div>
 
         </Scroller>
