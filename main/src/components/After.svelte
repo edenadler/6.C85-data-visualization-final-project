@@ -116,12 +116,125 @@ let container0;
     </div>
 
     <div>
-        <div class="cal-icon">
-            <GoCalendar />
+        <h2>Time to pay off debt</h2>
+        <div class="calendar-text">
+            <div>13 months</div>
+            <div>7 months</div>
+        </div>
+        <div class="calendar-vis">
+            <div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+                <div class="cal-icon">
+                    <div class="calendar-icons">
+                        <GoCalendar />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
 
+    <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/edenadler/embed/qBJPNmb?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+        See the Pen <a href="https://codepen.io/edenadler/pen/qBJPNmb">
+        Untitled</a> by Eden (<a href="https://codepen.io/edenadler">@edenadler</a>)
+        on <a href="https://codepen.io">CodePen</a>.
+      </iframe>
 
     <!-- <div>
         {#each days as day}
@@ -178,5 +291,25 @@ let container0;
         margin: auto;
         justify-content: space-around;
         font-size: 40px;
+    }
+
+
+    .calendar-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 30px;
+    }
+
+    .calendar-icons {
+
+    }
+
+    .calendar-vis {
+        display: flex;
+    }
+
+    .calendar-vis div {
+        display: flex;
     }
 </style>
