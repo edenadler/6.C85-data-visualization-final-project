@@ -2,20 +2,11 @@
     import GiBank from 'svelte-icons/gi/GiBank.svelte';
     import GiMoneyStack from 'svelte-icons/gi/GiMoneyStack.svelte';
     import FaMoneyBillWave from 'svelte-icons/fa/FaMoneyBillWave.svelte';
-    import IoMdWoman from 'svelte-icons/io/IoMdWoman.svelte'
-//     import { onMount } from 'svelte';
+    import IoMdWoman from 'svelte-icons/io/IoMdWoman.svelte';
+    import { onMount } from 'svelte';
+    import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
+    import 'mapbox-gl/dist/mapbox-gl.css';
 
-//   let count = 0;
-
-//   onMount(() => {
-//     const interval = setInterval(() => {
-//       if (count >= 160000000) {
-//         clearInterval(interval);
-//       } else {
-//         count += 1000000;
-//       }
-//     }, 10);
-//   });
 let counterValue = 0;
   let intervalId = null;
 
@@ -31,6 +22,40 @@ let counterValue = 0;
       }, 7);
     }
   }
+
+  onMount(() => {
+    mapboxgl.accessToken = 'pk.eyJ1IjoicHJlcm5hcmF2aSIsImEiOiJjbGdjczM4b3AweGpvM29vNzhobW54dWk5In0.qlkTYoVUAKmhuMMGWUrGGg';
+    // Create a new map with the container and options
+    const map = new mapboxgl.Map({
+      container: document.querySelector('.map-container'),
+      style: 'mapbox://styles/mapbox/light-v10',
+      center: [-90.23, 15.79],
+      zoom: 5,
+      maxBounds: [[-95.95, 12.97], [-84.62, 17.85]]
+    });
+
+    // Add the data to the map
+    map.on('load', function() {
+      // Add the countries layer
+      map.addLayer({
+        'id': 'countries',
+        'type': 'fill',
+        'source': {
+          'type': 'vector',
+          'url': 'mapbox://mapbox.country-boundaries-v1'
+        },
+        'source-layer': 'country_boundaries',
+        'paint': {
+            'fill-color': '#6F52ED',
+            'fill-opacity': 0.5,
+            'fill-outline-color': 'black'
+        },
+        'filter': ['in', 'iso_3166_1_alpha_3', 'GTM', 'HND', 'SLV']
+      });
+    });
+  });
+
+   
 </script>
 
 <div class="before">
@@ -92,6 +117,10 @@ let counterValue = 0;
         <h4>Only 6 out of every 100 women have taken out a mortgage.</h4>
 
     </div>
+    <div>
+    <div class="map-container" style="height: 500px;"></div>
+        <div class="tooltip" style="display:none"></div>
+    </div>
 </div>
 
   
@@ -103,7 +132,7 @@ let counterValue = 0;
     }
 
     .before {
-        width: 100%;
+        width: 90%;
     }
   
     /* Set the width of the banner to 100% */
@@ -247,5 +276,24 @@ let counterValue = 0;
     flex-wrap: wrap;
     justify-content: center;
   }
+  .map-container {
+    width: 100%;
+    background-color: #5e5d5d;
+  }
+  /* .tooltip {
+    position: absolute;
+    background-color: #6f42c1;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .tooltip:hover {
+    opacity: 1;
+  } */
   </style>
   
