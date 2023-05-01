@@ -6,8 +6,8 @@
   
 <div>
     <div class="DuringMigration">
-        <h1>During Migration</h1>
-        <div class="DebtMigrationNarrative">
+        <!-- <h1>During Migration</h1> -->
+        <!-- <div class="DebtMigrationNarrative">
             <p>
               Debt is both a driver to migrate to repay debt and a means to pay for migration 
               (<a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Heidbrink, 2019</a>).
@@ -39,32 +39,32 @@
               We used the money for me to travel over there." - 
               <a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Eulalia, Age 17, Guatamala, 2019</a>
             </p>
-        </div>
+        </div> -->
     
-        <div class="container">
+        <div class="vis-container">
             <div class="heading">
               <h2>How much debt do people incur to migrate?</h2>
             </div>
             <div class="counter-container">
               <div class="counter">
                 <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-time-19.svg" alt="timer" srcset="" class="icon"> -->
-                <img src="images/latinaicon.jpeg" alt="timer" srcset="" class="icon">
-                <h3 data-target="4425" class="count">0</h3>
+                <!-- <img src="images/latinaicon.jpeg" alt="timer" srcset="" class="icon"> -->
+                <div class="money-counter"><h3>$</h3><h3 data-target="4425" class="count">0</h3></div>
                 <h6>Women's Migratory Debt</h6>
               </div>
               <div class="counter">
                 <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-coffee-11.svg" alt="Coffee" srcset="" class="icon"> -->
-                <img src="images/latinoicon.jpeg" alt="timer" srcset="" class="icon">
-                <h3 data-target="3575" class="count">0</h3>
+                <!-- <img src="images/latinoicon.jpeg" alt="timer" srcset="" class="icon"> -->
+                <div class="money-counter"><h3>$</h3><h3 data-target="3575" class="count">0</h3></div>
                 <h6>Men's Migratory Debt</h6>
               </div>
             </div>
-        </div>
-        <div class = "debt-button">
-            <button on:click={animateDebt}>Find out the cost of debt.</button>
+            <div class = "debt-button">
+                <button on:click={animateDebt}>Find out the cost of debt</button>
+            </div>
         </div>
     
-        <div class="AccompanyMigrationNarrative">
+        <!-- <div class="AccompanyMigrationNarrative">
             <p>
               Today, growing numbers of mothers and children are fleeing Central America. 
               Many mothers migrate with their children to escape economic suffering and cartel violence 
@@ -98,8 +98,8 @@
             </p>
     
             </div>
-    
-        <div id="accompany">
+     -->
+        <div class="vis-container" id="accompany">
           <h2>Who do people travel with on the migration journey?</h2>
           <div class="accompany-pie-charts">
             <MigrationAccompanyWomen />
@@ -107,13 +107,13 @@
           </div>
         </div>
     
-        <div class="ViolenceMigrationNarrative">
+        <div class="ViolenceMigrationNarrative vis-container">
             <p>
               Women experience violence more often on the migration journey (Schmidt and Buechler, 2017).
               Sexual violence against women goes under reported, 
               especially in the case of irregular migrants (Schmidt and Buechler, 2017).
             </p>
-    
+<!--     
             <p>
               Many women migrants take birth control as a protective strategy because they expect to be raped in transit through Mexico 
               (<a href="https://www.pbs.org/newshour/nation/facing-risk-rape-migrant-women-prepare-birth-control" target="_blank">Joffe-Block, 2014)</a>.
@@ -134,15 +134,14 @@
               I feel shame because of what happened to me. 
               But I need to keep moving forward 
               (<a  href="" target="_blank">Interview with Lupita, 21 July 2014</a>)."
-            </p>
+            </p> -->
     
+            <div class = "sexual-violence"> 
+                <h2>80% of women experience sexual violence on the migrant journey to the US.</h2>
+                <img class="violencechart" src="SexualViolenceChart.png" onmouseover="this.src='SexualViolenceChartNoLoop.gif';">
             </div>
-    
-        <div class = "sexual-violence"> 
-              <h2>80% of women experience sexual violence on the migrant journey to the US.</h2>
-              <img class="violencechart" src="images/SexualViolenceChart.jpg" onmouseover="this.src='images/SexualViolenceChartNoLoop.gif';">
-            </div>
-         </div>    
+        </div> 
+    </div>  
 </div>
 
 <style>
@@ -155,8 +154,10 @@
     h2 {
         text-align: center;
     }
-    .container {
+    .vis-container {
         text-align: center;
+        width: 80%;
+        margin: 190px auto;
     }
     .debt-button{
         text-align: center;
@@ -171,15 +172,17 @@
         display: inline-block;
         font-size: 16px;
     }
-    .container {
-        width: 80%;
-        margin: auto;
-    }
     
     .counter-container {
         display: flex;
         justify-content: space-around;
         align-items: center;
+    }
+
+    .money-counter {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
     
     .counter {

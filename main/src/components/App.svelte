@@ -115,7 +115,7 @@
 
     section {
         position: relative;
-		height: 80vh;
+		min-height: 80vh;
 		/* background-color: rgba(0,0,0,0.5);
 		color: white;
 		padding: 1em;
@@ -153,6 +153,7 @@
         font-size: 35px;
         position: sticky;
         top: 0px;
+        background-color: #fff59d;
     }
 
     .step-name {

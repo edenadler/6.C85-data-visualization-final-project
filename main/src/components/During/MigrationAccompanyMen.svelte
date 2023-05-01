@@ -2,7 +2,7 @@
     import * as d3 from 'd3';
     import { onMount } from "svelte";
 
-    let height = 500;
+    let height = 250;
     let radius = height/2;
     // arc path and angle generator
     let arcGenerator = d3.arc()
