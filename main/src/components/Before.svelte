@@ -112,6 +112,14 @@ let counterValue = 0;
       <h1>There is a significant disparity in the distribution of financial resource between women and men</h1>
     </div>
     <div class="columns-container">
+        <div class="left-column">
+            <img src="Woman.png" />
+        </div>
+        <div class="right-column">
+            <img src="Man.png" />
+        </div>
+    </div>
+    <div class="columns-container">
       <div class="left-column">
         <!-- <h2>Women</h2> -->
         <!-- <p>This is the content for the left column.</p> -->
