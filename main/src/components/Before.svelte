@@ -146,21 +146,24 @@ let counterValue = 0;
         <h2>men own bank accounts</h2>
       </div>
     </div>
-    <button on:click={startCounter}>Calculate difference</button>
-    <div class="counter">
-        <h3>{counterValue.toLocaleString()}</h3>
-    </div>
-    <div>
-        <h4>women in Latin America do not have access to a bank account!</h4>
-        <h4>Furthermore, only 6 out of every 100 women have taken out a mortgage.</h4>
-
-    </div>
-    <div class="women-icon-container">
-        {#each Array.from({ length: 100 }) as _, index}
-            <div class={index < 6 ? "women-icon purple" : "women-icon"}>
-            <IoMdWoman/>
+    <div class="vis-container">
+        <button on:click={startCounter}>Calculate difference</button>
+        <div class="counter">
+            <h3>{counterValue.toLocaleString()}</h3>
         </div>
-        {/each}
+        <div>
+            <h4>women in Latin America do not have access to a bank account</h4>
+        </div>
+    </div>
+    <div class="vis-container">
+        <h4>only 6 out of every 100 women have taken out a mortgage.</h4>
+        <div class="women-icon-container">
+            {#each Array.from({ length: 100 }) as _, index}
+                <div class={index < 6 ? "women-icon purple" : "women-icon"}>
+                <IoMdWoman/>
+            </div>
+            {/each}
+        </div>
     </div>
     <br/><br/><br/><br/>
     <div>
@@ -189,6 +192,12 @@ let counterValue = 0;
 
     .before {
         width: 90%;
+    }
+
+    .vis-container {
+        text-align: center;
+        width: 80%;
+        margin: 190px auto;
     }
   
     /* Set the width of the banner to 100% */

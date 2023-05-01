@@ -23,7 +23,7 @@
 
     <div on:scroll={() => console.log(progress, offset)}>
 
-        <Scroller top={0.0} bottom={0} threshold={0.5} bind:count bind:index bind:offset bind:progress>
+        <Scroller top={0.0} bottom={0} threshold={0.2} bind:count bind:index bind:offset bind:progress>
             <div class="background" slot="background">
                 <div class="sticky-divider-label {progress < 0.11 ? 'hide' : 'show'}">
                     <div class="migration-step-header">
@@ -74,12 +74,19 @@
 
     body {
         margin: 0px;
+        padding-top: 157.8px;
     }
 
     main {
         font-family: 'Lato', sans-serif;
         margin: 0px;
         text-align: center;
+    }
+
+    .vis-container {
+        text-align: center;
+        width: 80%;
+        margin: 190px auto;
     }
 
     .heading {
