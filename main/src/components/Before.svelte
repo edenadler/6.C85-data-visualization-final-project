@@ -6,6 +6,7 @@
     import { onMount } from 'svelte';
     import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
     import 'mapbox-gl/dist/mapbox-gl.css';
+    import * as d3 from 'd3';
 
 let counterValue = 0;
   let intervalId = null;
@@ -22,6 +23,30 @@ let counterValue = 0;
       }, 7);
     }
   }
+
+//   let progress = 0;
+
+//   const svgWidth = 200;
+//   const svgHeight = 200;
+//   const radius = 80;
+//   const centerX = svgWidth / 2;
+//   const centerY = svgHeight / 2;
+
+//   const data = [80, 20];
+
+//   const color = d3.scaleOrdinal()
+//     .domain(data)
+//     .range(['#5E4FA2', '#E5E5E5']);
+
+//   const pie = d3.pie()
+//     .sort(null)
+//     .value(d => d);
+
+//   const arc = d3.arc()
+//     .outerRadius(radius)
+//     .innerRadius(radius - 20);
+
+//   let svg;
 
   onMount(() => {
     mapboxgl.accessToken = 'pk.eyJ1IjoicHJlcm5hcmF2aSIsImEiOiJjbGdjczM4b3AweGpvM29vNzhobW54dWk5In0.qlkTYoVUAKmhuMMGWUrGGg';
@@ -53,6 +78,30 @@ let counterValue = 0;
         'filter': ['in', 'iso_3166_1_alpha_3', 'GTM', 'HND', 'SLV']
       });
     });
+
+    // svg = d3.select('#chart')
+    //   .append('svg')
+    //   .attr('width', svgWidth)
+    //   .attr('height', svgHeight)
+    //   .append('g')
+    //   .attr('transform', `translate(${centerX}, ${centerY})`);
+
+    // const path = svg.selectAll('path')
+    //   .data(pie(data))
+    //   .enter()
+    //   .append('path')
+    //   .attr('fill', d => color(d.data))
+    //   .attr('d', arc);
+
+    // path.transition()
+    //   .duration(2000)
+    //   .attrTween('d', d => {
+    //     const interpolate = d3.interpolate(progress, d.endAngle);
+    //     return t => {
+    //       progress = interpolate(t);
+    //       return arc({ ...d, endAngle: progress });
+    //     };
+    //   });
   });
 
    
@@ -60,7 +109,7 @@ let counterValue = 0;
 
 <div class="before">
     <div class="banner">
-      <h1>Disparity in financial resources</h1>
+      <h1>There is a significant disparity in the distribution of financial resource between women and men</h1>
     </div>
     <div class="columns-container">
       <div class="left-column">
@@ -103,6 +152,7 @@ let counterValue = 0;
     </div>
     <div>
         <h4>women in Latin America do not have access to a bank account!</h4>
+        <h4>Furthermore, only 6 out of every 100 women have taken out a mortgage.</h4>
 
     </div>
     <div class="women-icon-container">
@@ -114,13 +164,19 @@ let counterValue = 0;
     </div>
     <br/><br/><br/><br/>
     <div>
-        <h4>Only 6 out of every 100 women have taken out a mortgage.</h4>
+        <div class="para-female">Female home ownership in the developing world is a critical issue: it not only has ramifications on living conditions, but in women’s ability to build and grow their own businesses. Accessing formal credit relies heavily on collateral, namely large assets—a house or an apartment—that women often lack but which are essential to building their credit history. In many cases, women also use their homes as the base for their business. </div>
+
+    </div>
+    <br/><br/>
+    <div class="para-female-triangle">The Northern Triangle countries of Guatemala, Honduras, and El Salvador face numerous political and economic issues that further exacerbate this gender gap. 
+    Underemployment rates go as high as 80% within women in some of these countries!
 
     </div>
     <div>
     <div class="map-container" style="height: 500px;"></div>
-        <div class="tooltip" style="display:none"></div>
     </div>
+    <br/>
+    <!-- <div id="chart"></div> -->
 </div>
 
   
@@ -142,6 +198,7 @@ let counterValue = 0;
         padding: 20px;
         text-align: center;
         width: 100%;
+        margin-top: 100px;
     }
     h1 {
     margin: 0;
@@ -271,6 +328,18 @@ let counterValue = 0;
     color: purple;
     margin: 0;
   }
+  .para-female {
+    font-size: 30px;
+    font-weight: bold;
+    color: purple;
+    margin: 0;
+  }
+  .para-female-triangle {
+    font-size: 25px;
+    font-weight: bold;
+    color: #4a0a70;
+    margin: 0;
+  }
   .women-icon-container {
     display: flex;
     flex-wrap: wrap;
@@ -280,6 +349,8 @@ let counterValue = 0;
     width: 100%;
     background-color: #5e5d5d;
   }
+
+  
   /* .tooltip {
     position: absolute;
     background-color: #6f42c1;
