@@ -307,6 +307,7 @@ let container0;
 
     .calendar-vis {
         display: flex;
+        
     }
 
     .calendar-vis div {
