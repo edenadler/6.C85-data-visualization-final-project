@@ -2,6 +2,8 @@
     import * as d3 from 'd3';
     import { onMount } from "svelte";
 
+    let svg;
+    let g;
     let height = 250;
     let radius = height/2;
     // arc path and angle generator
@@ -19,7 +21,7 @@
 
     let pieAngleGenerator = d3.pie().value(function(d) {return d.value; });
     let arc_data = pieAngleGenerator(data);
-    let label = d3.arc().outerRadius(100).innerRadius(0);
+    let label = d3.arc().outerRadius(radius).innerRadius(2*radius/3);
 
 
     // state trackers
@@ -28,7 +30,22 @@
 
 
 
+    onMount(()=> {
+      let svg_one = d3.select("svg g");
+      console.log('here', svg_one.selectAll("path"))
+      
 
+      // d3.select("svg g")
+      //   .selectAll("path")
+      //   .data(arc_data)
+      //   .append('text')
+      //   .text(function(d){ 
+      //     console.log('d', d.data.name)
+      //     return "grp " + d.data.name})
+      //   .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
+      //   .style("text-anchor", "middle")
+      //   .style("font-size", 17)
+    })
 
 
 
@@ -138,8 +155,8 @@
 </script>
 
 <div class="visualization">
-	<svg width="500" height={height}>
-		<g transform="translate(250, 120)">
+	<svg width="500" height={height} bind:this={svg}>
+		<g transform="translate(250, 120)" bind:this={g}>
 			{#each arc_data as d, index}
       {console.log(d)}
 			<path 
@@ -160,7 +177,7 @@
 				}}
 				on:mouseout={(event) => { hovered = -1; }}
 			/>
-      <!-- <text transform="translate({label.centroid()}">{d.data.name}</text> -->
+      <text text-anchor="middle" alignment-baseline="middle" transform="translate({label.centroid(d)})">{d.data.name}</text>
 			{/each}
 		</g>
 	</svg>

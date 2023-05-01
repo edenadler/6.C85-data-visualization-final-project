@@ -19,7 +19,7 @@
 
     let pieAngleGenerator = d3.pie().value(function(d) {return d.value; });
     let arc_data = pieAngleGenerator(data);
-    let label = d3.arc().outerRadius(100).innerRadius(0);
+    let label = d3.arc().outerRadius(radius).innerRadius(2*radius/3);
 
 
     // state trackers
@@ -163,7 +163,7 @@
 				}}
 				on:mouseout={(event) => { hovered = -1; }}
 			/>
-      <!-- <text transform="translate({label.centroid()}">{d.data.name}</text> -->
+            <text text-anchor="middle" alignment-baseline="middle" transform="translate({label.centroid(d)})">{d.data.name}</text>
 			{/each}
 		</g>
 	</svg>
