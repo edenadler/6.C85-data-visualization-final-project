@@ -8,8 +8,8 @@
     let radius = height/2;
     // arc path and angle generator
     let arcGenerator = d3.arc()
-      .innerRadius(0)
-      .outerRadius(100)
+      .innerRadius(radius * 0.5)         // This is the size of the donut hole
+      .outerRadius(radius * 0.8)
       .padAngle(0)
       .cornerRadius(0);
     let data = [{name: "Family", value: 0.437}, {name: "Coyote", value: 0.275}, {name: "Alone", value: 0.215}, {name: "Other", value: 0.073}];
