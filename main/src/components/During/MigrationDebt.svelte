@@ -1,7 +1,7 @@
 <script context="module">
     export function animateDebt() {
     const counters = document.querySelectorAll(".count");
-    const speed = 155;
+    const speed = 150;
         counters.forEach((counter) => {
             const updateCount = () => {
                 const target = parseInt(+counter.getAttribute("data-target"));
