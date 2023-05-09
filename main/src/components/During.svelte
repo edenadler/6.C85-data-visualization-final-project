@@ -49,13 +49,13 @@
               <div class="counter">
                 <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-time-19.svg" alt="timer" srcset="" class="icon"> -->
                 <!-- <img src="images/latinaicon.jpeg" alt="timer" srcset="" class="icon"> -->
-                <div class="money-counter"><h3>$</h3><h3 data-target="4425" class="count">0</h3></div>
+                <div class="money-counter"><h3>$</h3><h3 data-target="850500000" class="count">0</h3></div>
                 <h6>Women's Migratory Debt</h6>
               </div>
               <div class="counter">
                 <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-coffee-11.svg" alt="Coffee" srcset="" class="icon"> -->
                 <!-- <img src="images/latinoicon.jpeg" alt="timer" srcset="" class="icon"> -->
-                <div class="money-counter"><h3>$</h3><h3 data-target="3575" class="count">0</h3></div>
+                <div class="money-counter"><h3>$</h3><h3 data-target="661500000" class="count">0</h3></div>
                 <h6>Men's Migratory Debt</h6>
               </div>
             </div>
