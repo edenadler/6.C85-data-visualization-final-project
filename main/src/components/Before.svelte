@@ -62,46 +62,133 @@ let counterValue = 0;
     // Add the data to the map
     map.on('load', function() {
       // Add the countries layer
+      map.addSource('places', {
+        'type': 'geojson',
+        'data': {
+          'type': 'FeatureCollection',
+          'features': [
+            {
+              'type': 'Feature',
+              'properties': {
+                'description':
+                  "<p>Text GT</p>"
+              },
+              'geometry': {
+                'type': 'Point',
+                'coordinates': 
+                  // [
+                    [-92.229, 14.538]
+                    // [-92.087, 14.451],
+                    // [-91.905, 14.445],
+                    // [-91.71, 14.566],
+                    // [-91.635, 14.787],
+                    // [-91.939, 15.026],
+                    // [-92.229, 14.538]
+                  // ]
+                
+              }
+            },
+            {
+              'type': 'Feature',
+              'properties': {
+                'description':
+                  "<p>Text HN</p>"
+              },
+              'geometry': {
+                'type': 'Point',
+                'coordinates': 
+                  
+                    [-88.231, 14.134]
+                    // [-87.619, 14.058],
+                    // [-87.376, 13.887],
+                    // [-87.583, 13.727],
+                    // [-87.836, 13.263],
+                    // [-88.063, 13.164],
+                    // [-88.239, 13.264],
+                    // [-88.357, 13.458],
+                    // [-88.231, 14.134]
+                  
+                
+              }
+            },
+            {
+              'type': 'Feature',
+              'properties': {
+                'description':
+                  "<p>Text EL</p>"
+              },
+              'geometry': {
+                'type': 'Point',
+                'coordinates': 
+                  
+                    [-90.075, 13.735]
+                    // [-89.859, 14.045],
+                    // [-89.056, 13.927],
+                    // [-88.844, 13.676],
+                    // [-89.057, 13.422],
+                    // [-89.353, 13.23],
+                    // [-89.821, 13.153],
+                    // [-90.075, 13.735]
+                  
+                
+              }
+            }
+          ]
+        }
+      });
       map.addLayer({
-        'id': 'countries',
-        'type': 'fill',
-        'source': {
-          'type': 'vector',
-          'url': 'mapbox://mapbox.country-boundaries-v1'
-        },
-        'source-layer': 'country_boundaries',
+        'id': 'places',
+        'type': 'circle',
+        // 'source': {
+        //   'type': 'vector',
+        //   'url': 'mapbox://mapbox.country-boundaries-v1'
+        // },
+        // 'source-layer': 'country_boundaries',
+        'source': 'places',
         'paint': {
-            'fill-color': '#6F52ED',
-            'fill-opacity': 0.5,
-            'fill-outline-color': 'black'
+            // 'fill-color': '#6F52ED',
+            // 'fill-opacity': 0.5,
+            // 'fill-outline-color': 'black'
+            'circle-color': '#6F52ED',
+            'circle-radius': 6,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff'
         },
-        'filter': ['in', 'iso_3166_1_alpha_3', 'GTM', 'HND', 'SLV']
+        // 'filter': ['in', 'iso_3166_1_alpha_3', 'GTM', 'HND', 'SLV']
       });
     });
 
-    // svg = d3.select('#chart')
-    //   .append('svg')
-    //   .attr('width', svgWidth)
-    //   .attr('height', svgHeight)
-    //   .append('g')
-    //   .attr('transform', `translate(${centerX}, ${centerY})`);
+    const popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false
+    });
 
-    // const path = svg.selectAll('path')
-    //   .data(pie(data))
-    //   .enter()
-    //   .append('path')
-    //   .attr('fill', d => color(d.data))
-    //   .attr('d', arc);
-
-    // path.transition()
-    //   .duration(2000)
-    //   .attrTween('d', d => {
-    //     const interpolate = d3.interpolate(progress, d.endAngle);
-    //     return t => {
-    //       progress = interpolate(t);
-    //       return arc({ ...d, endAngle: progress });
-    //     };
-    //   });
+    map.on('mouseenter', 'places', (e) => {
+    // Change the cursor style as a UI indicator.
+      console.log("entered");
+      map.getCanvas().style.cursor = 'pointer';
+      
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.description;
+      
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+      
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup.setLngLat(coordinates).setHTML(description).addTo(map);
+      });
+      
+      map.on('mouseleave', 'places', () => {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
+ 
   });
 
    
@@ -111,18 +198,19 @@ let counterValue = 0;
     <div class="banner">
       <h1>There is a significant disparity in the distribution of financial resource between women and men</h1>
     </div>
-    <div class="columns-container">
+    <!-- <div class="columns-container">
         <div class="left-column">
             <img src="Woman.png" />
         </div>
         <div class="right-column">
             <img src="Man.png" />
         </div>
-    </div>
+    </div> -->
     <div class="columns-container">
       <div class="left-column">
         <!-- <h2>Women</h2> -->
         <!-- <p>This is the content for the left column.</p> -->
+        <img src="Woman.png" />
         <div class="icon-container">
             {#each Array.from({ length: 100 }) as _, index}
                 <div class={index < 51 ? "icon purple" : "icon"}>
@@ -139,6 +227,7 @@ let counterValue = 0;
       </div>
       <div class="right-column">
         <!-- <h2>Men</h2> -->
+        <img src="Man.png" />
         <div class="icon-container">
             {#each Array.from({ length: 100 }) as _, index}
             <div class={index < 57 ? "icon purple" : "icon"}>
@@ -365,6 +454,10 @@ let counterValue = 0;
   .map-container {
     width: 100%;
     background-color: #5e5d5d;
+  }
+  .mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }
 
   
