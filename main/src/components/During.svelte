@@ -2,6 +2,8 @@
     import MigrationAccompanyWomen from "./During/MigrationAccompanyWomen.svelte";
     import MigrationAccompanyMen from "./During/MigrationAccompanyMen.svelte";
     import { animateDebt } from "./During/MigrationDebt.svelte";
+    import IoMdWoman from 'svelte-icons/io/IoMdWoman.svelte';
+    import * as d3 from 'd3';
 </script>
   
 <div>
@@ -156,9 +158,16 @@
             <div class = "sexual-violence"> 
                 <h2>80% of women experience sexual violence on the migrant journey to the US.</h2>
                 <p>
-                    151,200 women experience violence on the migration journey every year. 
+                    151,200 women experience sexual violence on the migration journey every year. 
                     Sexual violence against women goes under reported, especially in the case of irregular migrants.
                 </p>
+                <div class="women-icon-container">
+                  {#each Array.from({ length: 1100 }) as _, index}
+                      <div class={index < 220 ? "women-icon purple" : "women-icon"}>
+                      <IoMdWoman/>
+                  </div>
+                  {/each}
+              </div>
                 <p>
                   Lupita is a 19-year-old Honduran woman 
                   who left home because she wanted to help her mother and her four siblings 
@@ -242,5 +251,29 @@
         height: 5rem;
         width: auto;
     }
+    
+    .women-icon {
+    width: 25px;
+    padding: 0px;
+    margin: 0px;
+    color: #ce2093; 
+  }
+  .women-icon::DuringMigration {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .women-icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .purple {
+    color: black;
+  }
 </style>
   
