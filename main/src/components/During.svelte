@@ -127,11 +127,6 @@
         </div>
     
         <div class="ViolenceMigrationNarrative vis-container">
-            <p>
-              Women experience violence more often on the migration journey (Schmidt and Buechler, 2017).
-              Sexual violence against women goes under reported, 
-              especially in the case of irregular migrants (Schmidt and Buechler, 2017).
-            </p>
 <!--     
             <p>
               Many women migrants take birth control as a protective strategy because they expect to be raped in transit through Mexico 
@@ -245,11 +240,6 @@
     .counter h6 {
         font-size: 2rem;
         padding-bottom: 1rem;
-    }
-    
-    .icon {
-        height: 5rem;
-        width: auto;
     }
     
     .women-icon {
