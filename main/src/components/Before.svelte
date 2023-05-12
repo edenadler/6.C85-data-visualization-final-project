@@ -24,31 +24,110 @@ function startCounter() {
   }
 }
 
-//   let progress = 0;
+  // let progress = 0;
 
-//   const svgWidth = 200;
-//   const svgHeight = 200;
-//   const radius = 80;
-//   const centerX = svgWidth / 2;
-//   const centerY = svgHeight / 2;
+  // const svgWidth = 200;
+  // const svgHeight = 200;
+  // const radius = 100;
+  // const centerX = svgWidth / 2;
+  // const centerY = svgHeight / 2;
 
-//   const data = [80, 20];
+  // const data = [51.4, 48.6];
+  // const data_two = [57.4, 42.6]
 
-//   const color = d3.scaleOrdinal()
-//     .domain(data)
-//     .range(['#5E4FA2', '#E5E5E5']);
+  // const color = d3.scaleOrdinal()
+  //   .domain(data)
+  //   .range(['#5E4FA2', '#E5E5E5']);
+  
+  // const color_two = d3.scaleOrdinal()
+  // .domain(data_two)
+  // .range(['#5E4FA2', '#E5E5E5']);
 
-//   const pie = d3.pie()
-//     .sort(null)
-//     .value(d => d);
+  // const pie = d3.pie()
+  //   .sort(null)
+  //   .value(d => d);
 
-//   const arc = d3.arc()
-//     .outerRadius(radius)
-//     .innerRadius(radius - 20);
+  // const arc = d3.arc()
+  //   .outerRadius(radius)
+  //   .innerRadius(radius - 20);
 
-//   let svg;
+  // let svg;
+  // let svg_two;
 
 onMount(() => {
+
+  // svg = d3.select('#chart')
+  //     .append('svg')
+  //     .attr('width', svgWidth)
+  //     .attr('height', svgHeight)
+  //     .append('g')
+  //     .attr('transform', `translate(${centerX}, ${centerY})`);
+
+  // svg_two = d3.select('#chart_two')
+  //   .append('svg')
+  //   .attr('width', svgWidth)
+  //   .attr('height', svgHeight)
+  //   .append('g')
+  //   .attr('transform', `translate(${centerX}, ${centerY})`);
+
+
+  //   const path = svg.selectAll('path')
+  //     .data(pie(data))
+  //     .enter()
+  //     .append('path')
+  //     .attr('fill', d => color(d.data))
+  //     .attr('d', arc);
+    
+  //   const path_two = svg.selectAll('path')
+  //   .data(pie(data_two))
+  //   .enter()
+  //   .append('path')
+  //   .attr('fill', d => color(d.data_two))
+  //   .attr('d', arc);
+
+  //   path.transition()
+  //     .duration(2000)
+  //     .attrTween('d', d => {
+  //       const interpolate = d3.interpolate(progress, d.endAngle);
+  //       return t => {
+  //         progress = interpolate(t);
+  //         return arc({ ...d, endAngle: progress });
+  //       };
+  //     });
+  //   path_two.transition()
+  //   .duration(2000)
+  //   .attrTween('d', d => {
+  //     const interpolate = d3.interpolate(progress, d.endAngle);
+  //     return t => {
+  //       progress = interpolate(t);
+  //       return arc({ ...d, endAngle: progress });
+  //     };
+  //   });
+  //   const text = svg
+  //     .append("text")
+  //     .attr("text-anchor", "middle")
+  //     .attr("font-size", "2.5rem")
+  //     .attr("font-weight", "bold")
+  //     .attr("fill", "black")
+  //     .text("51.4%");
+
+  //   const text_two = svg
+  //   .append("text")
+  //   .attr("text-anchor", "middle")
+  //   .attr("font-size", "2.5rem")
+  //   .attr("font-weight", "bold")
+  //   .attr("fill", "black")
+  //   .text("57.4%");
+
+  //   const textNode = text.node();
+  //   const textNodeTwo = text_two.node();
+  //   const bbox = textNode.getBBox();
+  //   const bbox_two = textNodeTwo.getBBox();
+  //   const padding = 0;
+
+  //   text.attr("transform", `translate(0, ${padding - bbox.y})`);
+  //   text_two.attr("transform", `translate(0, ${padding - bbox_two.y})`);
+
   mapboxgl.accessToken = 'pk.eyJ1IjoicHJlcm5hcmF2aSIsImEiOiJjbGdjczM4b3AweGpvM29vNzhobW54dWk5In0.qlkTYoVUAKmhuMMGWUrGGg';
   // Create a new map with the container and options
   const map = new mapboxgl.Map({
@@ -71,13 +150,13 @@ onMount(() => {
             'type': 'Feature',
             'properties': {
               'description':
-                "<p>Text GT</p>"
+                "<p>7.3% women underemployed</p>"
             },
             'geometry': {
               'type': 'Point',
               'coordinates': 
                 // [
-                  [-92.229, 14.538]
+                  [-90.229, 15.350]
                   // [-92.087, 14.451],
                   // [-91.905, 14.445],
                   // [-91.71, 14.566],
@@ -92,7 +171,7 @@ onMount(() => {
             'type': 'Feature',
             'properties': {
               'description':
-                "<p>Text HN</p>"
+                "<p>80% women underemployed</p>"
             },
             'geometry': {
               'type': 'Point',
@@ -115,13 +194,13 @@ onMount(() => {
             'type': 'Feature',
             'properties': {
               'description':
-                "<p>Text EL</p>"
+                "<p>37.4% women underemployed</p>"
             },
             'geometry': {
               'type': 'Point',
               'coordinates': 
                 
-                  [-90.075, 13.735]
+                  [-89.030, 13.585]
                   // [-89.859, 14.045],
                   // [-89.056, 13.927],
                   // [-88.844, 13.676],
@@ -142,7 +221,7 @@ onMount(() => {
       'source': 'places',
       'paint': {
           'circle-color': '#6F52ED',
-          'circle-radius': 15,
+          'circle-radius': 10,
           'circle-stroke-width': 2,
           'circle-stroke-color': '#ffffff'
       },
@@ -229,6 +308,8 @@ onMount(() => {
       <div class="circle">
           <span>51.4%</span>
       </div>
+      <!-- <div id="chart"></div> -->
+      
       <br/>
       <h2>women own bank accounts</h2>
     </div>
@@ -246,6 +327,7 @@ onMount(() => {
       <div class="circle">
           <span>57.4%</span>
       </div>
+      <!-- <div id="chart_two"></div> -->
       <br/>
       <h2>men own bank accounts</h2>
     </div>
@@ -260,7 +342,7 @@ onMount(() => {
       </div>
   </div>
   <div class="vis-container">
-      <h4>only 6 out of every 100 women have taken out a mortgage.</h4>
+      <h4>Only 6 out of every 100 women have taken out a mortgage.</h4>
       <div class="women-icon-container">
           {#each Array.from({ length: 100 }) as _, index}
               <div class={index < 6 ? "women-icon purple" : "women-icon"}>
@@ -269,19 +351,21 @@ onMount(() => {
           {/each}
       </div>
   </div>
-  <br/><br/><br/><br/>
   <div>
-      <div class="para-female">Female home ownership in the developing world is a critical issue: it not only has ramifications on living conditions, but in women’s ability to build and grow their own businesses. Accessing formal credit relies heavily on collateral, namely large assets—a house or an apartment—that women often lack but which are essential to building their credit history. In many cases, women also use their homes as the base for their business. </div>
+      <div class="para-female">Female home ownership not only has ramifications on living conditions, but in women’s ability to build and grow their own businesses. 
+        Accessing formal credit relies heavily on collateral, namely large assets—a house or an apartment—that women often lack but which are essential to building their credit history.  </div>
 
   </div>
   <br/><br/>
   <div class="para-female-triangle">The Northern Triangle countries of Guatemala, Honduras, and El Salvador face numerous political and economic issues that further exacerbate this gender gap. 
-  Underemployment rates go as high as 80% within women in some of these countries!
+  Underemployment rates within women in these countries are shown below. 
 
   </div>
+  <br/>
   <div>
   <div class="map-container" style="height: 600px;"></div>
   </div>
+  <!-- <div id="chart"></div> -->
   <br/>
   <!-- <div id="chart"></div> -->
 </div>
@@ -300,7 +384,7 @@ onMount(() => {
 
   .vis-container {
       text-align: center;
-      width: 80%;
+      width: 100%;
       margin: 190px auto;
   }
 
@@ -395,7 +479,7 @@ onMount(() => {
 .circle {
   width: 250px;
   height: 250px;
-  background-color: #4a0a70;
+  /* background-color: #4a0a70; */
   border-radius: 50%;
   margin: 20px auto 0 auto;
   display: flex;
@@ -404,9 +488,10 @@ onMount(() => {
 }
 
 .circle span {
-  font-size: 68px;
-  color: white;
+  font-size: 80px;
+  color: #4a0a70;
   text-align: center;
+  font-weight: 600;
 }
 /* Style the counter */
 .counter {
@@ -442,7 +527,7 @@ h4 {
   margin: 0;
 }
 .para-female {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   color: purple;
   margin: 0;
@@ -466,6 +551,66 @@ h4 {
   max-width: 400px;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
+
+.chart {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* .chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chart .circle {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 8;
+}
+
+.chart .bar {
+  fill: #6a2c70;
+}
+
+.chart .percent {
+  fill: #6a2c70;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.chart_two {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  font-size: 12px;
+  text-align: center;
+}
+
+.chart_two svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chart_two .circle {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 8;
+}
+
+.chart_two .bar {
+  fill: #6a2c70;
+}
+
+.chart-two .percent {
+  fill: #6a2c70;
+  font-weight: bold;
+  font-size: 24px;
+} */
 
 
 /* .tooltip {
