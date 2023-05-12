@@ -156,6 +156,10 @@
             <div class = "sexual-violence"> 
                 <h2>80% of women experience sexual violence on the migrant journey to the US.</h2>
                 <p>
+                    151,200 women experience violence on the migration journey every year. 
+                    Sexual violence against women goes under reported, especially in the case of irregular migrants.
+                </p>
+                <p>
                   Lupita is a 19-year-old Honduran woman 
                   who left home because she wanted to help her mother and her four siblings 
                   escape her abusive father.
@@ -171,7 +175,7 @@
                   But I need to keep moving forward 
                   (<a  href="" target="_blank">Interview with Lupita, 21 July 2014</a>)."
                 </p>
-                <img class="violencechart" src="SexualViolenceChart.png" onmouseover="this.src='SexualViolenceChartNoLoop.gif';">
+                <!-- <img class="violencechart" src="SexualViolenceChart.png" onmouseover="this.src='SexualViolenceChartNoLoop.gif';"> -->
             </div>
         </div> 
     </div>  
