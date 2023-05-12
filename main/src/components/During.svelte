@@ -62,6 +62,15 @@
             <div class = "debt-button">
                 <button on:click={animateDebt}>Find out the cost of debt</button>
             </div>
+            <div>
+              <p>
+                "We begged from neighbors to loan us a few quetzales. 
+                We sold our household furniture. We borrowed from the bank. 
+                We didn't bury my father properly; we just couldn't afford it. 
+                We used the money for me to travel over there." - 
+                <a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Eulalia, Age 17, Guatamala, 2019</a>
+              </p>
+            </div>
         </div>
     
         <!-- <div class="AccompanyMigrationNarrative">
@@ -101,6 +110,14 @@
      -->
         <div class="vis-container" id="accompany">
           <h2>Who do people travel with on the migration journey?</h2>
+          <p> Women are 1.5x as likely to travel with family and 2x as likely to travel with children. </p>
+          <p>
+            "If there's a threat, I am going to find a way to save my life and the lives of my children, 
+            because I know that I need to fight for my children, I have to. They are dependent on me. 
+            Imagine if something happened to me; I am the one who looks out for them. . . . 
+            I am going to take care of them, and it is for them that I am doing this."
+            -<a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">Silvia, a 29-year-old single mother, fled Guatemala</a>
+          </p>
           <div class="accompany-pie-charts">
             <MigrationAccompanyWomen />
             <MigrationAccompanyMen />
@@ -138,6 +155,22 @@
     
             <div class = "sexual-violence"> 
                 <h2>80% of women experience sexual violence on the migrant journey to the US.</h2>
+                <p>
+                  Lupita is a 19-year-old Honduran woman 
+                  who left home because she wanted to help her mother and her four siblings 
+                  escape her abusive father.
+                  On experiencing sexual violence, she says: 
+                  "When I got here I was scared, 
+                  mostly because of what had happened took me a while to tell people what happened to me. 
+                  The first few days I had a knot in my throat where all my tears were held. 
+                  I told myself I wouldn't cry so that I can have the strength to keep going. 
+                  I am going to keep going and nothing will stop me. 
+                  I have to continue because I have to, I have to fight for my family. 
+                  I have to fight for my mom and siblings. 
+                  I feel shame because of what happened to me. 
+                  But I need to keep moving forward 
+                  (<a  href="" target="_blank">Interview with Lupita, 21 July 2014</a>)."
+                </p>
                 <img class="violencechart" src="SexualViolenceChart.png" onmouseover="this.src='SexualViolenceChartNoLoop.gif';">
             </div>
         </div> 
@@ -153,6 +186,7 @@
 
     h2 {
         text-align: center;
+        font-size: 45px;
     }
     .vis-container {
         text-align: center;
