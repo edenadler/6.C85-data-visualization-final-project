@@ -281,22 +281,19 @@ onMount(() => {
 </script>
 
 <div class="before">
-  <div class="banner">
+  <!-- <div class="banner">
     <h1>There is a significant disparity in the distribution of financial resource between women and men</h1>
-  </div>
-  <!-- <div class="columns-container">
-      <div class="left-column">
-          <img src="Woman.png" />
-      </div>
-      <div class="right-column">
-          <img src="Man.png" />
-      </div>
   </div> -->
+  <div class="column-container">
+      <div class="col">
+          <img src="Woman.png" class="persona-img" />
+      </div>
+      <div class="col">
+          <img src="Man.png" class="persona-img" />
+      </div>
+  </div>
   <div class="columns-container">
     <div class="left-column">
-      <!-- <h2>Women</h2> -->
-      <!-- <p>This is the content for the left column.</p> -->
-      <img src="Woman.png" />
       <div class="icon-container">
           {#each Array.from({ length: 100 }) as _, index}
               <div class={index < 51 ? "icon purple" : "icon"}>
@@ -314,8 +311,6 @@ onMount(() => {
       <h2>women own bank accounts</h2>
     </div>
     <div class="right-column">
-      <!-- <h2>Men</h2> -->
-      <img src="Man.png" />
       <div class="icon-container">
           {#each Array.from({ length: 100 }) as _, index}
           <div class={index < 57 ? "icon purple" : "icon"}>
@@ -370,16 +365,66 @@ onMount(() => {
   <!-- <div id="chart"></div> -->
 </div>
 
+  
+  <style>
+    /* Set the margin and padding of the body to 0 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 36px;
+    }
 
-<style>
-  /* Set the margin and padding of the body to 0 */
-  body {
-    margin: 0;
-    padding: 0;
-  }
+    /* .before {
+        width: 90%;
+    } */
+/*   
+    /* Set the display property of the columns-container to flex, and make it span the whole page */
+    .columns-container {
+      display: flex;
+      width: 100%;
+    }
+  
+    /* Set the width and padding of the left and right columns */
+    .left-column {
+      flex-basis: 50%;
+      padding: 20px;
+    }
+  
+    .right-column {
+      flex-basis: 50%;
+      padding: 20px;
+    } 
 
-  .before {
-      width: 90%;
+    .column-container {
+        display: flex;
+        width: 60%;
+        gap: 30%;
+        justify-content: center;
+        margin: 50px auto;
+    }
+
+    .col {
+        display: flex;
+        flex: 0 0 50%;
+        justify-content: center;
+        max-width: 50%;
+    }
+  
+    /* Add some styles to the headings and paragraphs */
+    h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+  
+    p {
+      margin: 0;
+    }
+
+    /* Center the icon container */
+  .icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .vis-container {
@@ -402,16 +447,23 @@ onMount(() => {
   font-size: 36px;
   }
 
-  /* Set the display property of the columns-container to flex, and make it span the whole page */
-  .columns-container {
+  .circle {
+    width: 250px;
+    height: 250px;
+    margin: 20px auto 0 auto;
     display: flex;
     width: 100%;
   }
 
-  /* Set the width and padding of the left and right columns */
-  .left-column {
-    flex-basis: 50%;
-    padding: 20px;
+  .circle span {
+    font-size: 68px;
+    color: #4a0a70;
+    text-align: center;
+  }
+  /* Style the counter */
+  .counter {
+    text-align: center;
+    margin-top: 50px;
   }
 
   .right-column {
@@ -452,7 +504,7 @@ onMount(() => {
   color: #fdbb58; 
 }
 .women-icon {
-  width: 80px;
+  width: 50px;
   padding: 0px;
   margin: 0px;
   color: #fdbb58; 
@@ -541,6 +593,8 @@ h4 {
 .women-icon-container {
   display: flex;
   flex-wrap: wrap;
+  width: 72%;
+  margin: auto;
   justify-content: center;
 }
 .map-container {
@@ -628,5 +682,21 @@ h4 {
 .tooltip:hover {
   opacity: 1;
 } */
-</style>
+  .persona-img {
+    max-width: 100%; 
+    height: auto;
+  }
 
+  
+  /* .tooltip {
+    position: absolute;
+    background-color: #6f42c1;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  } */
+</style>

@@ -39,7 +39,7 @@
 </script>
 
 <div class="visualization">
-	<svg width="600" height="700" bind:this={svg}>
+	<svg viewBox="0 0 600 700" bind:this={svg}>
 		<g transform="translate(270, 300)" bind:this={g}>
 			{#each arc_data as d, index}
       {console.log(d)}
@@ -74,8 +74,7 @@
 		</g>
 	</svg>
 	<div
-		class={hovered === -1 ? "tooltip-hidden": "tooltip-visible"}	
-		style="left: {160}px; top: {240}px"
+		class={hovered === -1 ? "tooltip-hidden": "tooltip-visible"}
 	>
   {#if hovered !== -1}
   {#if hovered === 0}
@@ -99,13 +98,17 @@
   .visualization {
 		font: 23px sans-serif;
 		margin-top: 1px;
-		text-align: middle;
-    position: relative;
-    display: flex;
+		position: relative;
+		display: flex;
+		flex: 0 0 50%;
+        justify-content: center;
+        max-width: 50%;
 	}
 
   svg {
     position: relative;
+	max-width: 100%; 
+    height: auto;
   }
 
 	/* dynamic classes for the tooltip */
@@ -117,14 +120,17 @@
 	}
 
 	.tooltip-visible {
-		font: 25px sans-serif;
+		font: 20px sans-serif;
 		font-family: "Nunito", sans-serif;
 		visibility: visible;
 		/* background-color: #f0dba8; */
 		border-radius: 10px;
-		width: 200px;
+		width: 30%;
 		color: black;
 		position: absolute;
 		padding: 10px;
+		transform: translate(-50%, -50%);
+		top: 43%;
+		left: 45%;
 	}
 </style>

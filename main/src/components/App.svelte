@@ -22,24 +22,31 @@
 <main>
 
     <div on:scroll={() => console.log(progress, offset)}>
-
-        <Scroller top={0.0} bottom={0} threshold={0.2} bind:count bind:index bind:offset bind:progress>
-            <div class="background" slot="background">
-                <div class="sticky-divider-label {progress < 0.11 ? 'hide' : 'show'}">
-                    <div class="migration-step-header">
-                        <span class="step-name {migrationStep}">{migrationStep}</span> migration
-                    </div>
-                    <div class="men-and-women-header">
+        <div class="sticky-divider-label {progress < 0.11 ? 'hide' : 'show'}">
+            <div class="migration-step-header">
+                <span class="step-name {migrationStep}">{migrationStep}</span> migration
+            </div>
+            <div class="men-and-women-header">
+                <div class="column-container">
+                    <div class="col">
                         <h2>Women</h2>
+                    </div>
+                    <div class="col">
                         <h2>Men</h2>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <Scroller top={0.0} bottom={0} threshold={0.2} bind:count bind:index bind:offset bind:progress>
+            <div class="background" slot="background">
+                <section>1</section>
+                <section>2</section>
+            </div>
 
             <div class="foreground" slot="foreground">
                 <div class="heading">
-                    <h1>Differences in the migration experience between men and women</h1>
-                    <h1>in Central America</h1>
+                    <h1>Do Central American men and women have the same migration experience?</h1>
                 </div>
                 <section>
                     <Before />
@@ -91,9 +98,12 @@
 
     .heading {
         margin: 0px;
+        height: 50vh;
         padding: 40px;
         text-align: center;
         color: var(--pink);
+        display: flex;
+        justify-content: center;
     }
 
     .heading h1 {
@@ -147,12 +157,14 @@
         visibility: hidden;
         opacity: 0;
         transition: visibility 0s linear 300ms, opacity 300ms;
+        display: none;
     }
 
     .show {
         visibility: visible;
         opacity: 1;
         transition: visibility 0s linear 0s, opacity 300ms, color 300ms ease;
+        display: block;
     }
 
     .sticky-divider-label {
@@ -161,6 +173,7 @@
         position: sticky;
         top: 0px;
         background-color: #fff59d;
+        z-index: 100;
     }
 
     .step-name {
@@ -183,15 +196,26 @@
     .men-and-women-header {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         text-transform: uppercase;
         font-size: 20px;
-        width: 60%;
         margin: auto;
     }
 
     .migration-step-header {
         text-transform: uppercase;
+    }
+
+    .column-container {
+        display: flex;
+        width: 60%;
+        gap: 30%;
+    }
+
+    .col {
+        display: flex;
+        flex: 1;
+        justify-content: center;
     }
 
 </style>

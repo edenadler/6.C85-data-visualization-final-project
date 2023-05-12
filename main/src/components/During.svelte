@@ -47,18 +47,22 @@
             <div class="heading">
               <h2>How much debt do people incur to migrate?</h2>
             </div>
-            <div class="counter-container">
-              <div class="counter">
+            <div class="column-container">
+              <div class="col">
                 <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-time-19.svg" alt="timer" srcset="" class="icon"> -->
                 <!-- <img src="images/latinaicon.jpeg" alt="timer" srcset="" class="icon"> -->
-                <div class="money-counter"><h3>$</h3><h3 data-target="850500000" class="count">0</h3></div>
-                <h6>Women's Migratory Debt</h6>
+                <div class="counter">
+                  <div class="money-counter"><h3>$</h3><h3 data-target="850500000" class="count">0</h3></div>
+                  <h6>Women's Migratory Debt</h6>
+                </div>
               </div>
-              <div class="counter">
+              <div class="col">
                 <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-coffee-11.svg" alt="Coffee" srcset="" class="icon"> -->
                 <!-- <img src="images/latinoicon.jpeg" alt="timer" srcset="" class="icon"> -->
-                <div class="money-counter"><h3>$</h3><h3 data-target="661500000" class="count">0</h3></div>
-                <h6>Men's Migratory Debt</h6>
+                <div class="counter">
+                  <div class="money-counter"><h3>$</h3><h3 data-target="661500000" class="count">0</h3></div>
+                  <h6>Men's Migratory Debt</h6>
+                </div>
               </div>
             </div>
             <div class = "debt-button">
@@ -120,7 +124,7 @@
             I am going to take care of them, and it is for them that I am doing this."
             -<a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">Silvia, a 29-year-old single mother, fled Guatemala</a>
           </p>
-          <div class="accompany-pie-charts">
+          <div class="column-container">
             <MigrationAccompanyWomen />
             <MigrationAccompanyMen />
           </div>
@@ -196,9 +200,24 @@
         text-align: center;
         font-size: 45px;
     }
+
+    .column-container {
+        display: flex;
+        width: 60%;
+        gap: 30%;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .col {
+      display: flex;
+        flex: 0 0 50%;
+        justify-content: center;
+        max-width: 50%;
+    }
+
     .vis-container {
         text-align: center;
-        width: 80%;
         margin: 190px auto;
     }
     .debt-button{
@@ -214,12 +233,6 @@
         display: inline-block;
         font-size: 16px;
     }
-    
-    .counter-container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
 
     .money-counter {
         display: flex;
@@ -229,6 +242,8 @@
     
     .counter {
         text-align: center;
+        display: flex;
+        flex-direction: column;
     }
     
     .counter h3 {
@@ -240,6 +255,7 @@
     .counter h6 {
         font-size: 2rem;
         padding-bottom: 1rem;
+        margin: 20px auto;
     }
     
     .women-icon {
