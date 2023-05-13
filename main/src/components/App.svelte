@@ -41,8 +41,8 @@
 
         <Scroller top={0.0} bottom={0} threshold={0.2} bind:count bind:index bind:offset bind:progress>
             <div class="background" slot="background">
-                <section>1</section>
-                <section>2</section>
+                <section></section>
+                <section></section>
             </div>
 
             <div class="foreground" slot="foreground">

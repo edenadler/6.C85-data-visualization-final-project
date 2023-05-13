@@ -11,7 +11,7 @@
 
 </script>
 
-<div>
+<div class="tough-scroll-container">
     <!-- <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/edenadler/embed/qBJPNmb?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
         See the Pen <a href="https://codepen.io/edenadler/pen/qBJPNmb">
         Untitled</a> by Eden (<a href="https://codepen.io/edenadler">@edenadler</a>)
@@ -123,4 +123,8 @@
         transition: fade
     }
 
+    .tough-scroll-container {
+        /* overflow: hidden; */
+        /* height: 70vh; */
+    }
 </style>

@@ -1,6 +1,7 @@
 <script>
     import GoCalendar from 'svelte-icons/go/GoCalendar.svelte';
-    import Scroller from "@sveltejs/svelte-scroller";
+    import CalendarView from './After/CalendarView.svelte';
+    import CaledarView from "./After/CalendarView.svelte";
 //     import { getContext } from 'svelte';
 //     import { LayerCake, Svg, calcExtents } from 'layercake';
 //   import { timeFormat } from 'd3-time-format';
@@ -12,61 +13,6 @@ let bottom = 1;
 let threshold = 0.5;
 
 let width, height;
-
-//   https://layercake.graphics/components/CalendarMonth.svelte
-//   console.log(getContext('LayerCake'))
-// //   const { data, x, z, zScale, extents } = getContext('LayerCake');
-
-//   /** @type {Function} [calcCellSize=(w, h) => Math.min(w / 7, h / 5)] - A function givn the canvas width and height as arguments and expects a return number that will be used as the width and height for each cell. The default will choose a size that fits seven cells across and five rows top to bottom. */
-//   export let calcCellSize = (w, h) => Math.min(w / 7, h / 5);
-
-//   const getDayOfWeek = timeFormat('%w');
-//   const getWeekOfYear = timeFormat('%U');
-
-//   const width = 50;
-//   const height = 50;
-
-//   $: count = date => {
-//     const stringDate = date.toISOString().split('T')[0];
-//     const days = $data.filter(d => $x(d) === stringDate)[0];
-//     if (days) {
-//       return $z(days);
-//     }
-//     return 0;
-//   };
-
-//   $: fillColor = day => {
-//     const n = count(day);
-//     return n ? $zScale(n) : '#fff';
-//   };
-
-//   $: cellSize = calcCellSize(width, height);
-
-//   let days;
-
-//   /* --------------------------------------------
-//    * Calculate what month we're in and generate the full days of that month
-//    */
-//   $: {
-//     const minDate = calcExtents.x[0];
-//     const parts = minDate.split('-').map(d => +d);
-
-//     days = timeDay.range(new Date(Date.UTC(parts[0], parts[1] - 1, 1)), new Date(Date.UTC(parts[0], parts[1], 1)));
-//   }
-
-//   $: rectX = day => getDayOfWeek(day) * cellSize;
-//   $: rectY = day => {
-//     const startWeek = getWeekOfYear(new Date(day.getUTCFullYear(), day.getUTCMonth(), 1));
-//     const thisWeek = getWeekOfYear(day);
-//     const weekDiff = thisWeek - startWeek;
-//     return weekDiff * cellSize;
-//   };
-
-//   function showCount(day) {
-//     console.log(day, count(day));
-//   }
-
-// CHANGING SPEED HERE
 
 function changeWheelSpeed(container, speedY) {
     console.log(container, speedY)
@@ -124,117 +70,12 @@ let container0;
         <!-- <a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">Source (Table 3.11)</a> -->
     </div>
 
-    <div>
+    <div class="calendar-container">
         <h2>Time to pay off debt</h2>
+        <CalendarView />
         <div class="calendar-text">
             <div>13 months</div>
             <div>7 months</div>
-        </div>
-        <div class="calendar-vis">
-            <div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-                <div class="cal-icon">
-                    <div class="calendar-icons">
-                        <GoCalendar />
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -364,6 +205,13 @@ let container0;
     }
     .debug-section {
         outline: blue solid 3px;
+    }
+
+    .calendar-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
     }
 
 </style>
