@@ -5,6 +5,7 @@
     import During from "./During.svelte";
     import After from "./After.svelte";
     import Scroller from "@sveltejs/svelte-scroller";
+    import ToughScroll from "./After/ToughScroll.svelte";
 
     let count, index, offset, progress;
 
@@ -62,6 +63,7 @@
             </div>
 
         </Scroller>
+        <ToughScroll />
     </div>
 
 </main>

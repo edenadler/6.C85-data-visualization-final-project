@@ -1,11 +1,17 @@
 <script>
     import GoCalendar from 'svelte-icons/go/GoCalendar.svelte';
+    import Scroller from "@sveltejs/svelte-scroller";
 //     import { getContext } from 'svelte';
 //     import { LayerCake, Svg, calcExtents } from 'layercake';
 //   import { timeFormat } from 'd3-time-format';
 //   import { timeDay } from 'd3-time';
 
+const debug = false;
+let top = 0.0;
+let bottom = 1;
+let threshold = 0.5;
 
+let width, height;
 
 //   https://layercake.graphics/components/CalendarMonth.svelte
 //   console.log(getContext('LayerCake'))
@@ -63,37 +69,40 @@
 // CHANGING SPEED HERE
 
 function changeWheelSpeed(container, speedY) {
-//     var removed = false;
-//     var scrollY = 0;
-//     var handleScrollReset = function() {
-//         scrollY = container.scrollTop;
-//     };
-//     var handleMouseWheel = function(e) {
-//         e.preventDefault();
-//         scrollY += speedY * e.deltaY
-//         if (scrollY < 0) {
-//             scrollY = 0;
-//         } else {
-//             var limitY = container.scrollHeight - container.clientHeight;
-//             if (scrollY > limitY) {
-//                 scrollY = limitY;
-//             }
-//         }
-//         container.scrollTop = scrollY;
-//     };
-//     container.addEventListener('mouseup', handleScrollReset, false);
-//     container.addEventListener('mousedown', handleScrollReset, false);
-//     container.addEventListener('mousewheel', handleMouseWheel, false);
-//     return function() {
-//         if (removed) {
-//             return;
-//         }
-//         container.removeEventListener('mouseup', handleScrollReset, false);
-//         container.removeEventListener('mousedown', handleScrollReset, false);
-//         container.removeEventListener('mousewheel', handleMouseWheel, false);
-//         removed = true;
-//     };
+    console.log(container, speedY)
+    
+    var removed = false;
+    var scrollY = 0;
+    var handleScrollReset = function() {
+        scrollY = container.scrollTop;
+    };
+    var handleMouseWheel = function(e) {
+        e.preventDefault();
+        scrollY += speedY * e.deltaY
+        if (scrollY < 0) {
+            scrollY = 0;
+        } else {
+            var limitY = container.scrollHeight - container.clientHeight;
+            if (scrollY > limitY) {
+                scrollY = limitY;
+            }
+        }
+        container.scrollTop = scrollY;
+    };
+    container.addEventListener('mouseup', handleScrollReset, false);
+    container.addEventListener('mousedown', handleScrollReset, false);
+    container.addEventListener('mousewheel', handleMouseWheel, false);
+    return function() {
+        if (removed) {
+            return;
+        }
+        container.removeEventListener('mouseup', handleScrollReset, false);
+        container.removeEventListener('mousedown', handleScrollReset, false);
+        container.removeEventListener('mousewheel', handleMouseWheel, false);
+        removed = true;
+    };
 }
+let count, index, offset, progress;
 
 let container0;
 
@@ -229,13 +238,6 @@ let container0;
         </div>
     </div>
 
-
-    <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/edenadler/embed/qBJPNmb?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-        See the Pen <a href="https://codepen.io/edenadler/pen/qBJPNmb">
-        Untitled</a> by Eden (<a href="https://codepen.io/edenadler">@edenadler</a>)
-        on <a href="https://codepen.io">CodePen</a>.
-      </iframe>
-
     <!-- <div>
         {#each days as day}
             <rect
@@ -253,18 +255,19 @@ let container0;
 
     <!-- https://www.migrationpolicy.org/sites/default/files/publications/mpi-wfp-mit_migration-motivations-costs_final.pdf -->
 
-    <div class="scroll-zone" data-scroll-speed="0.5" bind:this={container0} onscroll={changeWheelSpeed(container0, 0.05)}>
+    <!-- <section class="scroll-zone" data-scroll-speed="0.5" bind:this={container0} onscroll={changeWheelSpeed(container0, 0.05)}>
         It's
-    </div>
-    <div class="scroll-zone" data-scroll-speed="0.25">
+    </section>
+    <section class="scroll-zone" data-scroll-speed="0.25">
         harder
-    </div>
+    </section>
     <div class="scroll-zone" data-scroll-speed="0.1">
         for
     </div>
     <div class="scroll-zone" data-scroll-speed="0.05">
         women
-    </div>
+    </div> -->
+
 </div>
 
 <style>
@@ -313,4 +316,54 @@ let container0;
     .calendar-vis div {
         display: flex;
     }
+
+    /* section {
+        height: 100vh;
+    } */
+
+    .end-scroller {
+
+    }
+
+    .background {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    .debug-background {
+        outline: green solid 3px;
+    }
+
+    .foreground {
+        width: 100%;
+        position: relative;
+        left: 0%;
+    }
+    .debug-foreground {
+        outline: red solid 3px;
+    }
+
+    .progress-bars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(170, 51, 120, 0.2) /*  40% opaque */;
+        visibility: visible;
+    }
+
+    section {
+        display: flex;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0); /* 20% opaque */
+        color: white;
+        justify-content: center;
+    }
+    .debug-section {
+        outline: blue solid 3px;
+    }
+
 </style>
