@@ -16,6 +16,7 @@
     $: if (index == 0) {
         migrationStep = 'before'
     } else if (index == 1) {
+        console.log(count, index, offset, progress)
         migrationStep = 'during'
     } else {
         migrationStep = 'after'
@@ -41,7 +42,7 @@
             </div>
         </div> -->
 
-        <Scroller top={0.0} bottom={0} threshold={0.2} bind:count bind:index bind:offset bind:progress>
+        <Scroller top={0.0} bottom={0} threshold={0} bind:count bind:index bind:offset bind:progress>
             <div class="background" slot="background">
                 <section></section>
                 <section></section>
@@ -52,7 +53,7 @@
                     <div class="title">Do Central American men and women have the same migration experience?</div>
 
                     {#if progress > 0.005}
-                    <div class="sticky-divider-label {progress < 0.005 ? 'hide' : 'show'}" in:fly={{y: 200, duration: 2000, easing: linear}} out:fly={{y: 200, duration: 2000, easing: linear}}>
+                    <div class="sticky-divider-label" in:fly={{y: 200, duration: 2000, easing: linear}} out:fly={{y: 200, duration: 2000, easing: linear}}>
                         <div class="migration-step-header">
                             <span class="step-name {migrationStep}">{migrationStep}</span> migration
                         </div>
