@@ -28,8 +28,13 @@ $: rectY = day => {
 // 11.63 installments for women
 // 7.67 installments for men
 
-const numDays = function(year, month) {
-    return new Date(year, month, 0).getDate()
+function getMonthName(monthIndex) {
+    const date = new Date(2023, monthIndex);
+    return date.toLocaleString('default', { month: 'long' });
+}
+
+function numDays(month) {
+    return new Date(2023, month, 0).getDate()
 }
 
 
@@ -182,38 +187,119 @@ let month = [
 },
 ]
 
+function getDateMonthsFromNow(months) {
+    let date = new Date(2023, 0, 1);
+    date.setMonth(date.getMonth() + months)
+    return date 
+}
+
+const paybackPeriod = {
+    women: {
+        months: 11,
+        remainder: 0.63,
+        color: '#ce2093'
+    },
+    men: {
+        months: 7,
+        remainder: 0.637,
+        color: '#fe872f'
+    }
+}
+
+
+function allDates(monthsToPayback) {
+    const now = new Date(2023, 0, 1);
+    const future = getDateMonthsFromNow(monthsToPayback);;
+    var daysOfYear = [];
+    for (var d = now; d <= future; d.setDate(d.getDate() + 1)) {
+        daysOfYear.push(new Date(d));
+    }
+
+    return daysOfYear;
+}
+
+function getFillByDate(paybackDetails, date) {
+    const month = date.getMonth();
+    const day = date.getDate()
+    const daysInMonth = numDays(month);
+    const fillToDate = daysInMonth * paybackDetails.remainder;
+    console.log(month, day, daysInMonth, typeof fillToDate)
+
+    if (month === paybackDetails.months) {
+        console.log(month, day, daysInMonth, typeof fillToDate)
+        if (day <= fillToDate) {
+            return paybackDetails.color;
+        } else {
+            return 'white';
+        }
+    } else {
+        return paybackDetails.color;
+    }
+}
 
 </script>
 
 <div class="calendar-container">
     <!-- https://codepen.io/tornord/pen/Qzmbbg -->
-    {#each Array(3) as _, i}
-        <svg>
-            <g transform="translate(0, 40)">
-                {#each month as date}
-                    <rect
-                    class="day"
-                    width="{cellSize}"
-                    height="{cellSize}"
-                    x="{date.weekday * cellSize}"
-                    y="{date.week * cellSize}"
-                    style="stroke-width: 1; stroke: black; fill: #fe872f;"
-                    />
-                {/each} 
-                <text dy="0.71em" x="30" y="-25" style="color: black; font-size: 20px;" >January</text>
-            </g>
-        </svg>
-    {/each}
-    <!-- style="fill:{fillColor(day)};"
-                on:mouseenter="{showCount(day)}" -->
+    <div class="calendar-column">
+        {#each Array(paybackPeriod.women.months + 1) as _, i}
+            <svg>
+                <g transform="translate(0, 20)">
+                    {#each allDates(paybackPeriod.women.months + 1) as date}
+                        {#if date.getMonth() === i}
+                            <rect
+                            class="day"
+                            width="{cellSize}"
+                            height="{cellSize}"
+                            x="{rectX(date)}"
+                            y="{rectY(date)}"
+                            style="stroke-width: 1; stroke: black; fill: {getFillByDate(paybackPeriod.women, date)};"
+                            data={getFillByDate(paybackPeriod.women, date)}
+                            />
+                        {/if}
+                    {/each} 
+                </g>
+                <text x="35" y="0" style="color: black; font-size: 20px;" >{getMonthName(i)}</text>
+            </svg>
+        {/each}
+    </div>
+    <div class="calendar-column">
+        {#each Array(paybackPeriod.men.months + 1) as _, i}
+            <svg>
+                <g transform="translate(0, 20)">
+                    {#each allDates(paybackPeriod.men.months + 1) as date}
+                        {#if date.getMonth() === i}
+                            <rect
+                            class="day"
+                            width="{cellSize}"
+                            height="{cellSize}"
+                            x="{rectX(date)}"
+                            y="{rectY(date)}"
+                            style="stroke-width: 1; stroke: black; fill: {getFillByDate(paybackPeriod.men, date)};"
+                            data={getFillByDate(paybackPeriod.men, date)}
+                            />
+                        {/if}
+                    {/each} 
+                </g>
+                <text x="35" y="0" style="color: black; font-size: 20px;" >{getMonthName(i)}</text>
+            </svg>
+        {/each}
+    </div>
 </div>
 
 <style>
     svg {
-        max-width: 200px;
+        max-width: 180px;
+        margin: 15px 0px;
+        overflow: visible;
     }
 
     .calendar-container {
         display: flex;
+        justify-content: center;
+    }
+
+    .calendar-column {
+        max-width: 800px;
     }
 </style>
