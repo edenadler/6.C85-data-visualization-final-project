@@ -284,11 +284,16 @@ onMount(() => {
   <!-- <div class="banner">
     <h1>There is a significant disparity in the distribution of financial resource between women and men</h1>
   </div> -->
+  <div class="transition-text">
+    <div>Let's compare Maria and Jose's experiences migrating to the U.S. Imagine that they have the same job, family situation, age, and education. <span>The only difference is their gender.</span> </div>
+  </div>
   <div class="column-container">
       <div class="col">
+          <div class="persona-name">Maria</div>
           <img src="Woman.png" class="persona-img" />
       </div>
       <div class="col">
+          <div class="persona-name">Jose</div>
           <img src="Man.png" class="persona-img" />
       </div>
   </div>
@@ -400,7 +405,7 @@ onMount(() => {
         width: 60%;
         gap: 30%;
         justify-content: center;
-        margin: 50px auto;
+        margin: 50px auto 100px auto;
     }
 
     .col {
@@ -408,6 +413,13 @@ onMount(() => {
         flex: 0 0 50%;
         justify-content: center;
         max-width: 50%;
+        flex-direction: column;
+    }
+
+    .persona-name {
+      font-size: 20px;
+      padding: 20px;
+
     }
   
     /* Add some styles to the headings and paragraphs */
@@ -613,6 +625,16 @@ h4 {
   margin: 0 auto;
   font-size: 12px;
   text-align: center;
+}
+
+.transition-text {
+  font-size: 30px;
+  padding: 50px;
+  margin: 50px 0px;
+}
+
+.transition-text span {
+  color: #ce2093;
 }
 
 /* .chart svg {

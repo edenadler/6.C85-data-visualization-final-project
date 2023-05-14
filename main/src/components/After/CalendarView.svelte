@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import { onMount } from "svelte";
 import { timeFormat } from 'd3-time-format';
 import { timeDay } from 'd3-time';
+    import { detach_before_dev } from "svelte/internal";
 
 // onMount(() => {
 //     render();
@@ -20,6 +21,16 @@ $: rectY = day => {
     const weekDiff = thisWeek - startWeek;
     return weekDiff * cellSize;
 };
+
+// women 4500 migration debt 
+// men 3500 migration debt 
+
+// 11.63 installments for women
+// 7.67 installments for men
+
+const numDays = function(year, month) {
+    return new Date(year, month, 0).getDate()
+}
 
 let month = [
 {

@@ -43,42 +43,6 @@
             </p>
         </div> -->
     
-        <div class="vis-container">
-            <div class="heading">
-              <h2>How much debt do people incur to migrate?</h2>
-            </div>
-            <div class="column-container">
-              <div class="col">
-                <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-time-19.svg" alt="timer" srcset="" class="icon"> -->
-                <!-- <img src="images/latinaicon.jpeg" alt="timer" srcset="" class="icon"> -->
-                <div class="counter">
-                  <div class="money-counter"><h3>$</h3><h3 data-target="850500000" class="count">0</h3></div>
-                  <h6>Women's Migratory Debt</h6>
-                </div>
-              </div>
-              <div class="col">
-                <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-coffee-11.svg" alt="Coffee" srcset="" class="icon"> -->
-                <!-- <img src="images/latinoicon.jpeg" alt="timer" srcset="" class="icon"> -->
-                <div class="counter">
-                  <div class="money-counter"><h3>$</h3><h3 data-target="661500000" class="count">0</h3></div>
-                  <h6>Men's Migratory Debt</h6>
-                </div>
-              </div>
-            </div>
-            <div class = "debt-button">
-                <button on:click={animateDebt}>Find out the cost of debt</button>
-            </div>
-            <div>
-              <p>
-                "We begged from neighbors to loan us a few quetzales. 
-                We sold our household furniture. We borrowed from the bank. 
-                We didn't bury my father properly; we just couldn't afford it. 
-                We used the money for me to travel over there." - 
-                <a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Eulalia, Age 17, Guatamala, 2019</a>
-              </p>
-            </div>
-        </div>
-    
         <!-- <div class="AccompanyMigrationNarrative">
             <p>
               Today, growing numbers of mothers and children are fleeing Central America. 
@@ -186,6 +150,42 @@
                 <!-- <img class="violencechart" src="SexualViolenceChart.png" onmouseover="this.src='SexualViolenceChartNoLoop.gif';"> -->
             </div>
         </div> 
+
+        <div class="vis-container">
+          <div class="heading">
+            <h2>How much debt do people incur to migrate?</h2>
+          </div>
+          <div class="column-container">
+            <div class="col">
+              <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-time-19.svg" alt="timer" srcset="" class="icon"> -->
+              <!-- <img src="images/latinaicon.jpeg" alt="timer" srcset="" class="icon"> -->
+              <div class="counter">
+                <div class="money-counter"><h3>$</h3><h3 data-target="850500000" class="count">0</h3></div>
+                <h6>Women's Migratory Debt</h6>
+              </div>
+            </div>
+            <div class="col">
+              <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-coffee-11.svg" alt="Coffee" srcset="" class="icon"> -->
+              <!-- <img src="images/latinoicon.jpeg" alt="timer" srcset="" class="icon"> -->
+              <div class="counter">
+                <div class="money-counter"><h3>$</h3><h3 data-target="661500000" class="count">0</h3></div>
+                <h6>Men's Migratory Debt</h6>
+              </div>
+            </div>
+          </div>
+          <div class = "debt-button">
+              <button on:click={animateDebt}>Find out the cost of debt</button>
+          </div>
+          <div>
+            <p>
+              "We begged from neighbors to loan us a few quetzales. 
+              We sold our household furniture. We borrowed from the bank. 
+              We didn't bury my father properly; we just couldn't afford it. 
+              We used the money for me to travel over there." - 
+              <a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Eulalia, Age 17, Guatamala, 2019</a>
+            </p>
+          </div>
+      </div>
     </div>  
 </div>
 
