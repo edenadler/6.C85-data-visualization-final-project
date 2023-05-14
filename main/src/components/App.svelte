@@ -42,7 +42,7 @@
             </div>
         </div> -->
 
-        <Scroller top={0.0} bottom={0} threshold={0} bind:count bind:index bind:offset bind:progress>
+        <Scroller top={0.0} bottom={0} threshold={0.5} bind:count bind:index bind:offset bind:progress>
             <div class="background" slot="background">
                 <section></section>
                 <section></section>

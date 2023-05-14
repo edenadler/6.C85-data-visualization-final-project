@@ -400,6 +400,10 @@ onMount(() => {
   <div>
     <div class="map-container" style="height: 600px;"></div>
   </div>
+  <div class="source">SOURCE</div>
+  <div class="transition-text" >
+    <div style="display: flex; justify-content: center; align-items: center;">Luckily <div class="persona-name maria" ><span>Maria</span></div> was able to fund her migration through ________________________</div>
+  </div>
 </div>
 
   

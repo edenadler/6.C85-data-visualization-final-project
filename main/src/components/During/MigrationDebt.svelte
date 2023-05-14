@@ -12,7 +12,7 @@
                     counter.innerText = count + increment;
                     setTimeout(updateCount, 1);
                 } else {
-                    count.innerText = target;
+                    count.innerText = target.toLocaleString();
                 }
             };
             updateCount();
