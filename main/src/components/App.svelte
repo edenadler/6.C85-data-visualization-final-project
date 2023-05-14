@@ -5,6 +5,9 @@
     import During from "./During.svelte";
     import After from "./After.svelte";
     import Scroller from "@sveltejs/svelte-scroller";
+    import ToughScroll from "./After/ToughScroll.svelte";
+    import { backInOut, linear } from 'svelte/easing';
+	import {blur, fade, fly, scale, slide} from 'svelte/transition';
 
     let count, index, offset, progress;
 
@@ -13,6 +16,7 @@
     $: if (index == 0) {
         migrationStep = 'before'
     } else if (index == 1) {
+        console.log(count, index, offset, progress)
         migrationStep = 'during'
     } else {
         migrationStep = 'after'
@@ -22,7 +26,7 @@
 <main>
 
     <div on:scroll={() => console.log(progress, offset)}>
-        <div class="sticky-divider-label {progress < 0.11 ? 'hide' : 'show'}">
+        <!-- <div class="sticky-divider-label {progress < 0.11 ? 'hide' : 'show'}">
             <div class="migration-step-header">
                 <span class="step-name {migrationStep}">{migrationStep}</span> migration
             </div>
@@ -36,17 +40,35 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <Scroller top={0.0} bottom={0} threshold={0.2} bind:count bind:index bind:offset bind:progress>
+        <Scroller top={0.0} bottom={0} threshold={0.5} bind:count bind:index bind:offset bind:progress>
             <div class="background" slot="background">
-                <section>1</section>
-                <section>2</section>
+                <section></section>
+                <section></section>
             </div>
 
             <div class="foreground" slot="foreground">
-                <div class="heading">
-                    <h1>Do Central American men and women have the same migration experience?</h1>
+                <div class="heading {progress >= 0.005 ? 'scrolling' : 'at-top'}">
+                    <div class="title">Do Central American men and women have the same migration experience?</div>
+
+                    {#if progress > 0.005}
+                    <div class="sticky-divider-label" in:fly={{y: 200, duration: 2000, easing: linear}} out:fly={{y: 200, duration: 2000, easing: linear}}>
+                        <div class="migration-step-header">
+                            <span class="step-name {migrationStep}">{migrationStep}</span> migration
+                        </div>
+                        <div class="men-and-women-header">
+                            <div class="column-container">
+                                <div class="col">
+                                    <h2>Women</h2>
+                                </div>
+                                <div class="col">
+                                    <h2>Men</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/if}
                 </div>
                 <section>
                     <Before />
@@ -62,6 +84,7 @@
             </div>
 
         </Scroller>
+        <ToughScroll />
     </div>
 
 </main>
@@ -98,19 +121,47 @@
 
     .heading {
         margin: 0px;
-        height: 50vh;
-        padding: 40px;
+        height: 30vh;
+        padding-top: 20px;
         text-align: center;
-        color: var(--pink);
+        color: white;
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        background-color: var(--dark-purple);
+        position: sticky;
+        top: 0px;
+        z-index: 100;
     }
 
-    .heading h1 {
+    .heading .title {
         margin: 0px;
         display: flex;
         align-items: center;
         justify-content: center;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        transition: font-size 2s ease;
+    }
+
+    .scrolling .title {
+        font-size: 1.2em;
+        animation: up 2s forwards;
+    }
+
+    .at-top .title {
+        font-size: 2em;
+        animation: down 2s forwards;
+    }
+
+    @keyframes up {
+        from {transform: translateY(0vh);}
+        to {transform: translateY(-4vh);}
+    }
+
+    @keyframes down {
+        from {transform: translateY(-4vh);}
+        to {transform: translateY(0vh);}
     }
 
     .dots {
@@ -131,6 +182,7 @@
     }
 
     section {
+        width: 80%;
         position: relative;
 		min-height: 80vh;
 		/* background-color: rgba(0,0,0,0.5);
@@ -147,7 +199,6 @@
     }
 
     .foreground {
-        width: 80%;
         margin: 0 auto;
         height: auto;
         position: relative;
@@ -168,21 +219,22 @@
     }
 
     .sticky-divider-label {
-        padding-top: 30px;
         font-size: 35px;
+        /* padding-top: 30px;
         position: sticky;
         top: 0px;
         background-color: #fff59d;
-        z-index: 100;
+        z-index: 100; */
     }
 
     .step-name {
         font-weight: 800;
-        transition: 50ms ease;
+        transition: color 500ms ease;
+        margin-right: 10px;
     }
 
     .before {
-        color: var(--dark-purple);
+        color: var(--yellow);
     }
 
     .during {

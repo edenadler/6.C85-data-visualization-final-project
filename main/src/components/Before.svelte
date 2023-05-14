@@ -1,5 +1,6 @@
 <script>
   import GiBank from 'svelte-icons/gi/GiBank.svelte';
+  import GiHouse from 'svelte-icons/gi/GiHouse.svelte'
   import GiMoneyStack from 'svelte-icons/gi/GiMoneyStack.svelte';
   import FaMoneyBillWave from 'svelte-icons/fa/FaMoneyBillWave.svelte';
   import IoMdWoman from 'svelte-icons/io/IoMdWoman.svelte';
@@ -7,6 +8,8 @@
   import mapboxgl from 'mapbox-gl';
   import 'mapbox-gl/dist/mapbox-gl.css';
   import * as d3 from 'd3';
+  import { backInOut, linear } from 'svelte/easing';
+	import {blur, fade, fly, scale, slide} from 'svelte/transition';
 
 let counterValue = 0;
 let intervalId = null;
@@ -20,9 +23,10 @@ function startCounter() {
       } else {
           counterValue += 1000000;
       }
-    }, 7);
+    }, 6);
   }
 }
+
 
   // let progress = 0;
 
@@ -281,88 +285,126 @@ onMount(() => {
 </script>
 
 <div class="before">
-  <!-- <div class="banner">
-    <h1>There is a significant disparity in the distribution of financial resource between women and men</h1>
-  </div> -->
+  <div class="transition-text">
+    <div>Let's compare Maria and Jose's experiences migrating to the U.S. Imagine that they have the same job, family situation, age, and education. <span>The only difference is their gender</span> </div>
+  </div>
   <div class="column-container">
       <div class="col">
+          <div class="persona-name maria"><span>Maria</span></div>
           <img src="Woman.png" class="persona-img" />
       </div>
       <div class="col">
+          <div class="persona-name jose"><span>Jose</span></div>
           <img src="Man.png" class="persona-img" />
       </div>
+  </div>
+  <div class="transition-text">
+    <div>Migration is costly. Let's compare their <span class="orange">financial inclusion</span></div>
   </div>
   <div class="columns-container">
     <div class="left-column">
       <div class="icon-container">
           {#each Array.from({ length: 100 }) as _, index}
-              <div class={index < 51 ? "icon purple" : "icon"}>
-              <FaMoneyBillWave/>
+              <div class={index < 51 ? "icon emphasized" : "icon"}>
+              <GiBank/>
           </div>
           {/each}
       </div>
-      <br/>
-      <div class="circle">
-          <span>51.4%</span>
+      <div class="statistic">
+        <span class="orange">51%</span>
       </div>
-      <!-- <div id="chart"></div> -->
-      
-      <br/>
-      <h2>women own bank accounts</h2>
+      <h2>of women own bank accounts</h2>
     </div>
     <div class="right-column">
       <div class="icon-container">
           {#each Array.from({ length: 100 }) as _, index}
-          <div class={index < 57 ? "icon purple" : "icon"}>
-              <FaMoneyBillWave/>
+          <div class={index < 57 ? "icon emphasized" : "icon"}>
+              <GiBank/>
           </div>
           {/each}
       </div>
-      <br/>
-      <div class="circle">
-          <span>57.4%</span>
+      <div class="statistic">
+        <span class="orange">57%</span>
       </div>
-      <!-- <div id="chart_two"></div> -->
-      <br/>
-      <h2>men own bank accounts</h2>
+      <h2>of men own bank accounts</h2>
     </div>
   </div>
-  <div class="vis-container">
-      <button on:click={startCounter}>Calculate difference</button>
-      <div class="counter">
+  <div class="source">SOURCE</div>
+  <div class="transition-text">
+    <div>This may not seem very different. But...</div>
+  </div>
+  <div class="columns-container column">
+      <button on:click={startCounter}>click to See how many</button>
+      {#if counterValue > 0}
+      <div class="counter" transition:slide>
           <h3>{counterValue.toLocaleString()}</h3>
       </div>
-      <div>
-          <h4>women in Latin America do not have access to a bank account</h4>
+      {/if}
+      <div class="statistic">
+          <h2>women in Latin America don't have access to a bank account</h2>
       </div>
+      <div class="source">SOURCE</div>
   </div>
-  <div class="vis-container">
-      <h4>Only 6 out of every 100 women have taken out a mortgage.</h4>
+  <div class="transition-text" >
+    <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> doesn't have access to a 
+      <span class="burden bank">
+        <div class="bank-burden-icon"><GiBank /></div>
+        bank account
+      </span>
+    </div>
+    
+  </div>
+  <div class="transition-text" >
+    <div>To fund her migration she'll have to utilize other means of funding her migration ____________. Many people use assets such as property as collateral to fund their migration</div>
+  </div>
+  <div class="source">SOURCE</div>
+  <div class="transition-text" >
+    <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> doesn't own any 
+    <span class="burden house">
+      <div class="house-burden-icon"><GiHouse /></div>
+      property
+    </span>
+     either
+  </div>
+    <div>and she's not alone...</div>
+  </div>
+  <div class="transition-text" >
+    <div><span class="orange">Only 6</span> out of every 100 women have taken out a mortgage</div>
+  </div>
+  <div class="columns-container column">
       <div class="women-icon-container">
           {#each Array.from({ length: 100 }) as _, index}
-              <div class={index < 6 ? "women-icon purple" : "women-icon"}>
-              <IoMdWoman/>
-          </div>
+              <div class={index < 6 ? "women-icon emphasized" : "women-icon"}>
+                <GiHouse/>
+              </div>
           {/each}
       </div>
   </div>
-  <div>
+  <div class="source">SOURCE</div>
+  <!-- <div>
       <div class="para-female">Female home ownership not only has ramifications on living conditions, but in women’s ability to build and grow their own businesses. 
         Accessing formal credit relies heavily on collateral, namely large assets—a house or an apartment—that women often lack but which are essential to building their credit history.  </div>
 
   </div>
-  <br/><br/>
-  <div class="para-female-triangle">The Northern Triangle countries of Guatemala, Honduras, and El Salvador face numerous political and economic issues that further exacerbate this gender gap. 
-  Underemployment rates within women in these countries are shown below. 
-
+  <br/><br/> -->
+  <div class="transition-text" >
+    <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> doesn't have access to a bank account and doesn't have a mortgage,</div>
+    <div>but maybe she can fund her migration through <span class="orange">employment</span>?</div>
   </div>
-  <br/>
+  <div class="transition-text" >
+    <div><span class="orange">underemployment</span> rates are high in The Northern Triangle</div>
+    <div>especially for women</div>
+  </div>
+  <!-- <div class="para-female-triangle">The Northern Triangle countries of Guatemala, Honduras, and El Salvador face numerous political and economic issues that further exacerbate this gender gap. 
+  Underemployment rates for women in these countries are shown below.</div> -->
   <div>
-  <div class="map-container" style="height: 600px;"></div>
+    <div class="map-container" style="height: 600px;"></div>
   </div>
-  <!-- <div id="chart"></div> -->
-  <br/>
-  <!-- <div id="chart"></div> -->
+  <div class="source">SOURCE</div>
+  <div class="transition-text" >
+    <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name maria" ><span>Maria</span></div> was able to fund her migration through a bank loan.</div>
+    <div>The loan, however, comes with very high interest rates</div>
+  </div>
 </div>
 
   
@@ -383,16 +425,20 @@ onMount(() => {
       display: flex;
       width: 100%;
     }
+
+    .columns-container.column {
+      flex-direction: column;
+    }
   
     /* Set the width and padding of the left and right columns */
     .left-column {
       flex-basis: 50%;
-      padding: 20px;
+      margin-right: 30px;
     }
   
     .right-column {
       flex-basis: 50%;
-      padding: 20px;
+      margin-left: 30px;
     } 
 
     .column-container {
@@ -400,7 +446,7 @@ onMount(() => {
         width: 60%;
         gap: 30%;
         justify-content: center;
-        margin: 50px auto;
+        margin: 50px auto 100px auto;
     }
 
     .col {
@@ -408,6 +454,30 @@ onMount(() => {
         flex: 0 0 50%;
         justify-content: center;
         max-width: 50%;
+        flex-direction: column;
+    }
+
+    .persona-name {
+      font-size: 25px;
+      font-weight: 600;
+      padding: 20px;
+      margin: 20px 0px;
+    }
+
+    .persona-name.maria span {
+      background-color: #ce2093;
+      color: white;
+    }
+
+    .persona-name.jose span {
+      background-color: #fe872f;
+      color: white;
+    }
+
+    .persona-name span {
+      background-color: #ce2093;
+      padding: 20px 30px;
+      border-radius: 100px;
     }
   
     /* Add some styles to the headings and paragraphs */
@@ -425,6 +495,7 @@ onMount(() => {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 40px;
   }
 
   .vis-container {
@@ -447,28 +518,10 @@ onMount(() => {
   font-size: 36px;
   }
 
-  .circle {
-    width: 250px;
-    height: 250px;
-    margin: 20px auto 0 auto;
-    display: flex;
-    width: 100%;
-  }
-
-  .circle span {
-    font-size: 68px;
-    color: #4a0a70;
-    text-align: center;
-  }
   /* Style the counter */
   .counter {
     text-align: center;
     margin-top: 50px;
-  }
-
-  .right-column {
-    flex-basis: 50%;
-    padding: 20px;
   }
 
   /* Add some styles to the headings and paragraphs */
@@ -481,70 +534,49 @@ onMount(() => {
     margin: 0;
   }
 
-  /* Center the icon container */
-.icon-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Style the icons */
-/* .icon {
-  width: 50px;
-  margin: 5px;
-  color: #ce2093; 
-}
-
-.purple {
-  color: #4a0a70;
-} */
 .icon {
-  width: 50px;
-  margin: 5px;
-  color: #fdbb58; 
+  width: 25px;
+  margin: 3px;
+  color: rgb(207, 184, 207); 
+  opacity: 0.5;
 }
+
 .women-icon {
-  width: 50px;
-  padding: 0px;
-  margin: 0px;
-  color: #fdbb58; 
-}
-.women-icon::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
+  width: 35px;
+  margin: 3px;
+  color: rgb(207, 184, 207); 
+  opacity: 0.5;
 }
 
-.purple {
-  color: black;
+.emphasized {
+  color: #fe872f;
+  opacity: 1;
 }
 
-.icon::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
+.source {
+  font-size: 10px;
+  color: rgb(207, 184, 207);
+  margin: 30px 0px;
 }
-.circle {
-  width: 250px;
-  height: 250px;
-  /* background-color: #4a0a70; */
-  border-radius: 50%;
-  margin: 20px auto 0 auto;
-  display: flex;
+
+.statistic {
   justify-content: center;
-  align-items: center;
 }
 
-.circle span {
+.statistic span {
   font-size: 80px;
-  color: #4a0a70;
   text-align: center;
   font-weight: 600;
 }
+
+.statistic h2 {
+  margin: 30px 0px;
+}
+
+.orange {
+  color: #fe872f;
+}
+
 /* Style the counter */
 .counter {
   text-align: center;
@@ -561,16 +593,26 @@ button {
   background-color: #4a0a70;
   color: white;
   font-size: 36px;
-  padding: 16px 32px;
+  padding: 20px 40px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
   margin-top: 16px;
   transition: background-color 0.2s;
+  width: fit-content;
+  align-self: center;
+  text-transform: uppercase;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
 }
 
 button:hover {
-  background-color: #ce2093;
+  background-color: #7d13bb;
+  box-shadow: 0px 15px 20px rgba(74, 10, 112, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
 h4 {
   font-size: 40px;
@@ -596,9 +638,11 @@ h4 {
   width: 72%;
   margin: auto;
   justify-content: center;
+  margin-bottom: 40px;
 }
 .map-container {
-  width: 100%;
+  width: 50%;
+  margin: 30px auto;
   background-color: #5e5d5d;
 }
 .mapboxgl-popup {
@@ -615,6 +659,53 @@ h4 {
   text-align: center;
 }
 
+.transition-text {
+  font-size: 30px;
+  padding: 50px;
+  margin: 50px 0px;
+}
+
+.transition-text span {
+  color: #ce2093;
+}
+
+.transition-text .orange {
+  color: #fe872f;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0px 3px;
+}
+
+.transition-text .purple {
+  color: #4a0a70;
+}
+
+span.burden {
+  font-weight: 750;
+  margin: 9px;
+  color: #4a0a70;
+  position: relative;
+}
+
+.bank-burden-icon {
+  z-index: -1;
+  width: 150px;
+  position: absolute;
+  top: -150%;
+  left: 10%;
+  opacity: 0.4;
+  color:rgb(207, 184, 207);
+}
+
+.house-burden-icon {
+  z-index: -1;
+  width: 120px;
+  position: absolute;
+  top: -150%;
+  left: 4%;
+  opacity: 0.4;
+  color:rgb(207, 184, 207);
+}
 /* .chart svg {
   width: 100%;
   height: 100%;
