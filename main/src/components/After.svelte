@@ -74,28 +74,9 @@ let container0;
     </div>
 
     <div class="calendar-container">
-        <h2>Time to pay off debt</h2>
         <CalendarView />
-        <div class="calendar-text">
-            <div>13 months</div>
-            <div>7 months</div>
-        </div>
+        <div class="source">source</div>
     </div>
-
-    <!-- <div>
-        {#each days as day}
-            <rect
-                class="day"
-                width="{cellSize}"
-                height="{cellSize}"
-                x="{rectX(day)}"
-                y="{rectY(day)}"
-                style="fill:{fillColor(day)};"
-                on:mouseenter="{showCount(day)}"
-            />
-        {/each}
-
-    </div> -->
 
     <!-- https://www.migrationpolicy.org/sites/default/files/publications/mpi-wfp-mit_migration-motivations-costs_final.pdf -->
 

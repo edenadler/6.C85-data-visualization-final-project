@@ -239,52 +239,68 @@ function getFillByDate(paybackDetails, date) {
 
 </script>
 
-<div class="calendar-container">
-    <!-- https://codepen.io/tornord/pen/Qzmbbg -->
-    <div class="calendar-column">
-        {#each Array(paybackPeriod.women.months + 1) as _, i}
-            <svg>
-                <g transform="translate(0, 20)">
-                    {#each allDates(paybackPeriod.women.months + 1) as date}
-                        {#if date.getMonth() === i}
-                            <rect
-                            class="day"
-                            width="{cellSize}"
-                            height="{cellSize}"
-                            x="{rectX(date)}"
-                            y="{rectY(date)}"
-                            style="stroke-width: 1; stroke: black; fill: {getFillByDate(paybackPeriod.women, date)};"
-                            data={getFillByDate(paybackPeriod.women, date)}
-                            />
-                        {/if}
-                    {/each} 
-                </g>
-                <text x="35" y="0" style="color: black; font-size: 20px;" >{getMonthName(i)}</text>
-            </svg>
-        {/each}
+<div>
+    <div class="calendar-container">
+        <div class="calendar-count">
+            <div class="calendar-title">
+                <div class="persona-name maria" ><span>Maria</span></div>
+                <div class="calendar-result-text">11 months, 18 days</div>
+            </div>
+        </div>
+        <div class="calendar-count">
+            <div class="calendar-title">
+                <div class="persona-name jose" ><span>Jose</span></div>
+                <div class="calendar-result-text">7 months, 19 days</div>
+            </div>
+        </div>
     </div>
-    <div class="calendar-column">
-        {#each Array(paybackPeriod.men.months + 1) as _, i}
-            <svg>
-                <g transform="translate(0, 20)">
-                    {#each allDates(paybackPeriod.men.months + 1) as date}
-                        {#if date.getMonth() === i}
-                            <rect
-                            class="day"
-                            width="{cellSize}"
-                            height="{cellSize}"
-                            x="{rectX(date)}"
-                            y="{rectY(date)}"
-                            style="stroke-width: 1; stroke: black; fill: {getFillByDate(paybackPeriod.men, date)};"
-                            data={getFillByDate(paybackPeriod.men, date)}
-                            />
-                        {/if}
-                    {/each} 
-                </g>
-                <text x="35" y="0" style="color: black; font-size: 20px;" >{getMonthName(i)}</text>
-            </svg>
-        {/each}
-    </div>
+    <div class="calendar-container">
+        <!-- https://codepen.io/tornord/pen/Qzmbbg -->
+        <div class="calendar-column">
+            {#each Array(paybackPeriod.women.months + 1) as _, i}
+                <svg>
+                    <g transform="translate(0, 20)">
+                        {#each allDates(paybackPeriod.women.months + 1) as date}
+                            {#if date.getMonth() === i}
+                                <rect
+                                class="day"
+                                width="{cellSize}"
+                                height="{cellSize}"
+                                x="{rectX(date)}"
+                                y="{rectY(date)}"
+                                style="stroke-width: 1; stroke: black; fill: {getFillByDate(paybackPeriod.women, date)};"
+                                data={getFillByDate(paybackPeriod.women, date)}
+                                />
+                            {/if}
+                        {/each} 
+                    </g>
+                    <text x="35" y="0" style="color: black; font-size: 20px;" >{getMonthName(i)}</text>
+                </svg>
+            {/each}
+        </div>
+        <div class="calendar-column">
+            {#each Array(paybackPeriod.men.months + 1) as _, i}
+                <svg>
+                    <g transform="translate(0, 20)">
+                        {#each allDates(paybackPeriod.men.months + 1) as date}
+                            {#if date.getMonth() === i}
+                                <rect
+                                class="day"
+                                width="{cellSize}"
+                                height="{cellSize}"
+                                x="{rectX(date)}"
+                                y="{rectY(date)}"
+                                style="stroke-width: 1; stroke: black; fill: {getFillByDate(paybackPeriod.men, date)};"
+                                data={getFillByDate(paybackPeriod.men, date)}
+                                />
+                            {/if}
+                        {/each} 
+                    </g>
+                    <text x="35" y="0" style="color: black; font-size: 20px;" >{getMonthName(i)}</text>
+                </svg>
+            {/each}
+        </div>
+    </div>    
 </div>
 
 <style>
@@ -301,5 +317,47 @@ function getFillByDate(paybackDetails, date) {
 
     .calendar-column {
         max-width: 800px;
+    }
+
+    .calendar-count {
+        display: flex;
+        justify-content: center;
+        flex-basis: 50%;
+    }
+
+    .calendar-result-text {
+        font-size: 30px;
+    }
+
+    .persona-name {
+      font-size: 25px;
+      font-weight: 600;
+      padding: 20px;
+      margin: 20px 0px;
+    }
+
+    .persona-name.maria span {
+      background-color: #ce2093;
+      color: white;
+    }
+
+    .persona-name.jose span {
+      background-color: #fe872f;
+      color: white;
+    }
+
+    .persona-name span {
+      background-color: #ce2093;
+      padding: 20px 30px;
+      border-radius: 100px;
+    }
+
+    .calendar-title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        margin: 20px auto 50px;
     }
 </style>
