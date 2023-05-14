@@ -1,8 +1,8 @@
 <script>
     import MigrationAccompanyWomen from "./During/MigrationAccompanyWomen.svelte";
     import MigrationAccompanyMen from "./During/MigrationAccompanyMen.svelte";
-    import WomenCoins from "./During/MenCoins.svelte";
-    import MenCoins from "./During/WomenCoins.svelte";
+    import WomenCoins from "./During/WomenCoins.svelte";
+    import MenCoins from "./During/MenCoins.svelte";
     import { animateDebt } from "./During/MigrationDebt.svelte";
     import IoMdWoman from 'svelte-icons/io/IoMdWoman.svelte';
     import * as d3 from 'd3';

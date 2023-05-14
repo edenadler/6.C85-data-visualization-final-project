@@ -32,6 +32,8 @@ const numDays = function(year, month) {
     return new Date(year, month, 0).getDate()
 }
 
+
+
 let month = [
 {
     weekday: 0,
@@ -187,7 +189,7 @@ let month = [
     <!-- https://codepen.io/tornord/pen/Qzmbbg -->
     {#each Array(3) as _, i}
         <svg>
-            <g>
+            <g transform="translate(0, 40)">
                 {#each month as date}
                     <rect
                     class="day"
@@ -198,6 +200,7 @@ let month = [
                     style="stroke-width: 1; stroke: black; fill: #fe872f;"
                     />
                 {/each} 
+                <text dy="0.71em" x="30" y="-25" style="color: black; font-size: 20px;" >January</text>
             </g>
         </svg>
     {/each}

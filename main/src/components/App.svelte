@@ -49,8 +49,11 @@
             </div>
 
             <div class="foreground" slot="foreground">
-                <div class="heading {progress >= 0.005 ? 'scrolling' : 'at-top'}">
+                <div class="heading {progress >= 0.005 ? 'scrolling' : 'at-top'}" in:fly={{y: -200, duration: 2000, easing: linear}} out:fly={{y: -200, duration: 2000, easing: linear}}>
                     <div class="title">Do Central American men and women have the same migration experience?</div>
+                    {#if progress <= 0.005}
+                        <div class="name-credit" in:fly={{y: -200, duration: 2000, easing: linear}} out:fly={{y: -200, duration: 2000, easing: linear}}>Eden Adler, Prerna Ravi, Lelia Marie</div>
+                    {/if}
 
                     {#if progress > 0.005}
                     <div class="sticky-divider-label" in:fly={{y: 200, duration: 2000, easing: linear}} out:fly={{y: 200, duration: 2000, easing: linear}}>

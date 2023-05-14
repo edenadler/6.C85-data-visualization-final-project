@@ -355,7 +355,8 @@ onMount(() => {
     
   </div>
   <div class="transition-text" >
-    <div>To fund her migration she'll have to utilize other means of funding her migration ____________. Many people use assets such as property as collateral to fund their migration</div>
+    <div>Not having a bank account means her money is not protected. Like many migrants, she may want to take out a loan to fund her migration.</div>
+    <div>Many people use assets such as property as collateral to fund their migration___________________</div>
   </div>
   <div class="source">SOURCE</div>
   <div class="transition-text" >

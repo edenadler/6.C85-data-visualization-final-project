@@ -2,6 +2,7 @@
     import GoCalendar from 'svelte-icons/go/GoCalendar.svelte';
     import CalendarView from './After/CalendarView.svelte';
     import CaledarView from "./After/CalendarView.svelte";
+    import EarningsView from './After/EarningsView.svelte';
 //     import { getContext } from 'svelte';
 //     import { LayerCake, Svg, calcExtents } from 'layercake';
 //   import { timeFormat } from 'd3-time-format';
@@ -62,12 +63,14 @@ let container0;
   
 <div>
     <div class="vis-container">
-        <h2>Median earnings for Central American migrants in the US</h2>
-        <div class="earnings-container">
-            <div class="women">$38,673</div>
-            <div class="men">$45,588</div>
-        </div>
+        
+        <EarningsView />
+        <div class="source">source</div>
         <!-- <a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">Source (Table 3.11)</a> -->
+    </div>
+    <div class="transition-text" >
+        <div>It may look like the differences here are small.</div>
+        <div>Let's see the difference in Maria and Jose's <span class="orange">payback timeline</span> for their migration debt</div>
     </div>
 
     <div class="calendar-container">
@@ -112,6 +115,33 @@ let container0;
 </div>
 
 <style>
+
+  .transition-text {
+    font-size: 30px;
+    padding: 50px;
+    margin: 50px 0px;
+  }
+
+  .transition-text span {
+    color: #ce2093;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0px 5px;
+  }
+
+  .transition-text .orange, .columns-container .orange {
+    color: #fe872f;
+  }
+
+  .transition-text .purple {
+    color: #4a0a70;
+  }
+
+.source {
+  font-size: 10px;
+  color: rgb(207, 184, 207);
+  margin: 30px 0px;
+}
 
 .day {
     stroke: #000;
