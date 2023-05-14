@@ -1,8 +1,8 @@
 <script>
     import MigrationAccompanyWomen from "./During/MigrationAccompanyWomen.svelte";
     import MigrationAccompanyMen from "./During/MigrationAccompanyMen.svelte";
-    import WomenCoins from "./During/WomenCoins.svelte";
-    import MenCoins from "./During/MenCoins.svelte";
+    import WomenCoins from "./During/MenCoins.svelte";
+    import MenCoins from "./During/WomenCoins.svelte";
     import { animateDebt } from "./During/MigrationDebt.svelte";
     import IoMdWoman from 'svelte-icons/io/IoMdWoman.svelte';
     import * as d3 from 'd3';
@@ -98,8 +98,8 @@
             </div>
           </div>
           <div class="transition-text" >
-            <div>Women are 1.5 times more likely to travel with <span class="orange">family</span> </div>
-            <div>and 2 times more likely to travel with <span class="orange">children</span></div>
+            <div>Women are 1.5 times more likely than men to travel with <span class="orange">family</span> </div>
+            <div>and 2 times more likely than men to travel with <span class="orange">children</span></div>
             <div class="source">source</div>
           </div>
 
@@ -151,8 +151,13 @@
               <div class="source">source</div>
             </div>
             <div class="transition-text">
-              <div>151,200 women experience sexual violence on the migration journey every year.</div> 
+              <div><span class="pink">151,200</span> women experience sexual violence on the migration journey every year.</div> 
               <div>Sexual violence against women goes under reported, especially in the case of irregular migrants.</div>
+              <div class="source">source</div>
+            </div>
+            <div class="transition-text">
+              <div>[birth control description/stats]</div> 
+              <div>[birth control vis]</div> 
               <div class="source">source</div>
             </div>
           
@@ -225,6 +230,16 @@
               We used the money for me to travel over there." - 
               <a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Eulalia, Age 17, Guatamala, 2019</a>
           </div> -->
+          <div class="transition-text">
+            <div>Assuming they successfully migrate, they'll start <span class="pink">paying back this debt</span></div> 
+            <div>The more <span class="pink">income</span> they receive from their employment, the faster they'll be able to pay back their debt</div> 
+            <div class="source">source</div>
+          </div>
+
+          <div class="transition-text">
+            <div>Women <span style="font-size: 20px; color: green;">earn less</span> and have <span style="font-size: 40px; color: red;">more debt</span> </div>
+            <div>Men <span style="font-size: 40px; color: green;">earn more</span> and have <span style="font-size: 20px; color: red;">less debt</span> </div> 
+          </div>
       </div>
     </div>  
 </div>

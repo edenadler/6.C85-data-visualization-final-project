@@ -402,7 +402,8 @@ onMount(() => {
   </div>
   <div class="source">SOURCE</div>
   <div class="transition-text" >
-    <div style="display: flex; justify-content: center; align-items: center;">Luckily <div class="persona-name maria" ><span>Maria</span></div> was able to fund her migration through ________________________</div>
+    <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name maria" ><span>Maria</span></div> was able to fund her migration through a bank loan.</div>
+    <div>The loan, however, comes with very high interest rates</div>
   </div>
 </div>
 
