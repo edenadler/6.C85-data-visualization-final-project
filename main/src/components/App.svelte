@@ -99,7 +99,7 @@
 
 <style>
     /* https://codepen.io/parcon/pen/oxbLVd */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;900&display=swap');
     
     :root {
         --pink: #ce2093;
@@ -116,7 +116,7 @@
     }
 
     main {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Open Sans', sans-serif;
         margin: 0px;
         text-align: center;
     }
