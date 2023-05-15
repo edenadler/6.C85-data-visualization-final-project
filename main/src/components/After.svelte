@@ -75,7 +75,6 @@ let container0;
 
     <div class="calendar-container">
         <CalendarView />
-        <div class="source">source</div>
     </div>
 
     <!-- https://www.migrationpolicy.org/sites/default/files/publications/mpi-wfp-mit_migration-motivations-costs_final.pdf -->

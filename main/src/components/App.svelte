@@ -277,7 +277,8 @@
     }
 
     .credit {
-        margin: 20px auto;
+        margin: 50px auto;
         color: #4a0a70;
+        font-size: 20px;
     }
 </style>

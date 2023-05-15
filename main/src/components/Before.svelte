@@ -365,7 +365,7 @@ onMount(() => {
       <h2>of men own bank accounts</h2>
     </div>
   </div>
-  <div class="source">Azar, K., Lara, E., & Mejía, D. (2018). Inclusión Financiera de las mujeres en América Latina. Situación actual y recomendaciones de política. Políticas públicas y transformación productiva;30, Caracas: CAF. Retrieved from http://scioteca.caf.com/handle/123456789/1162</div>
+  <div class="source"><a href="http://scioteca.caf.com/handle/123456789/1162">CAF - Development Bank of Latin America</a></div>
   <div class="transition-text">
     <div>This may not seem very different. But...</div>
   </div>
@@ -379,7 +379,7 @@ onMount(() => {
       <div class="statistic">
           <h2>women in Latin America don't have access to a bank account</h2>
       </div>
-      <div class="source">Azar, K., Lara, E., & Mejía, D. (2018). Inclusión Financiera de las mujeres en América Latina. Situación actual y recomendaciones de política. Políticas públicas y transformación productiva;30, Caracas: CAF. Retrieved from http://scioteca.caf.com/handle/123456789/1162</div>
+      <div class="source"><a href="http://scioteca.caf.com/handle/123456789/1162">CAF - Development Bank of Latin America</a></div>
   </div>
   <div class="transition-text" >
     <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> doesn't have access to a 
@@ -391,10 +391,10 @@ onMount(() => {
     
   </div>
   <div class="transition-text" >
-    <div>Not having a bank account means her money is not protected. Like many migrants, she may want to take out a loan to fund her migration.</div>
-    <div>Many people use assets such as property as collateral to fund their migration___________________</div>
+    <div>Many people use assets, such as their land or house, as collateral to acquire bank loans to fund their migration</div>
+    <!-- To fund her migration, she'll have to utilize other financial means. -->
   </div>
-  <div class="source">International Financial Corporation, World Bank Group</div>
+  <div class="source"><a href="https://www.ifc.org/wps/wcm/connect/industry_ext_content/ifc_external_corporate_site/financial+institutions/resources/her+home+-+housing+finance+for+women">International Financial Corporation, World Bank Group</a></div>
   <div class="transition-text" >
     <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> doesn't own any 
     <span class="burden house">
@@ -417,7 +417,7 @@ onMount(() => {
           {/each}
       </div>
   </div>
-  <div class="source">SOURCE</div>
+  <div class="source"><a href="https://www.ifc.org/wps/wcm/connect/industry_ext_content/ifc_external_corporate_site/financial+institutions/resources/her+home+-+housing+finance+for+women">International Finance Corporation, World Bank Group</a></div>
   <!-- <div>
       <div class="para-female">Female home ownership not only has ramifications on living conditions, but in women’s ability to build and grow their own businesses. 
         Accessing formal credit relies heavily on collateral, namely large assets—a house or an apartment—that women often lack but which are essential to building their credit history.  </div>
@@ -429,7 +429,7 @@ onMount(() => {
     <div>but maybe she can fund her migration through <span class="orange">employment</span>?</div>
   </div>
   <div class="transition-text" >
-    <div><span class="orange">underemployment</span> rates are high in The Northern Triangle</div>
+    <div><span class="orange">underemployment</span> rates are high in the Northern Triangle</div>
     <div>especially for women</div>
   </div>
   <!-- <div class="para-female-triangle">The Northern Triangle countries of Guatemala, Honduras, and El Salvador face numerous political and economic issues that further exacerbate this gender gap. 
@@ -448,9 +448,9 @@ onMount(() => {
     </div>
   </div>
   
-  <div class="source">SOURCE</div>
+  <div class="source">Links for data: <a href="https://cepr.net/honduras-social-and-economic-indicators-after-12-years-of-national-party-rule/">Honduras</a>,&nbsp;<a href="https://www.ilo.org/wcmsp5/groups/public/---americas/---ro-lima/---sro-san_jose/documents/publication/wcms_831274.pdf">El Salvador</a>,&nbsp;<a href="https://www.ilo.org/wcmsp5/groups/public/---americas/---ro-lima/---sro-san_jose/documents/publication/wcms_831273.pdf">Guatemala</a></div>
   <div class="transition-text" >
-    <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name maria" ><span>Maria</span></div> was able to fund her migration through a bank loan.</div>
+    <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name maria" ><span>Maria</span></div> was finally able to fund her migration through a loan from an unregulated creditor.</div>
     <div>The loan, however, comes with very high interest rates</div>
   </div>
 </div>
@@ -602,9 +602,16 @@ onMount(() => {
 }
 
 .source {
-  font-size: 10px;
+  font-size: 15px;
   color: rgb(207, 184, 207);
   margin: 30px 0px;
+}
+
+.source a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
 }
 
 .statistic {
