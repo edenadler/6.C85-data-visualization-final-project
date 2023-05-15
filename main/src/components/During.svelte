@@ -5,7 +5,19 @@
     import MenCoins from "./During/MenCoins.svelte";
     import { animateDebt } from "./During/MigrationDebt.svelte";
     import BirthControl from "./During/BirthControl.svelte";
+    import { backInOut, linear } from 'svelte/easing';
+	  import {blur, fade, fly, scale, slide} from 'svelte/transition';
     import * as d3 from 'd3';
+
+    let clicked = false;
+
+    function revealDebt() {
+      animateDebt();
+
+      setTimeout(function() {
+        clicked = true;
+      }, 1000);
+    }
 </script>
   
 <div>
@@ -23,7 +35,7 @@
               <div><div class="persona-name maria" ><span>Maria</span></div> travels with her <span class="pink">family</span></div>
             </div>
             <div class="right-column">
-              <div><div class="persona-name jose" ><span>Jose</span></div> travels with a <span class="pink">coyote</span></div>
+              <div><div class="persona-name jose" ><span>José</span></div> travels with a <span class="pink">coyote</span></div>
             </div>
           </div>
           <div class="transition-text" >
@@ -102,16 +114,18 @@
             <div>How much debt do migrants incur?</div>
           </div>
           <div class = "debt-button">
-            <button on:click={animateDebt}>Find out the cost of debt</button>
+            <button on:click={revealDebt}>Find out the cost of debt</button>
         </div>
-          <div class="column-container">
-            <div class="col">
-              <WomenCoins />
+          {#if clicked}
+            <div class="column-container" in:fly={{y: -200, duration: 1000, delay: 500}}>
+              <div class="col">
+                <WomenCoins />
+              </div>
+              <div class="col">
+                <MenCoins />
+              </div>
             </div>
-            <div class="col">
-              <MenCoins />
-            </div>
-          </div>
+          {/if}
           <div class="column-container">
             <div class="col">
               <div class="counter">

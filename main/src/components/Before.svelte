@@ -322,7 +322,7 @@ onMount(() => {
 
 <div class="before">
   <div class="transition-text">
-    <div>Let's compare Maria and Jose's experiences migrating to the U.S. Imagine that they have the same job, family situation, age, and education. </div>
+    <div>Let's compare Maria and José's experiences migrating to the U.S. Imagine that they have the same job, family situation, age, and education. </div>
     <div><span>The only difference is their gender</span></div>
   </div>
   <div class="column-container">
@@ -331,10 +331,11 @@ onMount(() => {
           <img src="Woman.png" class="persona-img" />
       </div>
       <div class="col">
-          <div class="persona-name jose"><span>Jose</span></div>
+          <div class="persona-name jose"><span>José</span></div>
           <img src="Man.png" class="persona-img" />
       </div>
   </div>
+  <div class="source">images created using Stable Diffusion</div>
   <div class="transition-text">
     <div>Migration is costly. Let's compare their <span class="orange">financial inclusion</span></div>
   </div>

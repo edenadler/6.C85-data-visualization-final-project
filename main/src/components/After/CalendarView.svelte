@@ -249,7 +249,7 @@ function getFillByDate(paybackDetails, date) {
         </div>
         <div class="calendar-count">
             <div class="calendar-title">
-                <div class="persona-name jose" ><span>Jose</span></div>
+                <div class="persona-name jose" ><span>José</span></div>
                 <div class="calendar-result-text">7 months, 19 days</div>
             </div>
         </div>

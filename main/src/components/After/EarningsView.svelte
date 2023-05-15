@@ -13,7 +13,7 @@
 
             <g class="persona-name" transform="translate(870,120)">
                 <rect class="jose" width="113" height="70" rx="40"></rect>
-                <text dy="0.32em" x="80" y="35" style="text-anchor: end; fill: white; font-size: 25px; font-weight: 700;">Jose</text>
+                <text dy="0.32em" x="80" y="35" style="text-anchor: end; fill: white; font-size: 25px; font-weight: 700;">José</text>
             </g>
 
             <rect class="bar bar-negative women" x="23" y="57" width="207" height="49"></rect>

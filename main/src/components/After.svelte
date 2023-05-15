@@ -68,7 +68,7 @@ let container0;
         <div class="source"><a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">U.S. Census Current Population Survey, 2021 (Table 3.11)</a></div>
         <div class="transition-text" >
             <div>It may look like the differences here are small.</div>
-            <div>Let's see the difference in Maria and Jose's <span class="orange">payback timeline</span> for their migration debt</div>
+            <div>Let's see the difference in Maria and José's <span class="orange">payback timeline</span> for their migration debt</div>
         </div>
         <div class="calendar-container">
             <CalendarView />
