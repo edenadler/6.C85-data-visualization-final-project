@@ -45,7 +45,7 @@
             </div>
         </div> -->
 
-        <Scroller top={0.0} bottom={0} threshold={0.5} bind:count bind:index bind:offset bind:progress>
+        <Scroller top={0.0} bottom={0} threshold={0.9} bind:count bind:index bind:offset bind:progress>
             <div class="background" slot="background">
                 <section></section>
                 <section></section>
@@ -55,7 +55,7 @@
                 <div class="heading bind:this={node} {progress >= 0.005 ? 'scrolling' : 'at-top'}" in:fly={{y: -containerHeight, duration: 2000, easing: linear}} out:fly={{y: -containerHeight, duration: 2000, easing: linear}}>
                     <div class="title">Do Central American men and women have the same migration experience?</div>
                     {#if progress <= 0.005}
-                        <div class="name-credit" in:fly={{y: -containerHeight, duration: 500, easing: linear, delay: 500}} out:fly={{y: -containerHeight, duration: 500, easing: linear, delay: 500}}>Eden Adler, Prerna Ravi, Lelia Marie Hampton</div>
+                        <div class="name-credit" in:fly={{y: -containerHeight, duration: 500, easing: linear}} out:fly={{y: -containerHeight, duration: 500, easing: linear, delay: 500}}>Eden Adler, Prerna Ravi, Lelia Marie Hampton</div>
                     {/if}
 
                     {#if progress > 0.005}

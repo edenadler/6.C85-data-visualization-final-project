@@ -9,7 +9,7 @@
 </script>
   
 <div>
-    <div class="DuringMigration" style="margin-top: 400px;">
+    <div class="DuringMigration">
         <!-- <h1>During Migration</h1> -->
         <!-- <div class="DebtMigrationNarrative">
             <p>
