@@ -21,22 +21,22 @@
         <div class="background" slot="background" bind:clientWidth={width} bind:clientHeight={height}>
             <div class="end-scroller">
                 {#if index >= 1}
-                <div class="tough-text" transition:fade={{duration: 1000}}>
+                <div class="tough-text" in:fade={{duration: 200, delay: 200}}>
                     IT'S
                 </div>
                 {/if}
                 {#if index >= 2}
-                <div class="tough-text" transition:fade={{duration: 2000}}>
+                <div class="tough-text" in:fly={{y: -200, duration: 1500, delay: 1500}}>
                     HARDER
                 </div>
                 {/if}
                 {#if index >= 5}
-                <div class="tough-text" transition:fade={{duration: 4000}}>
+                <div class="tough-text" in:fly={{y: -200, duration: 3000, delay: 3000}}>
                     FOR
                 </div>
                 {/if}
                 {#if index >= 8}
-                <div class="tough-text" transition:fade={{duration: 6000}}>
+                <div class="tough-text pink" in:fade={{duration: 4000, delay: 5000}}>
                     WOMEN
                 </div>
                 {/if}
@@ -110,7 +110,7 @@
 
     section {
         display: flex;
-        height: 100vh;
+        height: 200vh;
         background-color: rgba(0, 0, 0, 0); /* 20% opaque */
         color: white;
         justify-content: center;
@@ -120,11 +120,18 @@
     }
 
     .tough-text {
-        transition: fade
+        /* transition: fade */
+        margin: 40px auto;
     }
 
     .tough-scroll-container {
         /* overflow: hidden; */
         /* height: 70vh; */
+    }
+
+    .pink {
+        color: #ce2093;
+        font-weight: 700;
+        font-size: 70px;
     }
 </style>

@@ -63,17 +63,21 @@ let container0;
   
 <div>
     <div class="vis-container">
-        
         <EarningsView />
         <div class="source"><a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">U.S. Census Current Population Survey, 2021 (Table 3.11)</a></div>
-    </div>
-    <div class="transition-text" >
-        <div>It may look like the differences here are small.</div>
-        <div>Let's see the difference in Maria and Jose's <span class="orange">payback timeline</span> for their migration debt</div>
-    </div>
-
-    <div class="calendar-container">
-        <CalendarView />
+        <div class="transition-text" >
+            <div>It may look like the differences here are small.</div>
+            <div>Let's see the difference in Maria and José's <span class="orange">payback timeline</span> for their migration debt</div>
+        </div>
+        <div class="calendar-container">
+            <CalendarView />
+        </div>
+        <div class="transition-text" >
+            <div>So... <span class="pink">do Central American men and women have the same migration experience?</span> </div>
+        </div>
+        <div class="transition-text" >
+            <div>We think... </div>
+        </div>
     </div>
 
     <!-- https://www.migrationpolicy.org/sites/default/files/publications/mpi-wfp-mit_migration-motivations-costs_final.pdf -->
@@ -105,7 +109,7 @@ let container0;
     color: #ce2093;
     text-transform: uppercase;
     font-weight: 700;
-    margin: 0px 5px;
+    /* margin: 0px 5px; */
   }
 
   .transition-text .orange, .columns-container .orange {

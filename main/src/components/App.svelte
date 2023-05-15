@@ -57,7 +57,7 @@
                     {#if progress <= 0.005}
                         <div class="name-credit" in:fly={{y: -containerHeight, duration: 500, easing: linear}} out:fly={{y: -containerHeight, duration: 500, easing: linear, delay: 500}}>Eden Adler, Prerna Ravi, Lelia Marie Hampton</div>
                     {/if}
-
+        
                     {#if progress > 0.005}
                     <div class="sticky-divider-label" in:fly={{y: containerHeight, duration: 2000, easing: linear, delay: 1000}} out:fly={{y: containerHeight, duration: 500, easing: linear}}>
                         <div class="migration-step-header">
@@ -76,6 +76,7 @@
                     </div>
                     {/if}
                 </div>
+                
                 <div class="credit">This data visualization was made with data contributed by the United Nations World Food Programme (WFP)</div>
                 <section>
                     <Before />
@@ -98,7 +99,7 @@
 
 <style>
     /* https://codepen.io/parcon/pen/oxbLVd */
-    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;900&display=swap');
     
     :root {
         --pink: #ce2093;
@@ -115,7 +116,7 @@
     }
 
     main {
-        font-family: 'Lato', sans-serif;
+        font-family: 'Open Sans', sans-serif;
         margin: 0px;
         text-align: center;
     }
@@ -128,8 +129,8 @@
 
     .heading {
         margin: 0px;
-        height: 30vh;
-        padding-top: 50px;
+        height: 19vh;
+        padding-top: 25px;
         text-align: center;
         color: white;
         display: flex;

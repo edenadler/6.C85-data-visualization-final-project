@@ -5,7 +5,19 @@
     import MenCoins from "./During/MenCoins.svelte";
     import { animateDebt } from "./During/MigrationDebt.svelte";
     import BirthControl from "./During/BirthControl.svelte";
+    import { backInOut, linear } from 'svelte/easing';
+	  import {blur, fade, fly, scale, slide} from 'svelte/transition';
     import * as d3 from 'd3';
+
+    let clicked = false;
+
+    function revealDebt() {
+      animateDebt();
+
+      setTimeout(function() {
+        clicked = true;
+      }, 1000);
+    }
 </script>
   
 <div>
@@ -16,22 +28,26 @@
             <div>let's look at their experiences <span class="pink">During</span> migration</div>
           </div>
           <div class="transition-text" >
-            <div>Who do they <span class="pink">travel with</span>?</div>
+            <div>Who do they <span class="purple">travel with</span>?</div>
           </div>
           <div class="columns-container">
             <div class="left-column">
-              <div><div class="persona-name maria" ><span>Maria</span></div> travels with her <span class="pink">family</span></div>
+              <div class="transition-text" >
+                <div><div class="persona-name maria" ><span>Maria</span></div> travels with her <span class="pink">family</span></div>
+              </div>
             </div>
             <div class="right-column">
-              <div><div class="persona-name jose" ><span>Jose</span></div> travels with a <span class="pink">coyote</span></div>
+              <div class="transition-text" >
+                <div><div class="persona-name jose" ><span>José</span></div> travels with a <span class="orange">coyote</span></div>
+              </div>
             </div>
           </div>
           <div class="transition-text" >
-            <div>Women are 1.5 times more likely than men to travel with <span class="pink">family</span> </div>
-            <div>and 2 times more likely than men to travel with <span class="pink">children</span></div>
+            <div>Women are <span>1.5</span> times more likely than men to travel with <span class="pink">family</span> </div>
+            <div>and <span>2</span> times more likely than men to travel with <span class="pink">children</span></div>
             <div class="source">World Food Programme</div>
           </div>
-          <div class="column-container">
+          <div class="column-container accompany">
             <MigrationAccompanyWomen />
             <MigrationAccompanyMen />
           </div>
@@ -64,14 +80,15 @@
               <div class="source"><a href="https://www.pbs.org/newshour/nation/facing-risk-rape-migrant-women-prepare-birth-control" target="_blank">Wilson Center, Gender-Based Violence Insight: Central America</a></div>
               <div><BirthControl /></div> 
               <div><span class="pink">80%</span>of women experience <span class="pink">sexual violence</span> on the migrant journey to the US.</div>
+              <div>Sexual violence against women goes under reported, especially in the case of irregular migrants.</div>
               <div class="source"><a href="https://gwbcenter.imgix.net/Publications/Reports/gwbi_Immigration,_Security,_and_Gender-Based_Violence.pdf" target="_blank">Wilson Center, Gender-Based Violence Insight: Central America</a></div>
             </div>
-            <div class="transition-text">
+            <!-- <div class="transition-text">
               <div><span class="pink">151,200</span> women experience sexual violence on the migration journey every year.</div> 
               <div>Sexual violence against women goes under reported, especially in the case of irregular migrants.</div>
               <div class="source"><a href="https://gwbcenter.imgix.net/Publications/Reports/gwbi_Immigration,_Security,_and_Gender-Based_Violence.pdf" target="_blank">Wilson Center, Gender-Based Violence Insight: Central America</a></div>
 
-            </div>
+            </div> -->
             <div class="transition-text" >
               <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> is migrating with her mother and siblings to escape her abusive father</div>
             </div>
@@ -93,25 +110,27 @@
             <!-- <div>Many choose to fund their migration through debt.</div>
             <div>This exploitation manifests in the amount of debt people incur to fund their migration</div> -->
             <div>Many migrants feel pressure to successfully migrate to repay their debts</div>
-            <div>If their journey is unsuccessful, they experience extreme financial vulnerability</div>
+            <div>If their journey is unsuccessful, they experience extreme <span>financial vulnerability</span></div>
             <div>A salary in their home country is not enough to repay their debt within the loan period</div>
             <!-- <div>Their families' assets, such as their home and land, may be confiscated by lenders.</div> -->
             <div class="source"><a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385">Heidbrink, 2019</a></div>
           </div>
           <div class="transition-text">
-            <div>How much debt do migrants incur?</div>
+            <div>How much <span class="pink">debt</span> do migrants incur?</div>
           </div>
           <div class = "debt-button">
-            <button on:click={animateDebt}>Find out the cost of debt</button>
+            <button on:click={revealDebt}>Find out the cost of debt</button>
         </div>
-          <div class="column-container">
-            <div class="col">
-              <WomenCoins />
+          {#if clicked}
+            <div class="column-container" in:fly={{y: -200, duration: 1000, delay: 500}}>
+              <div class="col">
+                <WomenCoins />
+              </div>
+              <div class="col">
+                <MenCoins />
+              </div>
             </div>
-            <div class="col">
-              <MenCoins />
-            </div>
-          </div>
+          {/if}
           <div class="column-container">
             <div class="col">
               <div class="counter">
@@ -168,7 +187,7 @@
     color: #ce2093;
     text-transform: uppercase;
     font-weight: 700;
-    margin: 0px 5px;
+    /* margin: 0px 5px; */
   }
 
   .transition-text .orange, .columns-container .orange {
@@ -231,6 +250,10 @@
         margin: 50px auto 100px auto;
     }
 
+    .column-container.accompany {
+      margin: 0 auto;
+    }
+
     .col {
         display: flex;
         flex: 0 0 50%;
@@ -241,7 +264,7 @@
 
     .vis-container {
         text-align: center;
-        margin: 190px auto;
+        margin: 90px auto;
     }
     .debt-button{
         text-align: center;

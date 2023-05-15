@@ -322,7 +322,7 @@ onMount(() => {
 
 <div class="before">
   <div class="transition-text">
-    <div>Let's compare Maria and Jose's experiences migrating to the U.S. Imagine that they have the same job, family situation, age, and education. </div>
+    <div>Let's compare Maria and José's experiences migrating to the U.S. Imagine that they have the same job, family situation, age, and education. </div>
     <div><span>The only difference is their gender</span></div>
   </div>
   <div class="column-container">
@@ -331,12 +331,16 @@ onMount(() => {
           <img src="Woman.png" class="persona-img" />
       </div>
       <div class="col">
-          <div class="persona-name jose"><span>Jose</span></div>
+          <div class="persona-name jose"><span>José</span></div>
           <img src="Man.png" class="persona-img" />
       </div>
   </div>
+  <div class="source">images created using Stable Diffusion</div>
   <div class="transition-text">
     <div>Migration is costly. Let's compare their <span class="orange">financial inclusion</span></div>
+  </div>
+  <div class="transition-text">
+    <div>In Latin America:</div>
   </div>
   <div class="columns-container">
     <div class="left-column">
@@ -394,8 +398,8 @@ onMount(() => {
   <div class="transition-text" >
     <div>Many people use assets, such as their land or house, as collateral to acquire bank loans to fund their migration</div>
     <!-- To fund her migration, she'll have to utilize other financial means. -->
+    <div class="source"><a href="https://www.ifc.org/wps/wcm/connect/industry_ext_content/ifc_external_corporate_site/financial+institutions/resources/her+home+-+housing+finance+for+women">International Financial Corporation, World Bank Group</a></div>
   </div>
-  <div class="source"><a href="https://www.ifc.org/wps/wcm/connect/industry_ext_content/ifc_external_corporate_site/financial+institutions/resources/her+home+-+housing+finance+for+women">International Financial Corporation, World Bank Group</a></div>
   <div class="transition-text" >
     <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> doesn't own any 
     <span class="burden house">
@@ -450,9 +454,20 @@ onMount(() => {
   </div>
   
   <div class="source">Links for data: <a href="https://cepr.net/honduras-social-and-economic-indicators-after-12-years-of-national-party-rule/">Honduras</a>,&nbsp;<a href="https://www.ilo.org/wcmsp5/groups/public/---americas/---ro-lima/---sro-san_jose/documents/publication/wcms_831274.pdf">El Salvador</a>,&nbsp;<a href="https://www.ilo.org/wcmsp5/groups/public/---americas/---ro-lima/---sro-san_jose/documents/publication/wcms_831273.pdf">Guatemala</a></div>
-  <div class="transition-text" >
-    <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name maria" ><span>Maria</span></div> was finally able to fund her migration through a loan from an unregulated creditor.</div>
-    <div>The loan, however, comes with very high interest rates</div>
+  
+  <div class="columns-container">
+    <div class="left-column">
+      <div class="transition-text" >
+        <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name maria" ><span>Maria</span></div></div>
+        <div>was finally able to fund her migration through a loan from an <span class="pink">unregulated creditor</span>. The loan, however, comes with very <span class="pink">high interest</span> rates</div>
+      </div>
+    </div>
+    <div class="right-column">
+      <div class="transition-text" >
+        <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name jose" ><span>José</span></div></div>
+        <div>was to fund his migraiton through a loan from a <span class="orange">family member</span> with <span class="orange">no interest</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -746,7 +761,14 @@ h4 {
   color: #fe872f;
   text-transform: uppercase;
   font-weight: 700;
-  margin: 0px 3px;
+  /* margin: 0px 3px; */
+}
+
+.transition-text .pink {
+  color: #ce2093;
+  text-transform: uppercase;
+  font-weight: 700;
+  /* margin: 0px 3px; */
 }
 
 .transition-text .purple {

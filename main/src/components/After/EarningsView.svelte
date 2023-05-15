@@ -3,7 +3,7 @@
 </script>
 
 <div>
-    <h2>Median earnings for Central American migrants in the US</h2>
+    <h2>Migration Debt and Median Earnings for Central American Migrants in the US</h2>
     <svg width="960" height="400">
         <g>
             <g class="persona-name" transform="translate(-150,47)">
@@ -13,7 +13,7 @@
 
             <g class="persona-name" transform="translate(870,120)">
                 <rect class="jose" width="113" height="70" rx="40"></rect>
-                <text dy="0.32em" x="80" y="35" style="text-anchor: end; fill: white; font-size: 25px; font-weight: 700;">Jose</text>
+                <text dy="0.32em" x="80" y="35" style="text-anchor: end; fill: white; font-size: 25px; font-weight: 700;">José</text>
             </g>
 
             <rect class="bar bar-negative women" x="23" y="57" width="207" height="49"></rect>
@@ -168,5 +168,9 @@
 
     .jose {
         fill: #fe872f;
+    }
+
+    h2 {
+        margin-bottom: 40px;
     }
 </style>
