@@ -11,6 +11,9 @@
 
     let count, index, offset, progress;
 
+    let node;
+	$: containerHeight = node?.offsetHeight ?? 0;
+
     let migrationStep = 'before';
 
     $: if (index == 0) {
@@ -49,14 +52,14 @@
             </div>
 
             <div class="foreground" slot="foreground">
-                <div class="heading {progress >= 0.005 ? 'scrolling' : 'at-top'}" in:fly={{y: -200, duration: 2000, easing: linear}} out:fly={{y: -200, duration: 2000, easing: linear}}>
+                <div class="heading bind:this={node} {progress >= 0.005 ? 'scrolling' : 'at-top'}" in:fly={{y: -containerHeight, duration: 2000, easing: linear}} out:fly={{y: -containerHeight, duration: 2000, easing: linear}}>
                     <div class="title">Do Central American men and women have the same migration experience?</div>
                     {#if progress <= 0.005}
-                        <div class="name-credit" in:fly={{y: -200, duration: 2000, easing: linear}} out:fly={{y: -200, duration: 2000, easing: linear}}>Eden Adler, Prerna Ravi, Lelia Marie</div>
+                        <div class="name-credit" in:fly={{y: -containerHeight, duration: 500, easing: linear, delay: 500}} out:fly={{y: -containerHeight, duration: 500, easing: linear, delay: 500}}>Eden Adler, Prerna Ravi, Lelia Marie Hampton</div>
                     {/if}
 
                     {#if progress > 0.005}
-                    <div class="sticky-divider-label" in:fly={{y: 200, duration: 2000, easing: linear}} out:fly={{y: 200, duration: 2000, easing: linear}}>
+                    <div class="sticky-divider-label" in:fly={{y: containerHeight, duration: 2000, easing: linear, delay: 1000}} out:fly={{y: containerHeight, duration: 500, easing: linear}}>
                         <div class="migration-step-header">
                             <span class="step-name {migrationStep}">{migrationStep}</span> migration
                         </div>
@@ -125,12 +128,11 @@
     .heading {
         margin: 0px;
         height: 30vh;
-        padding-top: 20px;
+        padding-top: 50px;
         text-align: center;
         color: white;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         background-color: var(--dark-purple);
         position: sticky;
         top: 0px;
@@ -147,17 +149,17 @@
         transition: font-size 2s ease;
     }
 
-    .scrolling .title {
+    .heading.scrolling .title {
         font-size: 1.2em;
         animation: up 2s forwards;
     }
 
-    .at-top .title {
+    .heading.at-top .title {
         font-size: 2em;
         animation: down 2s forwards;
     }
 
-    @keyframes up {
+    /* @keyframes up {
         from {transform: translateY(0vh);}
         to {transform: translateY(-4vh);}
     }
@@ -165,7 +167,7 @@
     @keyframes down {
         from {transform: translateY(-4vh);}
         to {transform: translateY(0vh);}
-    }
+    } */
 
     .dots {
         position: sticky;
