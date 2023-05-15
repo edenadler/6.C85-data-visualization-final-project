@@ -465,7 +465,7 @@ onMount(() => {
     <div class="right-column">
       <div class="transition-text" >
         <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name jose" ><span>José</span></div></div>
-        <div>was to fund his migraiton through a loan from a <span class="orange">family member</span> with <span class="orange">no interest</span></div>
+        <div>was able to fund his migraiton through a loan from a <span class="orange">family member</span> with <span class="orange">no interest</span></div>
       </div>
     </div>
   </div>

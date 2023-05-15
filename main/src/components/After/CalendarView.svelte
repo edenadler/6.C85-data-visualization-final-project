@@ -154,10 +154,10 @@ function getFillByDate(paybackDetails, date) {
         </div>
     </div>    
     <div class="transition-text" >
-        <div>It takes women <span class="pink">4 months longer than men</span>to repay their migration debt</div>
+        <div>It takes women <span class="pink">4 months longer than men</span> to repay their migration debt</div>
     </div>
     <div class="transition-text" >
-        <div>And this is a <span class="pink">conservative estimate</span>. This calculation only takes into account migration debt, not total debt. This also assumes that installments are paid monthly and most noteably doesn't take into account accured interest over time...</div>
+        <div>And this is a <span class="pink">conservative estimate</span>. This calculation only takes into account migration debt, not total debt. This also assumes that installments are paid monthly and most notably doesn't take into account accrued interest over time...</div>
     </div>
     {/if}
 </div>
