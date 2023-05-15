@@ -63,7 +63,6 @@ let container0;
   
 <div>
     <div class="vis-container">
-        
         <EarningsView />
         <div class="source"><a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">U.S. Census Current Population Survey, 2021 (Table 3.11)</a></div>
         <div class="transition-text" >
@@ -72,12 +71,6 @@ let container0;
         </div>
         <div class="calendar-container">
             <CalendarView />
-        </div>
-        <div class="transition-text" >
-            <div>It takes women <span class="pink">4 months longer than men</span>to repay their migration debt</div>
-        </div>
-        <div class="transition-text" >
-            <div>And this is a <span class="pink">conservative estimate</span>. This calculation only takes into account migration debt, not total debt. This also assumes that installments are paid monthly and most noteably doesn't take into account accured interest over time...</div>
         </div>
         <div class="transition-text" >
             <div>So... <span class="pink">do Central American men and women have the same migration experience?</span> </div>

@@ -1,13 +1,9 @@
 <script>
-import * as d3 from "d3";
-import { onMount } from "svelte";
 import { timeFormat } from 'd3-time-format';
-import { timeDay } from 'd3-time';
-    import { detach_before_dev } from "svelte/internal";
+import { backInOut, linear } from 'svelte/easing';
+import {blur, fade, fly, scale, slide} from 'svelte/transition';
 
-// onMount(() => {
-//     render();
-// })
+let clicked = false;
 
 const cellSize = 20;
 
@@ -28,6 +24,10 @@ $: rectY = day => {
 // 11.63 installments for women
 // 7.67 installments for men
 
+function revealTimeline() {
+    clicked = true;
+}
+
 function getMonthName(monthIndex) {
     const date = new Date(2023, monthIndex);
     return date.toLocaleString('default', { month: 'long' });
@@ -36,156 +36,6 @@ function getMonthName(monthIndex) {
 function numDays(month) {
     return new Date(2023, month, 0).getDate()
 }
-
-
-
-let month = [
-{
-    weekday: 0,
-    day: 0,
-    week: 0
-},
-{
-    weekday: 1,
-    day: 1,
-    week: 0
-},
-{
-    weekday: 2,
-    day: 2,
-    week: 0
-},
-{
-    weekday: 3,
-    day: 3,
-    week: 0
-},
-{
-    weekday: 4,
-    day: 4,
-    week: 0
-},
-{
-    weekday: 5,
-    day: 5,
-    week: 0
-},
-{
-    weekday: 6,
-    day: 6,
-    week: 0
-},
-{
-    weekday: 0,
-    day: 7,
-    week: 1
-},
-{
-    weekday: 1,
-    day: 8,
-    week: 1
-},
-{
-    weekday: 2,
-    day: 9,
-    week: 1
-},
-{
-    weekday: 3,
-    day: 10,
-    week: 1
-},
-{
-    weekday: 4,
-    day: 11,
-    week: 1
-},
-{
-    weekday: 5,
-    day: 12,
-    week: 1
-},
-{
-    weekday: 6,
-    day: 13,
-    week: 1
-},
-{
-    weekday: 0,
-    day: 14,
-    week: 2
-},
-{
-    weekday: 1,
-    day: 15,
-    week: 2
-},
-{
-    weekday: 2,
-    day: 16,
-    week: 2
-},
-{
-    weekday: 3,
-    day: 17,
-    week: 2
-},
-{
-    weekday: 4,
-    day: 18,
-    week: 2
-},
-{
-    weekday: 5,
-    day: 19,
-    week: 2
-},
-{
-    weekday: 6,
-    day: 20,
-    week: 2
-},
-{
-    weekday: 0,
-    day: 21,
-    week: 3
-},
-{
-    weekday: 1,
-    day: 22,
-    week: 3
-},
-{
-    weekday: 2,
-    day: 23,
-    week: 3
-},
-{
-    weekday: 3,
-    day: 24,
-    week: 3
-},
-{
-    weekday: 4,
-    day: 25,
-    week: 3
-},
-{
-    weekday: 5,
-    day: 26,
-    week: 3
-},
-{
-    weekday: 6,
-    day: 27,
-    week: 3
-},
-{
-    weekday: 0,
-    day: 28,
-    week: 4
-},
-]
 
 function getDateMonthsFromNow(months) {
     let date = new Date(2023, 0, 1);
@@ -240,21 +90,23 @@ function getFillByDate(paybackDetails, date) {
 </script>
 
 <div>
+    <button on:click={revealTimeline}>How many months?</button>
     <div class="calendar-container">
         <div class="calendar-count">
             <div class="calendar-title">
                 <div class="persona-name maria" ><span>Maria</span></div>
-                <div class="calendar-result-text">11 months, 18 days</div>
+                <div class="calendar-result-text">{clicked ? '11 months, 18 days' : '0 months'}</div>
             </div>
         </div>
         <div class="calendar-count">
             <div class="calendar-title">
                 <div class="persona-name jose" ><span>José</span></div>
-                <div class="calendar-result-text">7 months, 19 days</div>
+                <div class="calendar-result-text">{clicked ? '7 months, 19 days' : '0 months'}</div>
             </div>
         </div>
     </div>
-    <div class="calendar-container">
+    {#if clicked}
+    <div class="calendar-container" in:fade={{duration: 500, easing: linear}}>
         <!-- https://codepen.io/tornord/pen/Qzmbbg -->
         <div class="calendar-column">
             {#each Array(paybackPeriod.women.months + 1) as _, i}
@@ -301,6 +153,13 @@ function getFillByDate(paybackDetails, date) {
             {/each}
         </div>
     </div>    
+    <div class="transition-text" >
+        <div>It takes women <span class="pink">4 months longer than men</span>to repay their migration debt</div>
+    </div>
+    <div class="transition-text" >
+        <div>And this is a <span class="pink">conservative estimate</span>. This calculation only takes into account migration debt, not total debt. This also assumes that installments are paid monthly and most noteably doesn't take into account accured interest over time...</div>
+    </div>
+    {/if}
 </div>
 
 <style>
@@ -360,4 +219,51 @@ function getFillByDate(paybackDetails, date) {
 
         margin: 20px auto 50px;
     }
+
+    button {
+        background-color: #4a0a70;
+        color: white;
+        font-size: 36px;
+        padding: 20px 40px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        margin-top: 16px;
+        transition: background-color 0.2s;
+        width: fit-content;
+        align-self: center;
+        text-transform: uppercase;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+    }
+
+    button:hover {
+        background-color: #7d13bb;
+        box-shadow: 0px 15px 20px rgba(74, 10, 112, 0.4);
+        color: #fff;
+        transform: translateY(-7px);
+    }
+
+    .transition-text {
+    font-size: 30px;
+    padding: 50px;
+    margin: 50px 0px;
+  }
+
+  .transition-text span {
+    color: #ce2093;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0px 5px;
+  }
+
+  .transition-text .orange, .columns-container .orange {
+    color: #fe872f;
+  }
+
+  .transition-text .purple {
+    color: #4a0a70;
+  }
 </style>

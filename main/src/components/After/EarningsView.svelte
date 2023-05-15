@@ -3,7 +3,7 @@
 </script>
 
 <div>
-    <h2>Median earnings for Central American migrants in the US</h2>
+    <h2>Migration Debt and Median Earnings for Central American Migrants in the US</h2>
     <svg width="960" height="400">
         <g>
             <g class="persona-name" transform="translate(-150,47)">
@@ -168,5 +168,9 @@
 
     .jose {
         fill: #fe872f;
+    }
+
+    h2 {
+        margin-bottom: 40px;
     }
 </style>

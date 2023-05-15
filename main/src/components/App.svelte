@@ -129,8 +129,8 @@
 
     .heading {
         margin: 0px;
-        height: 20vh;
-        padding-top: 50px;
+        height: 19vh;
+        padding-top: 25px;
         text-align: center;
         color: white;
         display: flex;
