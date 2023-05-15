@@ -129,7 +129,7 @@
 
     .heading {
         margin: 0px;
-        height: 19vh;
+        height: 200px;
         padding-top: 25px;
         text-align: center;
         color: white;
