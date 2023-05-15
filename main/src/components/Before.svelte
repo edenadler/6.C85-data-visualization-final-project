@@ -443,13 +443,13 @@ onMount(() => {
     <div class="map-container" style="height: 600px;">
     <!-- <div class='map-overlay' id='legend'></div> -->
 
-    <div id="state-legend" class="legend">
+    <div class="legend">
       <h6>Women underemployment rates</h6>
-      <div><span style="background-color: #552586"></span>80-100%</div>
-      <div><span style="background-color: #6A359C"></span>60-80%</div>
-      <div><span style="background-color: #804FB3"></span>40-60%</div>
-      <div><span style="background-color: #9969C7"></span>20-40%</div>
-      <div><span style="background-color: #B589D6"></span>0-20%</div>
+      <div><div class="legend-color" style="background-color: #552586"></div>80-100%</div>
+      <div><div class="legend-color" style="background-color: #6A359C"></div>60-80%</div>
+      <div><div class="legend-color" style="background-color: #804FB3"></div>40-60%</div>
+      <div><div class="legend-color" style="background-color: #9969C7"></div>20-40%</div>
+      <div><div class="legend-color" style="background-color: #B589D6"></div>0-20%</div>
     </div>
   </div>
   
@@ -900,29 +900,29 @@ span.burden {
   height: 10px;
   margin-right: 5px;
 } */
-.legend {
-  background-color: #fff;
-  border-radius: 3px;
-  bottom: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  padding: 10px;
-  position: absolute;
-  right: 10px;
-  z-index: 1;
+  .legend {
+    background-color: #fff;
+    border-radius: 3px;
+    bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
   }
   
   .legend h6 {
-  margin: 0 0 10px;
-  font-size: 10px;
+    margin: 0 0 10px;
+    font-size: 10px;
   }
   
-  .legend div span {
-  border-radius: 50%;
-  display: inline-block;
-  height: 10px;
-  margin-right: 5px;
-  width: 10px;
+  .legend .legend-color  {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
   }
 
   
