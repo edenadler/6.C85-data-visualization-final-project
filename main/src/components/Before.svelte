@@ -338,6 +338,9 @@ onMount(() => {
   <div class="transition-text">
     <div>Migration is costly. Let's compare their <span class="orange">financial inclusion</span></div>
   </div>
+  <div class="transition-text">
+    <div>In Latin America:</div>
+  </div>
   <div class="columns-container">
     <div class="left-column">
       <div class="icon-container">

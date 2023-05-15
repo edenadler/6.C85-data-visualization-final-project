@@ -57,7 +57,7 @@
                     {#if progress <= 0.005}
                         <div class="name-credit" in:fly={{y: -containerHeight, duration: 500, easing: linear}} out:fly={{y: -containerHeight, duration: 500, easing: linear, delay: 500}}>Eden Adler, Prerna Ravi, Lelia Marie Hampton</div>
                     {/if}
-
+        
                     {#if progress > 0.005}
                     <div class="sticky-divider-label" in:fly={{y: containerHeight, duration: 2000, easing: linear, delay: 1000}} out:fly={{y: containerHeight, duration: 500, easing: linear}}>
                         <div class="migration-step-header">
@@ -76,6 +76,7 @@
                     </div>
                     {/if}
                 </div>
+                
                 <div class="credit">This data visualization was made with data contributed by the United Nations World Food Programme (WFP)</div>
                 <section>
                     <Before />
@@ -128,7 +129,7 @@
 
     .heading {
         margin: 0px;
-        height: 30vh;
+        height: 20vh;
         padding-top: 50px;
         text-align: center;
         color: white;
