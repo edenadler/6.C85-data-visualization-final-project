@@ -137,9 +137,9 @@ onMount(() => {
   const map = new mapboxgl.Map({
     container: document.querySelector('.map-container'),
     style: 'mapbox://styles/mapbox/light-v10',
-    center: [-90.23, 15.79],
+    center: [-114.23, 18.79],
     zoom: 5,
-    maxBounds: [[-95.95, 11.97], [-104.62, 18.85]]
+    maxBounds: [[-95.95, 11.97], [-144.62, 18.85]]
   });
 
   // Add the data to the map
@@ -322,7 +322,8 @@ onMount(() => {
 
 <div class="before">
   <div class="transition-text">
-    <div>Let's compare Maria and Jose's experiences migrating to the U.S. Imagine that they have the same job, family situation, age, and education. <span>The only difference is their gender</span> </div>
+    <div>Let's compare Maria and Jose's experiences migrating to the U.S. Imagine that they have the same job, family situation, age, and education. </div>
+    <div><span>The only difference is their gender</span></div>
   </div>
   <div class="column-container">
       <div class="col">

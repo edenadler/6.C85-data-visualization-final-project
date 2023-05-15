@@ -43,8 +43,8 @@
           </div>
           <div class="quote">
             <blockquote>
-              If there's a threat, I am going to find a way to save my life and the lives of my children... They are dependent on me... I am the one who looks out for them. . . . 
-              I am going to take care of them, and it is for them that I am doing this [migrating].
+              If there's a threat, I am going to find a way to save my life and the lives of my children... They are dependent on me... I am the one who looks out for them... 
+              I am going to take care of them, and it is for them that I am [migrating].
             </blockquote>
           </div>
           <div class="source"><a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">Ricoy, Andrews, 2021</a></div>

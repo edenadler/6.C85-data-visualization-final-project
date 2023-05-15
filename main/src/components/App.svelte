@@ -76,6 +76,7 @@
                     </div>
                     {/if}
                 </div>
+                <div class="credit">This data visualization was made with data contributed by the United Nations World Food Programme (WFP)</div>
                 <section>
                     <Before />
                 </section>
@@ -91,7 +92,6 @@
 
         </Scroller>
         <ToughScroll />
-        <div class="credit">This data visualization was made with data contributed by the United Nations World Food Programme (WFP)</div>
     </div>
 
 </main>
@@ -279,6 +279,7 @@
     .credit {
         margin: 50px auto;
         color: #4a0a70;
-        font-size: 20px;
+        font-size: 16px;
+        font-style: italic;
     }
 </style>
