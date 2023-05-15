@@ -79,7 +79,7 @@
                 during the journey.</div> 
               <div class="source"><a href="https://www.pbs.org/newshour/nation/facing-risk-rape-migrant-women-prepare-birth-control" target="_blank">Wilson Center, Gender-Based Violence Insight: Central America</a></div>
               <div><BirthControl /></div> 
-              <div><span class="pink">80%</span>of women experience <span class="pink">sexual violence</span> on the migrant journey to the US.</div>
+              <div><span class="pink">80%</span>&nbsp;of women experience <span class="pink">sexual violence</span> on the migrant journey to the US.</div>
               <div>Sexual violence against women goes under reported, especially in the case of irregular migrants.</div>
               <div class="source"><a href="https://gwbcenter.imgix.net/Publications/Reports/gwbi_Immigration,_Security,_and_Gender-Based_Violence.pdf" target="_blank">Wilson Center, Gender-Based Violence Insight: Central America</a></div>
             </div>

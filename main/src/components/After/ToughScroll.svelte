@@ -31,12 +31,12 @@
                 </div>
                 {/if}
                 {#if index >= 5}
-                <div class="tough-text" in:fly={{y: -200, duration: 3000, delay: 3000}}>
+                <div class="tough-text" in:fly={{y: -200, duration: 2000, delay: 1500}}>
                     FOR
                 </div>
                 {/if}
                 {#if index >= 8}
-                <div class="tough-text pink" in:fade={{duration: 4000, delay: 5000}}>
+                <div class="tough-text pink" in:fade={{duration: 2500, delay: 1500}}>
                     WOMEN
                 </div>
                 {/if}
@@ -110,7 +110,7 @@
 
     section {
         display: flex;
-        height: 200vh;
+        height: 500vh;
         background-color: rgba(0, 0, 0, 0); /* 20% opaque */
         color: white;
         justify-content: center;
