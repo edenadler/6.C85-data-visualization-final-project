@@ -761,14 +761,14 @@ h4 {
   color: #fe872f;
   text-transform: uppercase;
   font-weight: 700;
-  margin: 0px 3px;
+  /* margin: 0px 3px; */
 }
 
 .transition-text .pink {
   color: #ce2093;
   text-transform: uppercase;
   font-weight: 700;
-  margin: 0px 3px;
+  /* margin: 0px 3px; */
 }
 
 .transition-text .purple {

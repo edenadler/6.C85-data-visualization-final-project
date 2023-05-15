@@ -109,7 +109,7 @@ let container0;
     color: #ce2093;
     text-transform: uppercase;
     font-weight: 700;
-    margin: 0px 5px;
+    /* margin: 0px 5px; */
   }
 
   .transition-text .orange, .columns-container .orange {
