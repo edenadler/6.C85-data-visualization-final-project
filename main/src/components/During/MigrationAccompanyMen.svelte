@@ -122,7 +122,7 @@
 	}
 
 	.tooltip-visible {
-		font: 20px sans-serif;
+		font: 18px sans-serif;
 		font-family: "Nunito", sans-serif;
 		visibility: visible;
 		/* background-color: #f0dba8; */
