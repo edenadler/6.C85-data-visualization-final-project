@@ -138,7 +138,7 @@ onMount(() => {
     container: document.querySelector('.map-container'),
     style: 'mapbox://styles/mapbox/light-v10',
     center: [-90.23, 15.79],
-    zoom: 6,
+    zoom: 5,
     maxBounds: [[-95.95, 11.97], [-104.62, 18.85]]
   });
 
@@ -154,7 +154,7 @@ onMount(() => {
             'type': 'Feature',
             'properties': {
               'description':
-                "<p>7.3% women underemployed</p>"
+                "<h3>7.3% women underemployed</h3>"
             },
             'geometry': {
               'type': 'Point',
@@ -175,7 +175,7 @@ onMount(() => {
             'type': 'Feature',
             'properties': {
               'description':
-                "<p>80% women underemployed</p>"
+                "<h3>80% women underemployed</h3>"
             },
             'geometry': {
               'type': 'Point',
@@ -198,7 +198,7 @@ onMount(() => {
             'type': 'Feature',
             'properties': {
               'description':
-                "<p>37.4% women underemployed</p>"
+                "<h3>37.4% women underemployed</h3>"
             },
             'geometry': {
               'type': 'Point',
@@ -224,14 +224,14 @@ onMount(() => {
       'type': 'circle',
       'source': 'places',
       'paint': {
-          'circle-color': '#6F52ED',
+          'circle-color': 'black',
           'circle-radius': 10,
           'circle-stroke-width': 2,
           'circle-stroke-color': '#ffffff'
       },
     });
     map.addLayer({
-      'id': 'places-fill',
+      'id': 'places-fill-HND',
       'type': 'fill',
       'source': {
         'type': 'vector',
@@ -240,17 +240,51 @@ onMount(() => {
       'source-layer': 'country_boundaries',
       // 'source': 'places',
       'paint': {
-          'fill-color': '#6F52ED',
+          'fill-color': '#552586',
+          'fill-opacity': 0.7,
+          'fill-outline-color': 'black'
+      },
+      'filter': ['in', 'iso_3166_1_alpha_3', 'HND']
+    });
+    map.addLayer({
+      'id': 'places-fill-GTM',
+      'type': 'fill',
+      'source': {
+        'type': 'vector',
+        'url': 'mapbox://mapbox.country-boundaries-v1'
+      },
+      'source-layer': 'country_boundaries',
+      // 'source': 'places',
+      'paint': {
+          'fill-color': '#B589D6',
           'fill-opacity': 0.5,
           'fill-outline-color': 'black'
       },
-      'filter': ['in', 'iso_3166_1_alpha_3', 'GTM', 'HND', 'SLV']
+      'filter': ['in', 'iso_3166_1_alpha_3', 'GTM']
     });
-  });
+    map.addLayer({
+      'id': 'places-fill-SLV',
+      'type': 'fill',
+      'source': {
+        'type': 'vector',
+        'url': 'mapbox://mapbox.country-boundaries-v1'
+      },
+      'source-layer': 'country_boundaries',
+      // 'source': 'places',
+      'paint': {
+          'fill-color': '#9969C7',
+          'fill-opacity': 0.7,
+          'fill-outline-color': 'black'
+      },
+      'filter': ['in', 'iso_3166_1_alpha_3', 'SLV']
+    });
+
+  }); // end of load function
 
   const popup = new mapboxgl.Popup({
     closeButton: false,
-    closeOnClick: false
+    closeOnClick: false,
+    // className: 'mapboxgl-popup'
   });
 
   map.on('mouseenter', 'places', (e) => {
@@ -273,6 +307,8 @@ onMount(() => {
     // based on the feature found.
     popup.setLngLat(coordinates).setHTML(description).addTo(map);
     });
+
+    // popup.addClassName('mapboxgl-popup');
     
     map.on('mouseleave', 'places', () => {
     map.getCanvas().style.cursor = '';
@@ -329,7 +365,7 @@ onMount(() => {
       <h2>of men own bank accounts</h2>
     </div>
   </div>
-  <div class="source">SOURCE</div>
+  <div class="source">Azar, K., Lara, E., & Mejía, D. (2018). Inclusión Financiera de las mujeres en América Latina. Situación actual y recomendaciones de política. Políticas públicas y transformación productiva;30, Caracas: CAF. Retrieved from http://scioteca.caf.com/handle/123456789/1162</div>
   <div class="transition-text">
     <div>This may not seem very different. But...</div>
   </div>
@@ -343,7 +379,7 @@ onMount(() => {
       <div class="statistic">
           <h2>women in Latin America don't have access to a bank account</h2>
       </div>
-      <div class="source">SOURCE</div>
+      <div class="source">Azar, K., Lara, E., & Mejía, D. (2018). Inclusión Financiera de las mujeres en América Latina. Situación actual y recomendaciones de política. Políticas públicas y transformación productiva;30, Caracas: CAF. Retrieved from http://scioteca.caf.com/handle/123456789/1162</div>
   </div>
   <div class="transition-text" >
     <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> doesn't have access to a 
@@ -358,7 +394,7 @@ onMount(() => {
     <div>Not having a bank account means her money is not protected. Like many migrants, she may want to take out a loan to fund her migration.</div>
     <div>Many people use assets such as property as collateral to fund their migration___________________</div>
   </div>
-  <div class="source">SOURCE</div>
+  <div class="source">International Financial Corporation, World Bank Group</div>
   <div class="transition-text" >
     <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> doesn't own any 
     <span class="burden house">
@@ -398,9 +434,20 @@ onMount(() => {
   </div>
   <!-- <div class="para-female-triangle">The Northern Triangle countries of Guatemala, Honduras, and El Salvador face numerous political and economic issues that further exacerbate this gender gap. 
   Underemployment rates for women in these countries are shown below.</div> -->
-  <div>
-    <div class="map-container" style="height: 600px;"></div>
+  
+    <div class="map-container" style="height: 600px;">
+    <!-- <div class='map-overlay' id='legend'></div> -->
+
+    <div id="state-legend" class="legend">
+      <h6>Women underemployment rates</h6>
+      <div><span style="background-color: #552586"></span>80-100%</div>
+      <div><span style="background-color: #6A359C"></span>60-80%</div>
+      <div><span style="background-color: #804FB3"></span>40-60%</div>
+      <div><span style="background-color: #9969C7"></span>20-40%</div>
+      <div><span style="background-color: #B589D6"></span>0-20%</div>
+    </div>
   </div>
+  
   <div class="source">SOURCE</div>
   <div class="transition-text" >
     <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name maria" ><span>Maria</span></div> was able to fund her migration through a bank loan.</div>
@@ -646,10 +693,27 @@ h4 {
   margin: 30px auto;
   background-color: #5e5d5d;
 }
-.mapboxgl-popup {
-  max-width: 400px;
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+/* .mapboxgl-popup-content {
+  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  padding: 0;
+  width: 180px;
 }
+
+.mapboxgl-popup-content h3 {
+  max-width: 400px;
+  width: 100%;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #4a0a70;
+  background-color: #4a0a70;
+  background: #91c949;
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  border-radius: 3px 3px 0 0;
+  font-weight: 700;
+  margin-top: -15px;
+} */
 
 .chart {
   position: relative;
@@ -777,6 +841,58 @@ span.burden {
   .persona-img {
     max-width: 100%; 
     height: auto;
+  }
+
+  /* .map-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    margin-right: 20px;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+    border-radius: 3px;
+  }
+
+  #legend {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 150px;
+  margin-bottom: 40px;
+  width: 100px;
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+} */
+.legend {
+  background-color: #fff;
+  border-radius: 3px;
+  bottom: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 10px;
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+  }
+  
+  .legend h6 {
+  margin: 0 0 10px;
+  font-size: 10px;
+  }
+  
+  .legend div span {
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  margin-right: 5px;
+  width: 10px;
   }
 
   
