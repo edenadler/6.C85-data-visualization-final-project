@@ -4,192 +4,101 @@
     import WomenCoins from "./During/MenCoins.svelte";
     import MenCoins from "./During/WomenCoins.svelte";
     import { animateDebt } from "./During/MigrationDebt.svelte";
-    import IoMdWoman from 'svelte-icons/io/IoMdWoman.svelte';
+    import BirthControl from "./During/BirthControl.svelte";
     import * as d3 from 'd3';
 </script>
   
 <div>
     <div class="DuringMigration" style="margin-top: 400px;">
-        <!-- <h1>During Migration</h1> -->
-        <!-- <div class="DebtMigrationNarrative">
-            <p>
-              Debt is both a driver to migrate to repay debt and a means to pay for migration 
-              (<a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Heidbrink, 2019</a>).
-            </p>
-    
-            <p>
-              Increasingly, migrants turn to high-interest loans from unregulated lenders 
-              (i.e., individual lenders, notaries, cooperatives, and banks), 
-              using land, homes, vehicles, or goods as collateral 
-              (<a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Heidbrink, 2019</a>).
-            </p>
-    
-            <p>
-              Families face interest rates ranging from 2.5 to 15 percent, compounded monthly, 
-            meaning remigration may be the only viable means of debt repayment
-            (<a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Heidbrink, 2019</a>).
-            </p>
-    
-    
-            <p>
-              This dynamic creates a cycle of migration and deportation
-              (<a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Heidbrink, 2019</a>).
-            </p>
-    
-            <p>
-              "We begged from neighbors to loan us a few quetzales. 
-              We sold our household furniture. We borrowed from the bank. 
-              We didn't bury my father properly; we just couldn't afford it. 
-              We used the money for me to travel over there." - 
-              <a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Eulalia, Age 17, Guatamala, 2019</a>
-            </p>
-        </div> -->
-    
-        <!-- <div class="AccompanyMigrationNarrative">
-            <p>
-              Today, growing numbers of mothers and children are fleeing Central America. 
-              Many mothers migrate with their children to escape economic suffering and cartel violence 
-              (<a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">Ricoy, Andrews, and Medina, 2021</a>).
-            </p>
-    
-    
-            <p>
-              "If there's a threat, I am going to find a way to save my life and the lives of my children, 
-              because I know that I need to fight for my children, I have to. They are dependent on me. 
-              Imagine if something happened to me; I am the one who looks out for them. . . . 
-              I am going to take care of them, and it is for them that I am doing this."
-              -<a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">Silvia, a 29-year-old single mother, fled Guatemala</a>
-            </p>
-    
-            <p>
-              <a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">Elizabeth, a 33-year-old Salvadoran</a>, 
-              joined the November 2018 caravan with her husband, 
-              14-year-old daughter, and 10- and 1-year old sons:
-              "In my neighborhood there are a lot of gangsters, 
-              all these people involved in crime, and they wanted—one of those men wanted my 
-              daughter to be his girlfriend, his woman. And that's what pushed me to leave there, 
-              fleeing with my husband and my three children, because you get threats that if the girls 
-              don't want anything with them, that they're going to kill you, the mother, or if not, 
-              the father or another family member. So that made us afraid, with my husband, and we had to leave."
-            </p>
-    
-            <p>
-              Our analysis shows that women travel with family at a much higher rate than men. 
-              In fact, they travel with children over twice as much as men.
-            </p>
-    
-            </div>
-     -->
 
         <div class="vis-container" id="accompany">
           <div class="transition-text" >
             <div>Now that both are able to fund their journey,</div>
-            <div>let's look at their experiences <span class="orange">During</span> migration</div>
+            <div>let's look at their experiences <span class="pink">During</span> migration</div>
           </div>
           <div class="transition-text" >
-            <div>Who do they <span class="orange">travel with</span>?</div>
+            <div>Who do they <span class="pink">travel with</span>?</div>
           </div>
           <div class="columns-container">
             <div class="left-column">
-              <div><div class="persona-name maria" ><span>Maria</span></div> travels with her <span class="orange">family</span></div>
+              <div><div class="persona-name maria" ><span>Maria</span></div> travels with her <span class="pink">family</span></div>
             </div>
             <div class="right-column">
-              <div><div class="persona-name jose" ><span>Jose</span></div> travels with a <span class="orange">coyote</span></div>
+              <div><div class="persona-name jose" ><span>Jose</span></div> travels with a <span class="pink">coyote</span></div>
             </div>
           </div>
           <div class="transition-text" >
-            <div>Women are 1.5 times more likely than men to travel with <span class="orange">family</span> </div>
-            <div>and 2 times more likely than men to travel with <span class="orange">children</span></div>
-            <div class="source">source</div>
+            <div>Women are 1.5 times more likely than men to travel with <span class="pink">family</span> </div>
+            <div>and 2 times more likely than men to travel with <span class="pink">children</span></div>
           </div>
 
-          <!-- <h2>Who do people travel with on the migration journey?</h2>
-          <p> Women are 1.5x as likely to travel with family and 2x as likely to travel with children. </p> -->
           <div class="column-container">
             <MigrationAccompanyWomen />
             <MigrationAccompanyMen />
           </div>
           <div class="source">source</div>
-          <div class="quote">
-            "If there's a threat, I am going to find a way to save my life and the lives of my children... They are dependent on me... I am the one who looks out for them. . . . 
-            I am going to take care of them, and it is for them that I am doing this [migrating]."
-          </div>
-          <div class="source"><a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">Exerpt from a 29-year-old single mother who fled Guatemala</a></div>
-          <div class="transition-text" >
+          <div class="transition-text">
             <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> needs to care for more than just herself on the journey.</div>
             <div>This adds additional stress and leaves her especially vulnerable. </div>
+            <!-- <div>Women may be traveling with their children, and they have to protect them during the dangerous migration journey.</div>  -->
+          </div>
+          <div class="quote">
+          <blockquote>
+            If there's a threat, I am going to find a way to save my life and the lives of my children... They are dependent on me... I am the one who looks out for them.... 
+            I am going to take care of them, and it is for them that I am [migrating].
+          </blockquote>
+          </div>
+          <div class="source"><a href="https://journals.sagepub.com/doi/full/10.1177/1077801221992875" target="_blank">source</a></div>
+          <div class="transition-text" >
+            <!-- <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> needs to care for more than just herself on the journey.</div>
+            <div>This adds additional stress and leaves her especially vulnerable. </div> -->
             <div>Doing the journey alone already comes with risks...</div>
           </div>
         
         </div>
     
         <div class="ViolenceMigrationNarrative vis-container">
-<!--     
-            <p>
-              Many women migrants take birth control as a protective strategy because they expect to be raped in transit through Mexico 
-              (<a href="https://www.pbs.org/newshour/nation/facing-risk-rape-migrant-women-prepare-birth-control" target="_blank">Joffe-Block, 2014)</a>.
-            </p>
-    
-            <p>
-              Lupita is a 19-year-old Honduran woman 
-              who left home because she wanted to help her mother and her four siblings 
-              escape her abusive father.
-              On experiencing sexual violence, she says: 
-              "When I got here I was scared, 
-              mostly because of what had happened took me a while to tell people what happened to me. 
-              The first few days I had a knot in my throat where all my tears were held. 
-              I told myself I wouldn't cry so that I can have the strength to keep going. 
-              I am going to keep going and nothing will stop me. 
-              I have to continue because I have to, I have to fight for my family. 
-              I have to fight for my mom and siblings. 
-              I feel shame because of what happened to me. 
-              But I need to keep moving forward 
-              (<a  href="" target="_blank">Interview with Lupita, 21 July 2014</a>)."
-            </p> -->
             <div class="transition-text" >
               <div><span class="pink">80%</span>of women experience <span class="pink">sexual violence</span> on the migrant journey to the US.</div>
-              <div class="source">source</div>
+              <div class="source"><a  href="https://gwbcenter.imgix.net/Publications/Reports/gwbi_Immigration,_Security,_and_Gender-Based_Violence.pdf" target="_blank">source</a></div>
             </div>
             <div class="transition-text">
               <div><span class="pink">151,200</span> women experience sexual violence on the migration journey every year.</div> 
               <div>Sexual violence against women goes under reported, especially in the case of irregular migrants.</div>
-              <div class="source">source</div>
+              <div class="source"><a  href="https://gwbcenter.imgix.net/Publications/Reports/gwbi_Immigration,_Security,_and_Gender-Based_Violence.pdf" target="_blank">source</a></div>
             </div>
             <div class="transition-text">
-              <div>[birth control description/stats]</div> 
-              <div>[birth control vis]</div> 
-              <div class="source">source</div>
+              <div>Many women take contraception before the migration journey, 
+                   knowing they face a high likelihood of assault
+                   during the journey.</div> 
+              <div class="source"><a href="https://www.pbs.org/newshour/nation/facing-risk-rape-migrant-women-prepare-birth-control" target="_blank">source</a></div>
+              <div><BirthControl /></div> 
             </div>
           
-            <!-- <div class = "sexual-violence">  -->
-                <!-- <div class="women-icon-container">
-                  {#each Array.from({ length: 1100 }) as _, index}
-                      <div class={index < 220 ? "women-icon purple" : "women-icon"}>
-                      <IoMdWoman/>
-                  </div>
-                  {/each}
-                </div> -->
                 <div class="transition-text" >
                   <div style="display: flex; justify-content: center; align-items: center;"><div class="persona-name maria" ><span>Maria</span></div> is migrating with her mother and siblings to escape her abusive father</div>
                 </div>
                 <div class="quote">
-                  "When I got here I was scared... took me a while to tell people what happened to me...
+                  <blockquote>
+                  When I got here I was scared... took me a while to tell people what happened to me...
                   I told myself I wouldn't cry so that I can have the strength to keep going.
                   I have to fight for my mom and siblings. 
                   I feel shame because of what happened to me. 
-                  But I need to keep moving forward."
+                  But I need to keep moving forward.
+                  </blockquote>
                 </div>
-                <div class="source"><a  href="" target="_blank">Interview with Lupita, 21 July 2014</a></div>
-                <!-- <img class="violencechart" src="SexualViolenceChart.png" onmouseover="this.src='SexualViolenceChartNoLoop.gif';"> -->
-            <!-- </div> -->
+                <div class="source"><a  href="https://www.jstor.org/stable/44861315" target="_blank">source</a></div>
         </div> 
 
         <div class="vis-container">
           <div class="transition-text">
-            <div>Migrants are esspecially succeptible to being exploited for their vulnerabilities.</div> 
+            <!-- <div>Migrants are especially susceptible to being exploited for their vulnerabilities.</div> 
             <div>Many choose to fund their migration through debt.</div>
-            <div>This exploitation manifests in the amount of debt people incur to fund their migration</div>
-            <div class="source">source</div>
+            <div>This exploitation manifests in the amount of debt people incur to fund their migration</div> -->
+            <div>Many migrants feel pressure to successfully migrate to repay their debts</div>
+            <div>If their journey is unsuccessful, they experience extreme financial vulnerability</div>
+            <div>A salary in their home country is not enough to repay their debt within the loan period</div>
+            <!-- <div>Their families' assets, such as their home and land, may be confiscated by lenders.</div> -->
           </div>
           <div class="transition-text">
             <div>How much debt do migrants incur?</div>
@@ -207,33 +116,23 @@
           </div>
           <div class="column-container">
             <div class="col">
-              <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-time-19.svg" alt="timer" srcset="" class="icon"> -->
-              <!-- <img src="images/latinaicon.jpeg" alt="timer" srcset="" class="icon"> -->
               <div class="counter">
                 <div class="money-counter"><h3>$</h3><h3 data-target="850" class="count">0</h3>&nbsp;&nbsp;&nbsp;<h3>million</h3></div>
                 <h6>Women's Migratory Debt</h6>
               </div>
             </div>
             <div class="col">
-              <!-- <img src="https://raw.githubusercontent.com/nemo0/animated-counter/29e12c0cb15e90c27faaef0d83fb2618126067db/icons/iconmonstr-coffee-11.svg" alt="Coffee" srcset="" class="icon"> -->
-              <!-- <img src="images/latinoicon.jpeg" alt="timer" srcset="" class="icon"> -->
               <div class="counter">
-                <div class="money-counter"><h3>$</h3><h3 data-target="661" class="count">0</h3>&nbsp;&nbsp;&nbsp;<h3>million</h3></div>
+                <div class="money-counter"><h3>$</h3><h3 data-target="660" class="count">0</h3>&nbsp;&nbsp;&nbsp;<h3>million</h3></div>
                 <h6>Men's Migratory Debt</h6>
               </div>
             </div>
           </div>
-          <!-- <div class="quote">
-              "We begged from neighbors to loan us a few quetzales. 
-              We sold our household furniture. We borrowed from the bank. 
-              We didn't bury my father properly; we just couldn't afford it. 
-              We used the money for me to travel over there." - 
-              <a href="https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/jlca.12385" target="_blank">Eulalia, Age 17, Guatamala, 2019</a>
-          </div> -->
+        
           <div class="transition-text">
             <div>Assuming they successfully migrate, they'll start <span class="pink">paying back this debt</span></div> 
             <div>The more <span class="pink">income</span> they receive from their employment, the faster they'll be able to pay back their debt</div> 
-            <div class="source">source</div>
+            <div class="source"><a href="https://www.migrationpolicy.org/sites/default/files/publications/mpi-wfp-mit_migration-motivations-costs_final.pdf" target="_blank">source</a></div>
           </div>
 
           <div class="transition-text">
@@ -327,33 +226,32 @@
     margin-left: 30px;
   } 
 
-
-
-    .accompany-pie-charts {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+  blockquote {
+    font-size: 30px;
+    font-style: italic;
+    width: 500px;
+    margin: 0.55em 0;
+    padding: 0.35em 40px;
+    line-height: 1.45;
+    position: relative;
+    color: #383838;
+    display: inline-block;
+    text-align: justify;
+    text-align-last: left;
     }
-
-    h2 {
-        text-align: center;
-        font-size: 45px;
+    
+    blockquote:before {
+    display: block;
+    padding-left: 10px;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #ce2093;
     }
+    
 
-    /* .column-container {
-        display: flex;
-        width: 60%;
-        gap: 30%;
-        justify-content: center;
-        margin: auto;
-    }
-
-    .col {
-      display: flex;
-        flex: 0 0 50%;
-        justify-content: center;
-        max-width: 50%;
-    } */
 
     .column-container {
         display: flex;
@@ -438,29 +336,10 @@
         padding-bottom: 1rem;
         margin: 20px auto;
     }
-    
-    .women-icon {
-    width: 25px;
-    padding: 0px;
-    margin: 0px;
-    color: #ce2093; 
-  }
-  .women-icon::DuringMigration {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
-  }
 
-  .women-icon-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .purple {
-    color: black;
-  }
+    a {
+      text-decoration: none;
+    }
+    
 </style>
   
