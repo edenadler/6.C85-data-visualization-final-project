@@ -65,8 +65,7 @@ let container0;
     <div class="vis-container">
         
         <EarningsView />
-        <div class="source">source</div>
-        <!-- <a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">Source (Table 3.11)</a> -->
+        <div class="source"><a href="https://www.census.gov/data/tables/2020/demo/foreign-born/cps-2020.html">U.S. Census Current Population Survey, 2021 (Table 3.11)</a></div>
     </div>
     <div class="transition-text" >
         <div>It may look like the differences here are small.</div>
@@ -118,9 +117,14 @@ let container0;
   }
 
 .source {
-  font-size: 10px;
+  font-size: 15px;
   color: rgb(207, 184, 207);
   margin: 30px 0px;
+}
+
+.source a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .day {
