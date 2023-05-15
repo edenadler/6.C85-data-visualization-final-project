@@ -355,7 +355,8 @@ onMount(() => {
     
   </div>
   <div class="transition-text" >
-    <div>To fund her migration she'll have to utilize other means of funding her migration ____________. Many people use assets such as property as collateral to fund their migration</div>
+    <div>Many people use assets, such as their land or house, as collateral to acquire bank loans to fund their migration</div>
+    <!-- To fund her migration, she'll have to utilize other financial means. -->
   </div>
   <div class="source">SOURCE</div>
   <div class="transition-text" >
@@ -392,7 +393,7 @@ onMount(() => {
     <div>but maybe she can fund her migration through <span class="orange">employment</span>?</div>
   </div>
   <div class="transition-text" >
-    <div><span class="orange">underemployment</span> rates are high in The Northern Triangle</div>
+    <div><span class="orange">underemployment</span> rates are high in the Northern Triangle</div>
     <div>especially for women</div>
   </div>
   <!-- <div class="para-female-triangle">The Northern Triangle countries of Guatemala, Honduras, and El Salvador face numerous political and economic issues that further exacerbate this gender gap. 
@@ -402,7 +403,7 @@ onMount(() => {
   </div>
   <div class="source">SOURCE</div>
   <div class="transition-text" >
-    <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name maria" ><span>Maria</span></div> was able to fund her migration through a bank loan.</div>
+    <div style="display: flex; justify-content: center; align-items: center;"> <div class="persona-name maria" ><span>Maria</span></div> was finally able to fund her migration through a loan from an unregulated creditor.</div>
     <div>The loan, however, comes with very high interest rates</div>
   </div>
 </div>
